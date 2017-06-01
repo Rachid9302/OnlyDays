@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: onlydays
+    database_user: root
+    database_password: null
+    mailer_transport: gmail
+    mailer_host: 127.0.0.1
+    mailer_user: only.weeks.immo@gmail.com
+    mailer_password: crwd1617
+    secret: 6bd56s156zsnw65156wqt14x6cv516wqe1n6w1n6d31jne61b6dw1n6e1n6d1ew6t

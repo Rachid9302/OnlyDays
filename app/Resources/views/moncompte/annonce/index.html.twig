@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container header">
+        <div class="row text-header col-sm-8">
+            <h1>Mon compte</h1>
+        </div>
+    </div>
+    </header>
+
+    <h1>Annonces list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Reference</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Superficie</th>
+                <th>Piece</th>
+                <th>Chambre</th>
+                <th>Lit</th>
+                <th>Cuisine</th>
+                <th>Voyageurmax</th>
+                <th>Wifi</th>
+                <th>Prixnuit</th>
+                <th>Datedepot</th>
+                <th>Firstimage</th>
+                <th>Localisation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for annonce in annonces %}
+            <tr>
+                <td><a href="{{ path('moncompte_annonce_show', { 'id': annonce.id }) }}">{{ annonce.id }}</a></td>
+                <td>{{ annonce.reference }}</td>
+                <td>{{ annonce.titre }}</td>
+                <td>{{ annonce.description }}</td>
+                <td>{{ annonce.superficie }}</td>
+                <td>{{ annonce.piece }}</td>
+                <td>{{ annonce.chambre }}</td>
+                <td>{{ annonce.lit }}</td>
+                <td>{{ annonce.cuisine }}</td>
+                <td>{{ annonce.voyageurmax }}</td>
+                <td>{% if annonce.wifi %}Yes{% else %}No{% endif %}</td>
+                <td>{{ annonce.prixnuit }}</td>
+                <td>{% if annonce.dateDepot %}{{ annonce.dateDepot|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ annonce.firstimage }}</td>
+                <td>{{ annonce.localisation }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('moncompte_annonce_show', { 'id': annonce.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('moncompte_annonce_edit', { 'id': annonce.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('moncompte_annonce_new') }}">Create a new annonce</a>
+        </li>
+    </ul>
+{% endblock %}

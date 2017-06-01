@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Annonce</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ annonce.id }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ annonce.reference }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ annonce.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ annonce.description }}</td>
+            </tr>
+            <tr>
+                <th>Superficie</th>
+                <td>{{ annonce.superficie }}</td>
+            </tr>
+            <tr>
+                <th>Piece</th>
+                <td>{{ annonce.piece }}</td>
+            </tr>
+            <tr>
+                <th>Chambre</th>
+                <td>{{ annonce.chambre }}</td>
+            </tr>
+            <tr>
+                <th>Lit</th>
+                <td>{{ annonce.lit }}</td>
+            </tr>
+            <tr>
+                <th>Cuisine</th>
+                <td>{{ annonce.cuisine }}</td>
+            </tr>
+            <tr>
+                <th>Voyageurmax</th>
+                <td>{{ annonce.voyageurmax }}</td>
+            </tr>
+            <tr>
+                <th>Wifi</th>
+                <td>{% if annonce.wifi %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Prixnuit</th>
+                <td>{{ annonce.prixnuit }}</td>
+            </tr>
+            <tr>
+                <th>Datedepot</th>
+                <td>{% if annonce.dateDepot %}{{ annonce.dateDepot|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Firstimage</th>
+                <td>{{ annonce.firstimage }}</td>
+            </tr>
+            <tr>
+                <th>Localisation</th>
+                <td>{{ annonce.localisation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('moncompte_annonce_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('moncompte_annonce_edit', { 'id': annonce.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

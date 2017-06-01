@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block header %}<header class="header-contact">{% endblock %}
+
+{% block body %}
+
+<div class="container header">
+    <div class="row text-header col-sm-8">
+        <h1>Nous contacter</h1>
+    </div>
+</div>
+</header>
+
+<div class="container" id="content">
+    <div class="row">
+        <div class="left-part col-sm-8 col-sm-offset-2">
+            <div id="description" class="contact">
+                <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis mi ac lobortis dictum. Cras diam felis, consequat ut rhoncus sed, suscipit at magna.</h3>
+                <form>
+                    <div class="col-sm-6">
+                        <label>Vous êtes *</label>
+                        <select>
+                            <option value="1">Un particulier</option>
+                            <option value="2">Un professionnel de l'immobilier</option>
+                            <option value="3">Un journaliste</option>
+                            <option value="4">Autre</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Objet de votre demande *</label>
+                        <select>
+                            <option value="1">Poser une question sur Only Days</option>
+                            <option value="2">Faire part d'un problème technique</option>
+                            <option value="3">Louer votre bien via Only Days</option>
+                            <option value="4">Autres</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Votre nom *</label>
+                        <input type="text" placeholder="Obligatoire">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Votre prénom </label>
+                        <input type="text" placeholder="Votre prénom">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Votre adresse e-mail *</label>
+                        <input type="email" placeholder="Votre adresse e-mail">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Votre téléphone</label>
+                        <input type="number" placeholder="Votre téléphone">
+                    </div>
+                    <div class="col-sm-12">
+                        <label>Votre message *</label>
+                        <textarea>Décrivez votre demande et notez toutes les informations pertinentes.</textarea>
+                    </div>
+                    <p>En cliquant sur le bouton ci-dessous, je reconnais avoir pris connaissance et accepter sans réserves les <a href="mentions-legales.html">Conditions Générales d’Utilisation du site.</a></p>
+                    <button type="submit">Se connecter</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
