@@ -24,11 +24,17 @@
         <div class="overlay-navigation" id="menu">
             <nav role="navigation">
                 <ul>
-                    <li><a href="liste-bien.html" data-content="Trouver le bien qui vous correspond">Rechercher</a></li>
-                    <li><a href="decouvrir-lyon.html" data-content="Découvrez les quartiers de Lyon">Découvrir</a></li>
-                    <li><a href="liste-actualites.html" data-content="Toute l'actualité de Lyon">S'informer</a></li>
-                    <li><a href="contact.html" data-content="Contactez-nous à tout moment">Contacter</a></li>
-                    <li><a href="#" onclick="masquer_div('login');" data-content="Retrouvez toutes vos informations">Mon compte</a></li>
+                    <li><a href="{{ path('listebien') }}" data-content="Trouver le bien qui vous correspond">Rechercher</a></li>
+                    <li><a href="{{ path('decouvrirlyon') }}" data-content="Découvrez les quartiers de Lyon">Découvrir</a></li>
+                    <li><a href="{{ path('listeactualite') }}" data-content="Toute l'actualité de Lyon">S'informer</a></li>
+                    <li><a href="{{ path('contact') }}" data-content="Contactez-nous à tout moment">Contacter</a></li>
+                    <li><a href="{{ path('moncompte') }}" onclick="masquer_div('login');" data-content="Retrouvez toutes vos informations">Mon compte</a></li>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+                    {% else %}
+                        <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+
+                    {% endif %}
                 </ul>
             </nav>
         </div>
@@ -41,48 +47,7 @@
             </div>
         </section>
 
-        <section>
-            <div id="login" class="container-fluid background" style="display: none;">
-                <div class="container bloc-inscription">
-                    <div class="row">
-                        <div class="col-xs-7 image-ambiance">
-                        </div>
-                        <div class="col-xs-5 form">
-                            <form class="col-xs-12" id="connexion">
-                                <h2>Se connecter à son espace personnel<i class="fa fa-times" onclick="masquer_div('login')" style="float: right;" staria-hidden="true"></i></h2>
-                                <label>Votre adresse e-mail :</label>
-                                <input type="email">
-                                <label>Votre mot de passe :</label>
-                                <input type="password">
-                                <p>Pas encore membre ? Rejoignez-nous en <a href="#" onclick="afficher4()">créant votre compte</a></p>
-                                <button type="submit">Se connecter</button>
-                            </form>
-                            <form class="col-xs-12" style="display: none;" id="inscription">
-                                <h2>S'inscrire OnlyWeeks<i class="fa fa-times" onclick="masquer_div('login')" style="float: right;" staria-hidden="true"></i></h2>
-                                <div class="input" style="float: left;">
-                                    <label>Votre adresse e-mail :</label>
-                                    <input type="email">
-                                </div>
-                                <div class="input" style="float: right;">
-                                    <label>Votre date de naissance :</label>
-                                    <input type="date">
-                                </div>
-                                <div class="input" style="float: left;">
-                                    <label>Votre mot de passe :</label>
-                                    <input type="password">
-                                </div>
-                                <div class="input" style="float: right;">
-                                    <label>Retaper le mot de passer</label>
-                                    <input type="password">
-                                </div>
-                                <p>Déjà membre ? <a href="#" onclick="afficher5()">Connecte toi</a> à ton espace personnel</p>
-                                <button type="submit">Se connecter</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
 
     {% block body %}{% endblock %}
 
@@ -156,7 +121,7 @@
         </section>
         <section id="mentions">
             <p>© Tous droits réservés Only Days.</p>
-            <a href="#">Mentions légales</a>
+            <a href="{{ path('mentions-legales') }}">Mentions légales</a>
         </section>
     </footer>
 

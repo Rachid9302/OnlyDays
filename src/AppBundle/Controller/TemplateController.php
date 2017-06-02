@@ -27,8 +27,18 @@ class TemplateController extends Controller
             ->getRepository('AppBundle:Annonce')
             ->findAll();
 
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $listbiens,
+            $request->query->getInt('page', 1)/*page number*/,
+            9/*limit per page*/
+        );
+
         return $this->render('template/listebien.html.twig', array(
-            'listbiens' => $listbiens
+            'listbiens' => $result
         ));
     }
 
