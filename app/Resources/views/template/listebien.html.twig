@@ -160,7 +160,7 @@
                             <img style="height: 260px; width: 260px;" src="{{ asset(listbien.firstimage) }}">
                             <h3>{{ listbien.titre }}</h3>
                             <p>{{ listbien.predescription }}</p>
-                            <a href="#">Découvrir le bien</a>
+                            <a href="{{ path('detailbien',{'id' : listbien.id}) }}">Découvrir le bien</a>
                         </div>
                         {% endfor %}
 

@@ -36,9 +36,9 @@
                     </svg>
 
             </div>
-            <h1>Superbe appartement situé au plein centre de Lyon, à 5 minutes de Bellecour</h1>
+            <h1>{{ detailbien.titre }}</h1>
             <span id="date">5 février au 7 février</span><br/>
-            <span id="prix">68€ / nuit</span>
+            <span id="prix">{{ detailbien.prixnuit }}€ / nuit</span>
         </div>
     </div>
 </header>
@@ -47,18 +47,8 @@
         <div class="row">
             <div class="left-part col-sm-6">
                 <div id="description">
-                    <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis mi ac lobortis dictum. Cras diam felis, consequat ut rhoncus sed, suscipit at magna.</h3>
-                    <p>
-                        Suspendisse dictum nibh sem, eu tempor lorem fermentum non. Phasellus facilisis dapibus porta. Nam tortor neque, tempor non feugiat sed, euismod a est. Donec ut diam venenatis, pretium tellus et, efficitur tortor. Sed laoreet lacus eget leo lacinia, vitae pulvinar purus dapibus. Nulla in tellus tempor, commodo lectus et, euismod lectus. Cras nec diam quis sapien dictum sodales. Nulla facilisi. Duis et tincidunt magna. Fusce et ex tristique, tristique lectus sed, accumsan erat. Nam mi erat, posuere eget tincidunt ac, fermentum vitae dui. Nulla vulputate interdum metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus vitae mattis tellus.
-
-                        Nullam tincidunt tempor fringilla.
-                        Sed efficitur sagittis tellus at mollis. Cras convallis nunc sed finibus gravida. Integer erat orci, iaculis eget consequat sit amet, efficitur at urna.
-
-                        Nullam tincidunt tempor fringilla. Sed efficitur sagittis tellus at mollis. Cras convallis nunc sed finibus gravida. Integer erat orci, iaculis eget consequat sit amet, efficitur at urna. Quisque finibus fringilla quam, ut mattis urna tincidunt vitae. Donec elementum massa eu tortor porttitor, vitae placerat leo eleifend.
-
-                        Donec turpis leo, pellentesque vitae laoreet eu, lacinia gravida magna. Pellentesque ut auctor sapien. Nullam sit amet sagittis mi. Sed nec urna nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam enim sapien, suscipit vehicula orci sit amet, mattis tincidunt leo.
-                        Vivamus mauris orci, varius sit amet hendrerit vel, accumsan sit amet eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sollicitudin dolor in velit sodales pharetra. Etiam eget lobortis dolor, et malesuada urna. Vestibulum consequat malesuada nulla, id feugiat sem hendrerit quis. Praesent sagittis risus vitae dui pretium lobortis. Phasellus quis diam id turpis scelerisque finibus sed sit amet orci.
-                    </p>
+                    <h3>{{ detailbien.titre }}</h3>
+                    <p>{{ detailbien.description }}</p>
                 </div>
                 <div id="commentaire">
                     <h2>2 commentaires
@@ -119,12 +109,14 @@
             <div class="right-part col-sm-5 col-sm-offset-1">
                 <div class="a-propos">
                     <h2>À propos de ce logement</h2>
-                    <p><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Une surface de 67m² loi Carrez</p>
-                    <p><i class="fa fa-bed" aria-hidden="true"></i> 2 Chambres dont une de 12m² et une de 15m²</p>
+                    <p><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Une surface de {{ detailbien.superficie }}m² loi Carrez</p>
+                    <p><i class="fa fa-bed" aria-hidden="true"></i> {{ detailbien.chambre }} Chambres dont {{ detailbien.lit }} lit(s)</p>
                     <p><i class="fa fa-bath" aria-hidden="true"></i> 1 Salle de bain avec WC séparé</p>
-                    <p><i class="fa fa-users" aria-hidden="true"></i> 4 Voyageurs autorisés au maximum</p>
-                    <p><i class="fa fa-cutlery" aria-hidden="true"></i> 1 Cuisine comprenant tous le confort habituel</p>
+                    <p><i class="fa fa-users" aria-hidden="true"></i> {{ detailbien.voyageurmax }} Voyageurs autorisés au maximum</p>
+                    <p><i class="fa fa-cutlery" aria-hidden="true"></i> {{ detailbien.cuisine }} Cuisine comprenant tous le confort habituel</p>
+                    {% if detailbien.wifi == 1  %}
                     <p><i class="fa fa-wifi" aria-hidden="true"></i> Connexion wi-fi et sécurisée</p>
+                    {% endif %}
                 </div>
 
                 <div class="reservation">

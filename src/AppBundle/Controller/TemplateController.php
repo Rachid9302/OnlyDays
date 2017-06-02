@@ -33,6 +33,23 @@ class TemplateController extends Controller
     }
 
     /**
+     * @Route("/detailbien/{id}", name="detailbien", requirements={"id"="\d+"})
+     */
+    public function detailbienAction($id)
+    {
+        $detailbien = $this->getDoctrine()
+            ->getRepository('AppBundle:Annonce')
+            ->find($id);
+        if(!$detailbien){
+            throw $this-> createNotFoundException('Aucun produit ne correspond à l\'id'.$id);
+        }
+
+        return $this->render('template/detailbien.html.twig', array(
+            'detailbien' => $detailbien
+        ));
+    }
+
+    /**
      * @Route("/contact", name="contact")
      */
     public function contactAction()
@@ -72,15 +89,7 @@ class TemplateController extends Controller
         ]);
     }
 
-    /**
-     * @Route("/detailbien", name="detailbien")
-     */
-    public function detailbienAction()
-    {
-        return $this->render('template/detailbien.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-        ]);
-    }
+
 
     /**
      * @Route("/detailactualite", name="detailactualite")
