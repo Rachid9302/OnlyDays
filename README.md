@@ -3,7 +3,7 @@ Agence immobiliere
 
 Les Gones
 
-
+-----------------------------------------------------------------------------
 
 installer le projet:
 
@@ -21,7 +21,7 @@ php bin/console doctrine:schema:update --force
 
 php bin/console doctrine:fixtures:load
 
-
+-----------------------------------------------------------------------------
 
 Faire un commit:
 
