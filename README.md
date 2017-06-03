@@ -7,7 +7,7 @@ Les Gones
 
 installer le projet:
 
-git clone
+git clone https://github.com/Rachid9302/OnlyDays.git
 
 composer install
 
