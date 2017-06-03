@@ -176,30 +176,15 @@
                 <button  class="col-xs-12 col-sm-3 col-sm-offset-2" onclick="location.href='listebien'">Voir plus de biens</button>
             </div>
             <div class="row">
+                {% for listbienaccueil in listbienaccueils|slice(0, 4)  %}
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <img src="{{ asset('css/img/produit/01-min.jpg') }}">
+                    <img style="height: 260px; width: 260px;" src="{{ asset(listbienaccueil.firstimage) }}">
                     <h3>Donec ultricies euismod nibh quis posuere ligula</h3>
                     <p>Aliquam consectetur ligula sit amet rhoncus consequat. Vivamus tincidunt erat ac efficitur faucibus.</p>
-                    <a href="#">Découvrir le bien</a>
+                    <a href="{{ path('detailbien',{'id' : listbienaccueil.id}) }}">Découvrir le bien</a>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <img src="{{ asset('css/img/produit/02-min.jpg') }}">
-                    <h3>Donec ultricies euismod nibh quis posuere ligula</h3>
-                    <p>Aliquam consectetur ligula sit amet rhoncus consequat. Vivamus tincidunt erat ac efficitur faucibus.</p>
-                    <a href="#">Découvrir le bien</a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <img src="{{ asset('css/img/produit/03-min.jpg') }}">
-                    <h3>Donec ultricies euismod nibh quis posuere ligula</h3>
-                    <p>Aliquam consectetur ligula sit amet rhoncus consequat. Vivamus tincidunt erat ac efficitur faucibus.</p>
-                    <a href="#">Découvrir le bien</a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <img src="{{ asset('css/img/produit/04-min.jpg') }}">
-                    <h3>Donec ultricies euismod nibh quis posuere ligula</h3>
-                    <p>Aliquam consectetur ligula sit amet rhoncus consequat. Vivamus tincidunt erat ac efficitur faucibus.</p>
-                    <a href="#">Découvrir le bien</a>
-                </div>
+                {% endfor %}
+
             </div>
         </div>
     </section>
@@ -253,39 +238,29 @@
             </div>
 
             <div class="row carousel-inner" role="listbox">
-                <div class="item active">
+
+                {% set i = 1 %}
+                {% for listactualiteaccueil in listactualiteaccueils|slice(0, 3)  %}
+                {% if i == 1 %}
+                    <div class="item active">
+                {% set i = 0 %}
+                {% else %}
+                        <div class="item">
+                {% endif %}
+
                     <div class="col-lg-6 ">
-                        <img src="{{ asset('css/img/actualites/01.jpg') }}" alt="Actualité">
+                        <img src="{{ asset(listactualiteaccueil.firstimage) }}" alt="Actualité">
                     </div>
                     <div class="col-lg-5 col-lg-offset-1">
                         <p class="date">17 Août 2017</p>
-                        <h3>Donec ultricies euismod nibh quis posuere ligula</h3>
-                        <p>Etiam aliquam faucibus velit, a elementum massa. Donec ac felis tortor. Morbi gravida mi id ullamcorper mollis. Integer eu elit vel elit accumsan rutrum. Donec ultricies euismod nibh, quis posuere ligula hendrerit ac. Praesent non lacinia lacus. Cras dapibus turpis et tellus pulvinar lobortis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                        <a id="bouton-actualite" href="#">En savoir plus</a>
+                        <h3>{{ listactualiteaccueil.titre }}</h3>
+                        <p>{{ listactualiteaccueil.predescription }}</p>
+                        <a id="bouton-actualite" href="{{ path('detailactualite',{'id' : listactualiteaccueil.id}) }}">En savoir plus</a>
                     </div>
                 </div>
-                <div class="item">
-                    <div class="col-lg-6 ">
-                        <img src="{{ asset('css/img/actualites/02.jpg') }}" alt="Actualité">
-                    </div>
-                    <div class="col-lg-5 col-lg-offset-1">
-                        <p class="date">28 Septembre 2017</p>
-                        <h3>Donec ultricies euismod nibh quis posuere ligula</h3>
-                        <p>Etiam aliquam faucibus velit, a elementum massa. Donec ac felis tortor. Morbi gravida mi id ullamcorper mollis. Integer eu elit vel elit accumsan rutrum. Donec ultricies euismod nibh, quis posuere ligula hendrerit ac. Praesent non lacinia lacus. Cras dapibus turpis et tellus pulvinar lobortis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                        <a href="#">En savoir plus</a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="col-lg-6 ">
-                        <img src="{{ asset('css/img/actualites/03.jpg') }}" alt="Actualité">
-                    </div>
-                    <div class="col-lg-5 col-lg-offset-1">
-                        <p class="date">05 janvier 2018</p>
-                        <h3>Donec ultricies euismod nibh quis posuere ligula</h3>
-                        <p>Etiam aliquam faucibus velit, a elementum massa. Donec ac felis tortor. Morbi gravida mi id ullamcorper mollis. Integer eu elit vel elit accumsan rutrum. Donec ultricies euismod nibh, quis posuere ligula hendrerit ac. Praesent non lacinia lacus. Cras dapibus turpis et tellus pulvinar lobortis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                        <a href="#">En savoir plus</a>
-                    </div>
-                </div>
+                {% endfor %}
+
+
             </div>
 
         </div>

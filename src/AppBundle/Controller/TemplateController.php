@@ -13,9 +13,18 @@ class TemplateController extends Controller
      */
     public function indexAction()
     {
-      return $this->render('template/index.html.twig', [
-          'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-      ]);
+        $listbienaccueils = $this->getDoctrine()
+            ->getRepository('AppBundle:Annonce')
+            ->findAll();
+
+        $listactualiteaccueils = $this->getDoctrine()
+            ->getRepository('AppBundle:Actualite')
+            ->findAll();
+
+      return $this->render('template/index.html.twig', array(
+          'listbienaccueils' => $listbienaccueils,
+          'listactualiteaccueils' => $listactualiteaccueils
+      ));
     }
 
     /**
@@ -51,12 +60,34 @@ class TemplateController extends Controller
             ->getRepository('AppBundle:Annonce')
             ->find($id);
         if(!$detailbien){
-            throw $this-> createNotFoundException('Aucun produit ne correspond à l\'id'.$id);
+            throw $this-> createNotFoundException('La page n\'existe pas ');
         }
 
         return $this->render('template/detailbien.html.twig', array(
             'detailbien' => $detailbien
         ));
+    }
+
+    /**
+     * @Route("/listeactualite", name="listeactualite")
+     */
+    public function listeactualiteAction()
+    {
+        return $this->render('template/listeactualite.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+        ]);
+    }
+
+
+
+    /**
+     * @Route("/detailactualite", name="detailactualite")
+     */
+    public function detailactualiteAction()
+    {
+        return $this->render('template/detailactualite.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+        ]);
     }
 
     /**
@@ -89,27 +120,7 @@ class TemplateController extends Controller
         ]);
     }
 
-    /**
-     * @Route("/listeactualite", name="listeactualite")
-     */
-    public function listeactualiteAction()
-    {
-        return $this->render('template/listeactualite.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-        ]);
-    }
 
-
-
-    /**
-     * @Route("/detailactualite", name="detailactualite")
-     */
-    public function detailactualiteAction()
-    {
-        return $this->render('template/detailactualite.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-        ]);
-    }
 
     /**
      * @Route("/decouvrirlyon", name="decouvrirlyon")

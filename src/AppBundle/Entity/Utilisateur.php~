@@ -5,7 +5,6 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 use AppBundle\Entity\Annonce;
-use AppBundle\Entity\Actualite;
 
 /**
  * Utilisateur
@@ -312,49 +311,5 @@ class Utilisateur extends BaseUser
     public function setPays($pays)
     {
         $this->pays = $pays;
-    }
-
-    /**
-     * Get civilite
-     *
-     * @return boolean
-     */
-    public function getCivilite()
-    {
-        return $this->civilite;
-    }
-
-    /**
-     * Add actualite
-     *
-     * @param \AppBundle\Entity\Actualite $actualite
-     *
-     * @return Utilisateur
-     */
-    public function addActualite(\AppBundle\Entity\Actualite $actualite)
-    {
-        $this->actualites[] = $actualite;
-
-        return $this;
-    }
-
-    /**
-     * Remove actualite
-     *
-     * @param \AppBundle\Entity\Actualite $actualite
-     */
-    public function removeActualite(\AppBundle\Entity\Actualite $actualite)
-    {
-        $this->actualites->removeElement($actualite);
-    }
-
-    /**
-     * Get actualites
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getActualites()
-    {
-        return $this->actualites;
     }
 }
