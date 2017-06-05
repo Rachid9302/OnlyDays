@@ -111,7 +111,7 @@ class Annonce
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="DateDepot", type="date")
+     * @ORM\Column(name="DateDepot", type="date", nullable=true)
      */
     private $dateDepot;
 

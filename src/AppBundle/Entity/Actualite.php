@@ -59,7 +59,7 @@ class Actualite
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateactualite", type="date")
+     * @ORM\Column(name="dateactualite", type="date", nullable=true)
      */
     private $dateactualite;
 
