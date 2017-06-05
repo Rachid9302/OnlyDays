@@ -1,6 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="container header">
+        <div class="row text-header col-sm-8">
+            <h1>Mon compte</h1>
+        </div>
+    </div>
+    </header>
     <h1>Annonce</h1>
 
     <table>
@@ -16,6 +22,10 @@
             <tr>
                 <th>Titre</th>
                 <td>{{ annonce.titre }}</td>
+            </tr>
+            <tr>
+                <th> PreDescription</th>
+                <td>{{ annonce.predescription }}</td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -64,6 +74,10 @@
             <tr>
                 <th>Localisation</th>
                 <td>{{ annonce.localisation }}</td>
+            </tr>
+            <tr>
+                <th>Type propriété</th>
+                <td>{{ annonce.typepropriete }}</td>
             </tr>
         </tbody>
     </table>

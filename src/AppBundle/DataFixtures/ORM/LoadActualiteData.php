@@ -82,6 +82,7 @@ class LoadActualiteData  extends AbstractFixture implements OrderedFixtureInterf
         $actualite9->setFirstimage("uploads/02.jpg");
 
         $actualite10 = new Actualite();
+        $actualite10->setAuteur($this->getReference("admin-user"));
         $actualite10->setTitre("Lorem ipsum dolor sit amet consectetur adipiscing elit.");
         $actualite10->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
         $actualite10->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");

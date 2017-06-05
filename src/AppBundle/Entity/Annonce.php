@@ -145,7 +145,7 @@ class Annonce
      *
      * @ORM\Column(name="typepropiete", type="boolean")
      */
-    private $typepropiete;
+    private $typepropriete;
 
 
 
@@ -470,17 +470,17 @@ class Annonce
     /**
      * @return bool
      */
-    public function isTypepropiete()
+    public function isTypepropriete()
     {
-        return $this->typepropiete;
+        return $this->typepropriete;
     }
 
     /**
-     * @param bool $typepropiete
+     * @param bool $typepropriete
      */
-    public function setTypepropiete($typepropiete)
+    public function setTypepropriete($typepropriete)
     {
-        $this->typepropiete = $typepropiete;
+        $this->typepropriete = $typepropriete;
     }
 
     /**

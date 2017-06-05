@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
-class MoncompteController extends Controller
+class TemplateMoncompteController extends Controller
 {
     /**
      * @Route("/moncompte/", name="moncompte")
