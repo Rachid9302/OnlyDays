@@ -11,11 +11,25 @@ class TemplateActualiteController extends Controller
     /**
      * @Route("/listeactualite", name="listeactualite")
      */
-    public function listeactualiteAction()
+    public function listeactualiteAction(Request $request)
     {
-        return $this->render('template/listeactualite.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-        ]);
+        $listactualites = $this->getDoctrine()
+            ->getRepository('AppBundle:Actualite')
+            ->findAll();
+
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $listactualites,
+            $request->query->getInt('page', 1)/*page number*/,
+            9/*limit per page*/
+        );
+
+        return $this->render('template/listeactualite.html.twig', array(
+            'listactualites' => $result
+        ));
     }
 
 
