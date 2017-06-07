@@ -30,7 +30,8 @@ class AnnonceType extends AbstractType
             ->add('localisation')
             ->add('typepropriete')
             ->add('auteur')
-            ->add('last_auteur');
+            ->add('last_auteur')
+            ->add('arrondissement');
     }
     
     /**

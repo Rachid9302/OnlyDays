@@ -30,6 +30,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann->setTypepropriete(1);
         $ann->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann->setArrondissement(3);
         $ann->setAuteur($this->getReference("admin-user"));
 
         $ann1 = new Annonce();
@@ -48,7 +49,8 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann1->setFirstimage("uploads/B35A1081.jpg");
         $ann1->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann1->setTypepropriete(1);
-        $ann1->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann1->setArrondissement(3);
         $ann1->setAuteur($this->getReference("admin-user"));
 
         $ann2 = new Annonce();
@@ -68,6 +70,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann2->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann2->setTypepropriete(1);
         $ann2->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann2->setArrondissement(3);
         $ann2->setAuteur($this->getReference("admin-user"));
 
         $ann3 = new Annonce();
@@ -87,6 +90,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann3->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann3->setTypepropriete(1);
         $ann3->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann3->setArrondissement(3);
         $ann3->setAuteur($this->getReference("admin-user"));
 
         $ann4 = new Annonce();
@@ -106,6 +110,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann4->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann4->setTypepropriete(1);
         $ann4->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann4->setArrondissement(3);
         $ann4->setAuteur($this->getReference("admin-user"));
 
         $ann5 = new Annonce();
@@ -125,6 +130,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann5->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann5->setTypepropriete(1);
         $ann5->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann5->setArrondissement(3);
         $ann5->setAuteur($this->getReference("admin-user"));
 
         $ann6 = new Annonce();
@@ -144,6 +150,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann6->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann6->setTypepropriete(1);
         $ann6->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann6->setArrondissement(3);
         $ann6->setAuteur($this->getReference("admin-user"));
 
         $ann7 = new Annonce();
@@ -163,6 +170,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann7->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann7->setTypepropriete(1);
         $ann7->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann7->setArrondissement(3);
         $ann7->setAuteur($this->getReference("admin-user"));
 
         $ann8 = new Annonce();
@@ -182,6 +190,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann8->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann8->setTypepropriete(1);
         $ann8->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann8->setArrondissement(3);
         $ann8->setAuteur($this->getReference("admin-user"));
 
         $ann9 = new Annonce();
@@ -201,6 +210,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann9->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann9->setTypepropriete(1);
         $ann9->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann9->setArrondissement(3);
         $ann9->setAuteur($this->getReference("admin-user"));
 
         $ann10 = new Annonce();
@@ -220,6 +230,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann10->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann10->setTypepropriete(1);
         $ann10->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann10->setArrondissement(3);
         $ann10->setAuteur($this->getReference("admin-user"));
 
         $ann11 = new Annonce();
@@ -239,6 +250,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann11->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann11->setTypepropriete(1);
         $ann11->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann11->setArrondissement(3);
         $ann11->setAuteur($this->getReference("admin-user"));
 
         $ann12 = new Annonce();
@@ -258,6 +270,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann12->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann12->setTypepropriete(1);
         $ann12->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann12->setArrondissement(3);
         $ann12->setAuteur($this->getReference("admin-user"));
 
         $ann13 = new Annonce();
@@ -277,6 +290,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann13->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann13->setTypepropriete(1);
         $ann13->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann13->setArrondissement(3);
         $ann13->setAuteur($this->getReference("admin-user"));
 
         $ann14 = new Annonce();
@@ -296,6 +310,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann14->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann14->setTypepropriete(1);
         $ann14->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann14->setArrondissement(3);
         $ann14->setAuteur($this->getReference("admin-user"));
 
         $ann15 = new Annonce();
@@ -315,6 +330,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann15->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann15->setTypepropriete(1);
         $ann15->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann15->setArrondissement(3);
         $ann15->setAuteur($this->getReference("admin-user"));
 
         $ann16 = new Annonce();
@@ -334,6 +350,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann16->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann16->setTypepropriete(1);
         $ann16->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann16->setArrondissement(3);
         $ann16->setAuteur($this->getReference("admin-user"));
 
         $ann17 = new Annonce();
@@ -353,6 +370,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann17->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann17->setTypepropriete(1);
         $ann17->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann17->setArrondissement(3);
         $ann17->setAuteur($this->getReference("user"));
 
         $ann18 = new Annonce();
@@ -372,6 +390,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann18->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann18->setTypepropriete(1);
         $ann18->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann18->setArrondissement(3);
         $ann18->setAuteur($this->getReference("user1"));
 
         $ann19 = new Annonce();
@@ -391,6 +410,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann19->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann19->setTypepropriete(1);
         $ann19->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann19->setArrondissement(3);
         $ann19->setAuteur($this->getReference("user2"));
 
         $ann20 = new Annonce();
@@ -410,6 +430,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann20->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann20->setTypepropriete(1);
         $ann20->setPredescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+        $ann20->setArrondissement(3);
         $ann20->setAuteur($this->getReference("user3"));
 
 

@@ -47,18 +47,18 @@
             </div>
             <div class="row">
                 <div class="col-sm-3 col-xs-12 filter">
-                    <form>
+                    <form action="{{ path('listebien_recherche_avance') }}">
                         <h2 class="titre-filtre">Type de logement</h2>
-                        <select class="col-xs-12">
+                        <select class="col-xs-12" name="recherche[type]">
                             <option value="tous">Tous les biens</option>
                             <option value="1">Maison</option>
                             <option value="2">Appartement</option>
                         </select>
                         <h2 class="titre-filtre" style="margin-top: 30px;">Date du séjour</h2>
-                        <input type="date" placeholder="min" min="0" class="col-xs-6"/>
-                        <input type="date" placeholder="max" min="0" class="col-xs-6"/>
+                        <input type="date" name="recherche[date_debut] placeholder="min" min="0" class="col-xs-6"/>
+                        <input type="date" name="recherche[date_fin] placeholder="max" min="0" class="col-xs-6"/>
                         <h2 class="titre-filtre">Lieu</h2>
-                        <select class="col-xs-12">
+                        <select class="col-xs-12" name="recherche[arrondissement]">
                             <option value="tous">Tous les arrondissements</option>
                             <option value="1">1er arrondissement</option>
                             <option value="2">2ème arrondissement</option>
@@ -71,17 +71,17 @@
                             <option value="9">9ème arrondissement</option>
                         </select>
                         <h2 class="titre-filtre">Prix</h2>
-                        <input type="number" placeholder="min" min="0" class="col-xs-6"/>
-                        <input type="number" placeholder="max" min="0" class="col-xs-6"/>
+                        <input type="number" name="recherche[prix_min] placeholder="min" min="0" class="col-xs-6"/>
+                        <input type="number" name="recherche[prix_max] placeholder="max" min="0" class="col-xs-6"/>
                         <h2 class="titre-filtre">Surface</h2>
-                        <input type="number" placeholder="min" min="0" class="col-xs-6"/>
-                        <input type="number" placeholder="max" min="0" class="col-xs-6"/>
+                        <input type="number" name="recherche[surface_min] placeholder="min" min="0" class="col-xs-6"/>
+                        <input type="number" name="recherche[surface_max] placeholder="max" min="0" class="col-xs-6"/>
                         <h2 class="titre-filtre">Nombre de pièces</h2>
-                        <input type="number" placeholder="min" min="0" class="col-xs-6"/>
-                        <input type="number" placeholder="max" min="0" class="col-xs-6"/>
+                        <input type="number" name="recherche[piece_min] placeholder="min" min="0" class="col-xs-6"/>
+                        <input type="number" name="recherche[piece_max] placeholder="max" min="0" class="col-xs-6"/>
                         <h2 class="titre-filtre">Nombre de chambres</h2>
-                        <input type="number" style="margin-bottom: 0;" placeholder="min" min="0" class="col-xs-6"/>
-                        <input type="number" style="margin-bottom: 0;" placeholder="max" min="0" class="col-xs-6"/>
+                        <input type="number" name="recherche[chambre_min]" style="margin-bottom: 0;" placeholder="min" min="0" class="col-xs-6"/>
+                        <input type="number" name="recherche[chambre_max]" style="margin-bottom: 0;" placeholder="max" min="0" class="col-xs-6"/>
                         <div class="col-xs-12">
                             <input type="submit" value="Affiner ma recherche">
                         </div>

@@ -506,48 +506,4 @@ class Annonce
         $this->predescription = $predescription;
     }
 
-
-    /**
-     * Get wifi
-     *
-     * @return boolean
-     */
-    public function getWifi()
-    {
-        return $this->wifi;
-    }
-
-    /**
-     * Get typepropriete
-     *
-     * @return boolean
-     */
-    public function getTypepropriete()
-    {
-        return $this->typepropriete;
-    }
-
-    /**
-     * Set arrondissement
-     *
-     * @param integer $arrondissement
-     *
-     * @return Annonce
-     */
-    public function setArrondissement($arrondissement)
-    {
-        $this->arrondissement = $arrondissement;
-
-        return $this;
-    }
-
-    /**
-     * Get arrondissement
-     *
-     * @return integer
-     */
-    public function getArrondissement()
-    {
-        return $this->arrondissement;
-    }
 }
