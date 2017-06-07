@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\Utilisateur;
+use AppBundle\Entity\Commentaire;
 
 /**
  * Annonce
@@ -147,16 +148,55 @@ class Annonce
      */
     private $typepropriete;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Commentaire", mappedBy="annonce")
+     */
+    private $commentaires;
+
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->commentaires = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
 
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set reference
+     *
+     * @param integer $reference
+     *
+     * @return Annonce
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    /**
+     * Get reference
+     *
+     * @return integer
+     */
+    public function getReference()
+    {
+        return $this->reference;
     }
 
     /**
@@ -184,6 +224,30 @@ class Annonce
     }
 
     /**
+     * Set predescription
+     *
+     * @param string $predescription
+     *
+     * @return Annonce
+     */
+    public function setPredescription($predescription)
+    {
+        $this->predescription = $predescription;
+
+        return $this;
+    }
+
+    /**
+     * Get predescription
+     *
+     * @return string
+     */
+    public function getPredescription()
+    {
+        return $this->predescription;
+    }
+
+    /**
      * Set description
      *
      * @param string $description
@@ -205,6 +269,198 @@ class Annonce
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set superficie
+     *
+     * @param integer $superficie
+     *
+     * @return Annonce
+     */
+    public function setSuperficie($superficie)
+    {
+        $this->superficie = $superficie;
+
+        return $this;
+    }
+
+    /**
+     * Get superficie
+     *
+     * @return integer
+     */
+    public function getSuperficie()
+    {
+        return $this->superficie;
+    }
+
+    /**
+     * Set piece
+     *
+     * @param integer $piece
+     *
+     * @return Annonce
+     */
+    public function setPiece($piece)
+    {
+        $this->piece = $piece;
+
+        return $this;
+    }
+
+    /**
+     * Get piece
+     *
+     * @return integer
+     */
+    public function getPiece()
+    {
+        return $this->piece;
+    }
+
+    /**
+     * Set chambre
+     *
+     * @param integer $chambre
+     *
+     * @return Annonce
+     */
+    public function setChambre($chambre)
+    {
+        $this->chambre = $chambre;
+
+        return $this;
+    }
+
+    /**
+     * Get chambre
+     *
+     * @return integer
+     */
+    public function getChambre()
+    {
+        return $this->chambre;
+    }
+
+    /**
+     * Set lit
+     *
+     * @param integer $lit
+     *
+     * @return Annonce
+     */
+    public function setLit($lit)
+    {
+        $this->lit = $lit;
+
+        return $this;
+    }
+
+    /**
+     * Get lit
+     *
+     * @return integer
+     */
+    public function getLit()
+    {
+        return $this->lit;
+    }
+
+    /**
+     * Set cuisine
+     *
+     * @param integer $cuisine
+     *
+     * @return Annonce
+     */
+    public function setCuisine($cuisine)
+    {
+        $this->cuisine = $cuisine;
+
+        return $this;
+    }
+
+    /**
+     * Get cuisine
+     *
+     * @return integer
+     */
+    public function getCuisine()
+    {
+        return $this->cuisine;
+    }
+
+    /**
+     * Set voyageurmax
+     *
+     * @param integer $voyageurmax
+     *
+     * @return Annonce
+     */
+    public function setVoyageurmax($voyageurmax)
+    {
+        $this->voyageurmax = $voyageurmax;
+
+        return $this;
+    }
+
+    /**
+     * Get voyageurmax
+     *
+     * @return integer
+     */
+    public function getVoyageurmax()
+    {
+        return $this->voyageurmax;
+    }
+
+    /**
+     * Set wifi
+     *
+     * @param boolean $wifi
+     *
+     * @return Annonce
+     */
+    public function setWifi($wifi)
+    {
+        $this->wifi = $wifi;
+
+        return $this;
+    }
+
+    /**
+     * Get wifi
+     *
+     * @return boolean
+     */
+    public function getWifi()
+    {
+        return $this->wifi;
+    }
+
+    /**
+     * Set prixnuit
+     *
+     * @param integer $prixnuit
+     *
+     * @return Annonce
+     */
+    public function setPrixnuit($prixnuit)
+    {
+        $this->prixnuit = $prixnuit;
+
+        return $this;
+    }
+
+    /**
+     * Get prixnuit
+     *
+     * @return integer
+     */
+    public function getPrixnuit()
+    {
+        return $this->prixnuit;
     }
 
     /**
@@ -232,6 +488,78 @@ class Annonce
     }
 
     /**
+     * Set firstimage
+     *
+     * @param string $firstimage
+     *
+     * @return Annonce
+     */
+    public function setFirstimage($firstimage)
+    {
+        $this->firstimage = $firstimage;
+
+        return $this;
+    }
+
+    /**
+     * Get firstimage
+     *
+     * @return string
+     */
+    public function getFirstimage()
+    {
+        return $this->firstimage;
+    }
+
+    /**
+     * Set localisation
+     *
+     * @param string $localisation
+     *
+     * @return Annonce
+     */
+    public function setLocalisation($localisation)
+    {
+        $this->localisation = $localisation;
+
+        return $this;
+    }
+
+    /**
+     * Get localisation
+     *
+     * @return string
+     */
+    public function getLocalisation()
+    {
+        return $this->localisation;
+    }
+
+    /**
+     * Set typepropriete
+     *
+     * @param boolean $typepropriete
+     *
+     * @return Annonce
+     */
+    public function setTypepropriete($typepropriete)
+    {
+        $this->typepropriete = $typepropriete;
+
+        return $this;
+    }
+
+    /**
+     * Get typepropriete
+     *
+     * @return boolean
+     */
+    public function getTypepropriete()
+    {
+        return $this->typepropriete;
+    }
+
+    /**
      * Set auteur
      *
      * @param \AppBundle\Entity\Utilisateur $auteur
@@ -253,14 +581,6 @@ class Annonce
     public function getAuteur()
     {
         return $this->auteur;
-    }
-
-    /**
-     * @ORM\PrePersist()
-     */
-    public function updateDateDepot()
-    {
-        $this->dateDepot = new \DateTime();
     }
 
     /**
@@ -288,215 +608,36 @@ class Annonce
     }
 
     /**
-     * @return string
+     * Add commentaire
+     *
+     * @param \AppBundle\Entity\Commentaire $commentaire
+     *
+     * @return Annonce
      */
-    public function getFirstimage()
+    public function addCommentaire(\AppBundle\Entity\Commentaire $commentaire)
     {
-        return $this->firstimage;
+        $this->commentaires[] = $commentaire;
+
+        return $this;
     }
 
     /**
-     * @param string $firstimage
+     * Remove commentaire
+     *
+     * @param \AppBundle\Entity\Commentaire $commentaire
      */
-    public function setFirstimage($firstimage)
+    public function removeCommentaire(\AppBundle\Entity\Commentaire $commentaire)
     {
-        $this->firstimage = $firstimage;
+        $this->commentaires->removeElement($commentaire);
     }
 
     /**
-     * @return string
+     * Get commentaires
+     *
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function getLocalisation()
+    public function getCommentaires()
     {
-        return $this->localisation;
+        return $this->commentaires;
     }
-
-    /**
-     * @param string $localisation
-     */
-    public function setLocalisation($localisation)
-    {
-        $this->localisation = $localisation;
-    }
-
-
-
-    /**
-     * @return int
-     */
-    public function getReference()
-    {
-        return $this->reference;
-    }
-
-    /**
-     * @param int $reference
-     */
-    public function setReference($reference)
-    {
-        $this->reference = $reference;
-    }
-
-    /**
-     * @return int
-     */
-    public function getSuperficie()
-    {
-        return $this->superficie;
-    }
-
-    /**
-     * @param int $superficie
-     */
-    public function setSuperficie($superficie)
-    {
-        $this->superficie = $superficie;
-    }
-
-    /**
-     * @return int
-     */
-    public function getCuisine()
-    {
-        return $this->cuisine;
-    }
-
-    /**
-     * @param int $cuisine
-     */
-    public function setCuisine($cuisine)
-    {
-        $this->cuisine = $cuisine;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getVoyageurmax()
-    {
-        return $this->voyageurmax;
-    }
-
-    /**
-     * @param mixed $voyageurmax
-     */
-    public function setVoyageurmax($voyageurmax)
-    {
-        $this->voyageurmax = $voyageurmax;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isWifi()
-    {
-        return $this->wifi;
-    }
-
-    /**
-     * @param bool $wifi
-     */
-    public function setWifi($wifi)
-    {
-        $this->wifi = $wifi;
-    }
-
-
-
-    /**
-     * @return mixed
-     */
-    public function getChambre()
-    {
-        return $this->chambre;
-    }
-
-    /**
-     * @param mixed $chambre
-     */
-    public function setChambre($chambre)
-    {
-        $this->chambre = $chambre;
-    }
-
-    /**
-     * @return int
-     */
-    public function getLit()
-    {
-        return $this->lit;
-    }
-
-    /**
-     * @param int $lit
-     */
-    public function setLit($lit)
-    {
-        $this->lit = $lit;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPiece()
-    {
-        return $this->piece;
-    }
-
-    /**
-     * @param mixed $piece
-     */
-    public function setPiece($piece)
-    {
-        $this->piece = $piece;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPrixnuit()
-    {
-        return $this->prixnuit;
-    }
-
-    /**
-     * @param int $prixnuit
-     */
-    public function setPrixnuit($prixnuit)
-    {
-        $this->prixnuit = $prixnuit;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isTypepropriete()
-    {
-        return $this->typepropriete;
-    }
-
-    /**
-     * @param bool $typepropriete
-     */
-    public function setTypepropriete($typepropriete)
-    {
-        $this->typepropriete = $typepropriete;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPredescription()
-    {
-        return $this->predescription;
-    }
-
-    /**
-     * @param string $predescription
-     */
-    public function setPredescription($predescription)
-    {
-        $this->predescription = $predescription;
-    }
-
 }

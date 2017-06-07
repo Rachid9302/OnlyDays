@@ -6,6 +6,7 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Annonce;
+use AppBundle\Entity\Commentaire;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterface
@@ -435,6 +436,39 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $manager->persist($ann19);
         $manager->persist($ann20);
 
+
+        $com = new Commentaire();
+        $com->setAnnonce($ann);
+        $com->setAuteur($this->getReference("admin-user"));
+        $com->setDatecreation(new \DateTime("2017-05-01"));
+        $com->setPseudo("Test");
+        $com->setTexteCommentaire("Ceci est un commentaire de test");
+
+        $com1 = new Commentaire();
+        $com1->setAnnonce($ann1);
+        $com1->setAuteur($this->getReference("admin-user"));
+        $com1->setDatecreation(new \DateTime("2017-05-01"));
+        $com1->setPseudo("Test");
+        $com1->setTexteCommentaire("Ceci est un commentaire de test");
+
+        $com2 = new Commentaire();
+        $com2->setAnnonce($ann2);
+        $com2->setAuteur($this->getReference("admin-user"));
+        $com2->setDatecreation(new \DateTime("2017-05-01"));
+        $com2->setPseudo("Test");
+        $com2->setTexteCommentaire("Ceci est un commentaire de test");
+
+        $com3 = new Commentaire();
+        $com3->setAnnonce($ann3);
+        $com3->setAuteur($this->getReference("admin-user"));
+        $com3->setDatecreation(new \DateTime("2017-05-01"));
+        $com3->setPseudo("Test");
+        $com3->setTexteCommentaire("Ceci est un commentaire de test");
+
+        $manager->persist($com);
+        $manager->persist($com1);
+        $manager->persist($com2);
+        $manager->persist($com3);
 
         $manager->flush();
 

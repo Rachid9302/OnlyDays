@@ -31,8 +31,16 @@ class Commentaire
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Utilisateur", inversedBy="commentaires")
+     * @ORM\JoinColumn(name="auteur_id", referencedColumnName="id")
      */
     private $auteur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Annonce", inversedBy="commentaires")
+     * @ORM\JoinColumn(name="annonce_id", referencedColumnName="id")
+     */
+    private $annonce;
+
 
     /**
      * @var \DateTime
@@ -49,10 +57,11 @@ class Commentaire
     private $texteCommentaire;
 
 
+
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -81,30 +90,6 @@ class Commentaire
     public function getPseudo()
     {
         return $this->pseudo;
-    }
-
-    /**
-     * Set idUtilisateur
-     *
-     * @param integer $idUtilisateur
-     *
-     * @return Commentaire
-     */
-    public function setIdUtilisateur($idUtilisateur)
-    {
-        $this->idUtilisateur = $idUtilisateur;
-
-        return $this;
-    }
-
-    /**
-     * Get idUtilisateur
-     *
-     * @return int
-     */
-    public function getIdUtilisateur()
-    {
-        return $this->idUtilisateur;
     }
 
     /**
@@ -177,5 +162,29 @@ class Commentaire
     public function getAuteur()
     {
         return $this->auteur;
+    }
+
+    /**
+     * Set annonce
+     *
+     * @param \AppBundle\Entity\Annonce $annonce
+     *
+     * @return Commentaire
+     */
+    public function setAnnonce(\AppBundle\Entity\Annonce $annonce = null)
+    {
+        $this->annonce = $annonce;
+
+        return $this;
+    }
+
+    /**
+     * Get annonce
+     *
+     * @return \AppBundle\Entity\Annonce
+     */
+    public function getAnnonce()
+    {
+        return $this->annonce;
     }
 }

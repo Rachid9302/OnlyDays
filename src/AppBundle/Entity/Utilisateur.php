@@ -108,15 +108,6 @@ class Utilisateur extends BaseUser
     }
 
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set nom
@@ -167,6 +158,54 @@ class Utilisateur extends BaseUser
     }
 
     /**
+     * Set civilite
+     *
+     * @param boolean $civilite
+     *
+     * @return Utilisateur
+     */
+    public function setCivilite($civilite)
+    {
+        $this->civilite = $civilite;
+
+        return $this;
+    }
+
+    /**
+     * Get civilite
+     *
+     * @return boolean
+     */
+    public function getCivilite()
+    {
+        return $this->civilite;
+    }
+
+    /**
+     * Set datedenaissance
+     *
+     * @param \DateTime $datedenaissance
+     *
+     * @return Utilisateur
+     */
+    public function setDatedenaissance($datedenaissance)
+    {
+        $this->datedenaissance = $datedenaissance;
+
+        return $this;
+    }
+
+    /**
+     * Get datedenaissance
+     *
+     * @return \DateTime
+     */
+    public function getDatedenaissance()
+    {
+        return $this->datedenaissance;
+    }
+
+    /**
      * Set adresse
      *
      * @param string $adresse
@@ -188,6 +227,102 @@ class Utilisateur extends BaseUser
     public function getAdresse()
     {
         return $this->adresse;
+    }
+
+    /**
+     * Set ville
+     *
+     * @param string $ville
+     *
+     * @return Utilisateur
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return string
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Set codepostale
+     *
+     * @param string $codepostale
+     *
+     * @return Utilisateur
+     */
+    public function setCodepostale($codepostale)
+    {
+        $this->codepostale = $codepostale;
+
+        return $this;
+    }
+
+    /**
+     * Get codepostale
+     *
+     * @return string
+     */
+    public function getCodepostale()
+    {
+        return $this->codepostale;
+    }
+
+    /**
+     * Set pays
+     *
+     * @param string $pays
+     *
+     * @return Utilisateur
+     */
+    public function setPays($pays)
+    {
+        $this->pays = $pays;
+
+        return $this;
+    }
+
+    /**
+     * Get pays
+     *
+     * @return string
+     */
+    public function getPays()
+    {
+        return $this->pays;
+    }
+
+    /**
+     * Set telephone
+     *
+     * @param string $telephone
+     *
+     * @return Utilisateur
+     */
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * Get telephone
+     *
+     * @return string
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
     }
 
     /**
@@ -222,112 +357,6 @@ class Utilisateur extends BaseUser
     public function getAnnonces()
     {
         return $this->annonces;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getVille()
-    {
-        return $this->ville;
-    }
-
-    /**
-     * @param mixed $ville
-     */
-    public function setVille($ville)
-    {
-        $this->ville = $ville;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCodepostale()
-    {
-        return $this->codepostale;
-    }
-
-    /**
-     * @param mixed $codepostale
-     */
-    public function setCodepostale($codepostale)
-    {
-        $this->codepostale = $codepostale;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTelephone()
-    {
-        return $this->telephone;
-    }
-
-    /**
-     * @param mixed $telephone
-     */
-    public function setTelephone($telephone)
-    {
-        $this->telephone = $telephone;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isCivilite()
-    {
-        return $this->civilite;
-    }
-
-    /**
-     * @param bool $civilite
-     */
-    public function setCivilite($civilite)
-    {
-        $this->civilite = $civilite;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getDatedenaissance()
-    {
-        return $this->datedenaissance;
-    }
-
-    /**
-     * @param \DateTime $datedenaissance
-     */
-    public function setDatedenaissance($datedenaissance)
-    {
-        $this->datedenaissance = $datedenaissance;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPays()
-    {
-        return $this->pays;
-    }
-
-    /**
-     * @param string $pays
-     */
-    public function setPays($pays)
-    {
-        $this->pays = $pays;
-    }
-
-    /**
-     * Get civilite
-     *
-     * @return boolean
-     */
-    public function getCivilite()
-    {
-        return $this->civilite;
     }
 
     /**
