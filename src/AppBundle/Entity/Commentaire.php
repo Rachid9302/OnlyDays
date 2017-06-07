@@ -154,5 +154,28 @@ class Commentaire
     {
         return $this->texteCommentaire;
     }
-}
 
+    /**
+     * Set auteur
+     *
+     * @param \AppBundle\Entity\Utilisateur $auteur
+     *
+     * @return Commentaire
+     */
+    public function setAuteur(\AppBundle\Entity\Utilisateur $auteur = null)
+    {
+        $this->auteur = $auteur;
+
+        return $this;
+    }
+
+    /**
+     * Get auteur
+     *
+     * @return \AppBundle\Entity\Utilisateur
+     */
+    public function getAuteur()
+    {
+        return $this->auteur;
+    }
+}
