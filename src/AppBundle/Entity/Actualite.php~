@@ -59,9 +59,16 @@ class Actualite
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateactualite", type="date")
+     * @ORM\Column(name="dateactualite", type="date", nullable=true)
      */
     private $dateactualite;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateevenement", type="date", nullable=true)
+     */
+    private $dateevenement;
 
     /**
      * @var string
@@ -199,5 +206,29 @@ class Actualite
     public function getFirstimage()
     {
         return $this->firstimage;
+    }
+
+    /**
+     * Set dateactualite
+     *
+     * @param \DateTime $dateactualite
+     *
+     * @return Actualite
+     */
+    public function setDateactualite($dateactualite)
+    {
+        $this->dateactualite = $dateactualite;
+
+        return $this;
+    }
+
+    /**
+     * Get dateactualite
+     *
+     * @return \DateTime
+     */
+    public function getDateactualite()
+    {
+        return $this->dateactualite;
     }
 }

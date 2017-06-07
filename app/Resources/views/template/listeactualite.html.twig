@@ -4,7 +4,7 @@
 
 {% block header %}<header class="header-actualites">{% endblock %}
 
-    {% block body %}
+{% block body %}
 
     <div class="container header">
         <div class="row text-header col-sm-8">
@@ -24,14 +24,14 @@
                 {% for listactualite in listactualites %}
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                     <img style="height: 260px; width: 260px;" src="{{ asset(listactualite.firstimage) }}">
-                    <h3>{{ asset(listactualite.titre) }}</h3>
+                    <h3>{{ listactualite.titre }}</h3>
                     <p>{{ listactualite.predescription }}</p>
-                    <a href="{{ path('detailactualite',{'id' : listactualite.id}) }}">Découvrir l'actualité <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                    <a href="{{ path('detailactualite',{'id' : listactualite.id}) }}">Découvrir les actualitées <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                 </div>
                 {% endfor %}
 
                 <div class="navigation col-xs-12 text-center">
-                    {{ knp_pagination_render(listbiens) }}
+                    {{ knp_pagination_render(listactualites) }}
                 </div>
             </div>
         </div>
