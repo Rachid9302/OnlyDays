@@ -7,8 +7,8 @@
 {% block body %}
     <div class="container header">
         <div class="row text-header col-sm-8">
-            <span id="prix">17 Mai 2016</span>
-            <h1>Lorem ipsum dolor sit amet consectetur adipiscing elit.</h1>
+            <span id="prix">{{ detailactualite.dateevenement | date('F j, Y') }}</span>
+            <h1>{{ detailactualite.titre }}</h1>
         </div>
     </div>
 </header>
@@ -17,18 +17,8 @@
         <div class="row">
             <div class="left-part col-sm-6">
                 <div id="description">
-                    <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis mi ac lobortis dictum. Cras diam felis, consequat ut rhoncus sed, suscipit at magna.</h3>
-                    <p>
-                        Suspendisse dictum nibh sem, eu tempor lorem fermentum non. Phasellus facilisis dapibus porta. Nam tortor neque, tempor non feugiat sed, euismod a est. Donec ut diam venenatis, pretium tellus et, efficitur tortor. Sed laoreet lacus eget leo lacinia, vitae pulvinar purus dapibus. Nulla in tellus tempor, commodo lectus et, euismod lectus. Cras nec diam quis sapien dictum sodales. Nulla facilisi. Duis et tincidunt magna. Fusce et ex tristique, tristique lectus sed, accumsan erat. Nam mi erat, posuere eget tincidunt ac, fermentum vitae dui. Nulla vulputate interdum metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus vitae mattis tellus.
-
-                        Nullam tincidunt tempor fringilla.
-                        Sed efficitur sagittis tellus at mollis. Cras convallis nunc sed finibus gravida. Integer erat orci, iaculis eget consequat sit amet, efficitur at urna.
-
-                        Nullam tincidunt tempor fringilla. Sed efficitur sagittis tellus at mollis. Cras convallis nunc sed finibus gravida. Integer erat orci, iaculis eget consequat sit amet, efficitur at urna. Quisque finibus fringilla quam, ut mattis urna tincidunt vitae. Donec elementum massa eu tortor porttitor, vitae placerat leo eleifend.
-
-                        Donec turpis leo, pellentesque vitae laoreet eu, lacinia gravida magna. Pellentesque ut auctor sapien. Nullam sit amet sagittis mi. Sed nec urna nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam enim sapien, suscipit vehicula orci sit amet, mattis tincidunt leo.
-                        Vivamus mauris orci, varius sit amet hendrerit vel, accumsan sit amet eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sollicitudin dolor in velit sodales pharetra. Etiam eget lobortis dolor, et malesuada urna. Vestibulum consequat malesuada nulla, id feugiat sem hendrerit quis. Praesent sagittis risus vitae dui pretium lobortis. Phasellus quis diam id turpis scelerisque finibus sed sit amet orci.
-                    </p>
+                    <h3>{{ detailactualite.titre }}</h3>
+                    <p>{{ detailactualite.description }}</p>
                 </div>
                 <div id="commentaire">
                     <h2>2 commentaires
@@ -89,24 +79,16 @@
             <div class="right-part col-sm-5 col-sm-offset-1">
                 <div class="reservation bloc-autre-actualite">
                     <h2>Nos autres actualités</h2>
+
+                    {% for listactualite in listactualites|slice(0, 3)   %}
                     <div class="autres-actualites">
-                        <img style="width: 100%;" src="{{  asset('css/img/actualites/01.jpg') }}">
-                        <h3>Donec ultricies euismod nibh quis posuere ligula</h3>
-                        <p>Aliquam consectetur ligula sit amet rhoncus consequat. Vivamus tincidunt erat ac efficitur faucibus.</p>
-                        <a href="#">En savoir plus</a>
+                        <img style="height: 260px; width: 350px;" src="{{ asset(listactualite.firstimage) }}">
+                        <h3>{{ listactualite.titre }}</h3>
+                        <p>{{ listactualite.predescription }}</p>
+                        <a href="{{ path('detailactualite',{'id' : listactualite.id}) }}">En savoir plus</a>
                     </div>
-                    <div class="autres-actualites">
-                        <img style="width: 100%;" src="{{  asset('css/img/actualites/01.jpg') }}">
-                        <h3>Donec ultricies euismod nibh quis posuere ligula</h3>
-                        <p>Aliquam consectetur ligula sit amet rhoncus consequat. Vivamus tincidunt erat ac efficitur faucibus.</p>
-                        <a href="#">En savoir plus</a>
-                    </div>
-                    <div class="autres-actualites">
-                        <img style="width: 100%;" src="{{  asset('css/img/actualites/01.jpg') }}">
-                        <h3>Donec ultricies euismod nibh quis posuere ligula</h3>
-                        <p>Aliquam consectetur ligula sit amet rhoncus consequat. Vivamus tincidunt erat ac efficitur faucibus.</p>
-                        <a href="#">En savoir plus</a>
-                    </div>
+                    {% endfor %}
+
                 </div>
             </div>
 
@@ -117,34 +99,19 @@
     <section id="liste-bien">
         <div class="container">
             <div class="row">
-                <h2 class="col-sm-7 col-xs-12">Etiam aliquam faucibus velit, a elementum massa donec.</h2>
-                <button class="col-xs-12 col-sm-3 col-sm-offset-2 ">Voir plus de biens</button>
+                <h2 class="col-sm-7 col-xs-12">Annonce</h2>
+                <button class="col-xs-12 col-sm-3 col-sm-offset-2 " onclick="location.href='listeactualite'">Voir plus de biens</button>
             </div>
             <div class="row">
+                {% for listbien in listbiens|slice(0, 4)   %}
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <img src="{{  asset('css/img/produit/01-min.jpg') }}">
-                    <h3>Donec ultricies euismod nibh quis posuere ligula</h3>
-                    <p>Aliquam consectetur ligula sit amet rhoncus consequat. Vivamus tincidunt erat ac efficitur faucibus.</p>
-                    <a href="#">Découvrir le bien</a>
+                    <img style="height: 260px; width: 260px;" src="{{ asset(listbien.firstimage) }}">
+                    <h3>{{ listbien.titre }}</h3>
+                    <p>{{ listbien.predescription }}</p>
+                    <a href="{{ path('detailbien',{'id' : listbien.id}) }}">Découvrir le bien</a>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <img src="{{  asset('css/img/produit/02-min.jpg') }}">
-                    <h3>Donec ultricies euismod nibh quis posuere ligula</h3>
-                    <p>Aliquam consectetur ligula sit amet rhoncus consequat. Vivamus tincidunt erat ac efficitur faucibus.</p>
-                    <a href="#">Découvrir le bien</a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <img src="{{  asset('css/img/produit/03-min.jpg') }}">
-                    <h3>Donec ultricies euismod nibh quis posuere ligula</h3>
-                    <p>Aliquam consectetur ligula sit amet rhoncus consequat. Vivamus tincidunt erat ac efficitur faucibus.</p>
-                    <a href="#">Découvrir le bien</a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <img src="{{  asset('css/img/produit/04-min.jpg') }}">
-                    <h3>Donec ultricies euismod nibh quis posuere ligula</h3>
-                    <p>Aliquam consectetur ligula sit amet rhoncus consequat. Vivamus tincidunt erat ac efficitur faucibus.</p>
-                    <a href="#">Découvrir le bien</a>
-                </div>
+                {% endfor %}
+
             </div>
         </div>
     </section>

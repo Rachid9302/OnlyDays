@@ -37,7 +37,7 @@
 
             </div>
             <h1>{{ detailbien.titre }}</h1>
-            <span id="date">5 février au 7 février</span><br/>
+            <span id="date">{{ detailbien.dateDepot | date('Y-m-d') }}</span><br/>
             <span id="prix">{{ detailbien.prixnuit }}€ / nuit</span>
         </div>
     </div>

@@ -109,9 +109,9 @@ class Annonce
     private $prixnuit;
 
     /**
-     * @var \DateTime
+     * @var \dateTime
      *
-     * @ORM\Column(name="DateDepot", type="date", nullable=true)
+     * @ORM\Column(name="datedepot", type="date", nullable=true)
      */
     private $dateDepot;
 

@@ -11,22 +11,55 @@ class TemplateActualiteController extends Controller
     /**
      * @Route("/listeactualite", name="listeactualite")
      */
-    public function listeactualiteAction()
+    public function listeactualiteAction(Request $request)
     {
-        return $this->render('template/listeactualite.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-        ]);
+        $listactualites = $this->getDoctrine()
+            ->getRepository('AppBundle:Actualite')
+            ->findAll();
+
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $listactualites,
+            $request->query->getInt('page', 1)/*page number*/,
+            9/*limit per page*/
+        );
+
+        return $this->render('template/listeactualite.html.twig', array(
+            'listactualites' => $result
+        ));
     }
 
 
 
     /**
-     * @Route("/detailactualite", name="detailactualite")
+     * @Route("/detailactualite/{id}", name="detailactualite", requirements={"id"="\d+"})
      */
-    public function detailactualiteAction()
+    public function detailactualiteAction($id)
     {
-        return $this->render('template/detailactualite.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-        ]);
+        $detailactualite = $this->getDoctrine()
+            ->getRepository('AppBundle:Actualite')
+            ->find($id);
+        if(!$detailactualite){
+            throw $this-> createNotFoundException('La page n\'existe pas ');
+        }
+
+
+        $listactualites = $this->getDoctrine()
+            ->getRepository('AppBundle:Actualite')
+            ->findAll();
+
+
+        $listbiens = $this->getDoctrine()
+            ->getRepository('AppBundle:Annonce')
+            ->findAll();
+
+        return $this->render('template/detailactualite.html.twig', array(
+            'detailactualite' => $detailactualite,
+            'listactualites' => $listactualites,
+            'listbiens' => $listbiens
+        ));
     }
 }

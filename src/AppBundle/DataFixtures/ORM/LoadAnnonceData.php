@@ -6,6 +6,7 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Annonce;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -23,6 +24,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann->setVoyageurmax(3);
         $ann->setWifi(1);
         $ann->setPrixnuit(24);
+        $ann->setDateDepot(new \DateTime('2017-07-01'));
         $ann->setFirstimage("uploads/B40A0853.jpg");
         $ann->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann->setTypepropriete(1);
@@ -41,6 +43,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann1->setVoyageurmax(3);
         $ann1->setWifi(1);
         $ann1->setPrixnuit(24);
+        $ann1->setDateDepot(new \DateTime('2017-07-01'));
         $ann1->setFirstimage("uploads/B35A1081.jpg");
         $ann1->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann1->setTypepropriete(1);
@@ -59,6 +62,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann2->setVoyageurmax(3);
         $ann2->setWifi(1);
         $ann2->setPrixnuit(24);
+        $ann2->setDateDepot(new \DateTime('2017-07-01'));
         $ann2->setFirstimage("uploads/B34A1022.jpg");
         $ann2->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann2->setTypepropriete(1);
@@ -77,6 +81,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann3->setVoyageurmax(3);
         $ann3->setWifi(1);
         $ann3->setPrixnuit(24);
+        $ann3->setDateDepot(new \DateTime('2017-07-01'));
         $ann3->setFirstimage("uploads/B39A0058.jpg");
         $ann3->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann3->setTypepropriete(1);
@@ -95,6 +100,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann4->setVoyageurmax(3);
         $ann4->setWifi(1);
         $ann4->setPrixnuit(24);
+        $ann4->setDateDepot(new \DateTime('2017-07-01'));
         $ann4->setFirstimage("uploads/B20A1207.jpg");
         $ann4->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann4->setTypepropriete(1);
@@ -113,6 +119,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann5->setVoyageurmax(3);
         $ann5->setWifi(1);
         $ann5->setPrixnuit(24);
+        $ann5->setDateDepot(new \DateTime('2017-07-01'));
         $ann5->setFirstimage("uploads/759A120.jpg");
         $ann5->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann5->setTypepropriete(1);
@@ -131,6 +138,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann6->setVoyageurmax(3);
         $ann6->setWifi(1);
         $ann6->setPrixnuit(24);
+        $ann6->setDateDepot(new \DateTime('2017-07-01'));
         $ann6->setFirstimage("uploads/B41A0460.jpg");
         $ann6->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann6->setTypepropriete(1);
@@ -149,6 +157,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann7->setVoyageurmax(3);
         $ann7->setWifi(1);
         $ann7->setPrixnuit(24);
+        $ann7->setDateDepot(new \DateTime('2017-07-01'));
         $ann7->setFirstimage("uploads/B40E0140.jpg");
         $ann7->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann7->setTypepropriete(1);
@@ -167,6 +176,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann8->setVoyageurmax(3);
         $ann8->setWifi(1);
         $ann8->setPrixnuit(24);
+        $ann8->setDateDepot(new \DateTime('2017-07-01'));
         $ann8->setFirstimage("uploads/B28A1392.jpg");
         $ann8->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann8->setTypepropriete(1);
@@ -185,6 +195,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann9->setVoyageurmax(3);
         $ann9->setWifi(1);
         $ann9->setPrixnuit(24);
+        $ann9->setDateDepot(new \DateTime('2017-07-01'));
         $ann9->setFirstimage("uploads/759A120.jpg");
         $ann9->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann9->setTypepropriete(1);
@@ -203,6 +214,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann10->setVoyageurmax(3);
         $ann10->setWifi(1);
         $ann10->setPrixnuit(24);
+        $ann10->setDateDepot(new \DateTime('2017-07-01'));
         $ann10->setFirstimage("uploads/B41A0460.jpg");
         $ann10->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann10->setTypepropriete(1);
@@ -221,6 +233,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann11->setVoyageurmax(3);
         $ann11->setWifi(1);
         $ann11->setPrixnuit(24);
+        $ann11->setDateDepot(new \DateTime('2017-07-01'));
         $ann11->setFirstimage("uploads/B40E0140.jpg");
         $ann11->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann11->setTypepropriete(1);
@@ -239,6 +252,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann12->setVoyageurmax(3);
         $ann12->setWifi(1);
         $ann12->setPrixnuit(24);
+        $ann12->setDateDepot(new \DateTime('2017-07-01'));
         $ann12->setFirstimage("uploads/B28A1392.jpg");
         $ann12->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann12->setTypepropriete(1);
@@ -257,6 +271,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann13->setVoyageurmax(3);
         $ann13->setWifi(1);
         $ann13->setPrixnuit(24);
+        $ann13->setDateDepot(new \DateTime('2017-07-01'));
         $ann13->setFirstimage("uploads/B33A0387.jpg");
         $ann13->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann13->setTypepropriete(1);
@@ -275,6 +290,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann14->setVoyageurmax(3);
         $ann14->setWifi(1);
         $ann14->setPrixnuit(24);
+        $ann14->setDateDepot(new \DateTime('2017-07-01'));
         $ann14->setFirstimage("uploads/B33A1375.jpg");
         $ann14->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann14->setTypepropriete(1);
@@ -293,6 +309,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann15->setVoyageurmax(3);
         $ann15->setWifi(1);
         $ann15->setPrixnuit(24);
+        $ann15->setDateDepot(new \DateTime('2017-07-01'));
         $ann15->setFirstimage("uploads/B37A0826.jpg");
         $ann15->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann15->setTypepropriete(1);
@@ -311,6 +328,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann16->setVoyageurmax(3);
         $ann16->setWifi(1);
         $ann16->setPrixnuit(24);
+        $ann16->setDateDepot(new \DateTime('2017-07-01'));
         $ann16->setFirstimage("uploads/B37A0905.jpg");
         $ann16->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann16->setTypepropriete(1);
@@ -329,6 +347,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann17->setVoyageurmax(3);
         $ann17->setWifi(1);
         $ann17->setPrixnuit(24);
+        $ann17->setDateDepot(new \DateTime('2017-07-01'));
         $ann17->setFirstimage("uploads/B29A0997.jpg");
         $ann17->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann17->setTypepropriete(1);
@@ -347,6 +366,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann18->setVoyageurmax(3);
         $ann18->setWifi(1);
         $ann18->setPrixnuit(24);
+        $ann18->setDateDepot(new \DateTime('2017-07-01'));
         $ann18->setFirstimage("uploads/B16A1119.jpg");
         $ann18->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann18->setTypepropriete(1);
@@ -365,6 +385,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann19->setVoyageurmax(3);
         $ann19->setWifi(1);
         $ann19->setPrixnuit(24);
+        $ann19->setDateDepot(new \DateTime('2017-07-01'));
         $ann19->setFirstimage("uploads/B39A1409.jpg");
         $ann19->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann19->setTypepropriete(1);
@@ -383,6 +404,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann20->setVoyageurmax(3);
         $ann20->setWifi(1);
         $ann20->setPrixnuit(24);
+        $ann20->setDateDepot(new \DateTime('2017-07-01'));
         $ann20->setFirstimage("uploads/B28A0106.jpg");
         $ann20->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann20->setTypepropriete(1);
