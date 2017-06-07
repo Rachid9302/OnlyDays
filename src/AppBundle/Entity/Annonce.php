@@ -143,7 +143,7 @@ class Annonce
     /**
      * @var boolean
      *
-     * @ORM\Column(name="typepropiete", type="boolean")
+     * @ORM\Column(name="typepropriete", type="boolean")
      */
     private $typepropriete;
 

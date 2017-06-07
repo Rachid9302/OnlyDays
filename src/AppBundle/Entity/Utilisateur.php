@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 use AppBundle\Entity\Annonce;
 use AppBundle\Entity\Actualite;
+use AppBundle\Entity\Commentaire;
 
 /**
  * Utilisateur
@@ -94,6 +95,11 @@ class Utilisateur extends BaseUser
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Actualite", mappedBy="auteur")
      */
     private $actualites;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Commentaire", mappedBy="auteur")
+     */
+    private $commentaires;
 
     public function __construct()
     {

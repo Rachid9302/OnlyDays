@@ -23,6 +23,12 @@ class UtilisateurController extends Controller
      */
     public function indexAction()
     {
+        $user = $this->getUser();
+
+        return $this->render('moncompte/utilisateur/index.html.twig', array(
+            'utilisateur' => $user,
+        ));
+        /*
         $em = $this->getDoctrine()->getManager();
 
         $utilisateurs = $em->getRepository('AppBundle:Utilisateur')->findAll();
@@ -30,6 +36,8 @@ class UtilisateurController extends Controller
         return $this->render('moncompte/utilisateur/index.html.twig', array(
             'utilisateurs' => $utilisateurs,
         ));
+
+        */
     }
 
     /**

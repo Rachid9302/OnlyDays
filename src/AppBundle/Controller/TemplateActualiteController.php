@@ -24,7 +24,7 @@ class TemplateActualiteController extends Controller
         $result = $paginator->paginate(
             $listactualites,
             $request->query->getInt('page', 1)/*page number*/,
-            9/*limit per page*/
+            8/*limit per page*/
         );
 
         return $this->render('template/listeactualite.html.twig', array(
