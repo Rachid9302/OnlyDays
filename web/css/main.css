@@ -127,7 +127,7 @@ nav li a:after {
     opacity: 0;
     position: absolute;
     z-index: 100;
-    color: #fff;
+    color: rgba(256,256,256,0.20);
     display: block;
     margin-right: auto;
     margin-left: auto;
@@ -154,37 +154,31 @@ nav li a:hover:after {
 }
 
 nav li:nth-of-type(1) {
-    background-image: url(img/liste-bien.jpg);
-    background-size: cover;
-    border-right: 1px solid white;
+    background-color: rgba(0,0,0,0.95);
+    border-bottom: 1px solid white;
 }
 
 nav li:nth-of-type(2) {
-    background-image: url(img/decouvrir-lyon/decouvrir-lyon.jpg);
-    background-size: cover;
-    border-right: 1px solid white;
+    background-color: rgba(0,0,0,0.95);
+    border-bottom: 1px solid white;
 }
 
 nav li:nth-of-type(3) {
-    background-image: url(img/actualites/01.jpg);
-    background-size: cover;
-    border-right: 1px solid white;
+    background-color: rgba(0,0,0,0.95);
+    border-bottom: 1px solid white;
 }
 
 nav li:nth-of-type(4) {
-    background-image: url(img/produit/pexels-photo-276728.jpeg);
-    background-size: cover;
-    border-right: 1px solid white;
+    background-color: rgba(0,0,0,0.95);
+    border-bottom: 1px solid white;
 }
 
 nav li:nth-of-type(5) {
-    background-image: url(img/header.jpg);
-    background-size: cover;
-    border-right: 1px solid white;
+    background-color: rgba(0,0,0,0.95);
+    border-bottom: 1px solid white;
 }
 nav li:nth-of-type(6) {
-    background-image: url(img/header-contact.jpg);
-    background-size: cover;
+    background-color: rgba(0,0,0,0.95);
 }
 
 .open-overlay {
@@ -339,7 +333,7 @@ nav li:nth-of-type(6) {
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 2500px) {
     nav ul {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
