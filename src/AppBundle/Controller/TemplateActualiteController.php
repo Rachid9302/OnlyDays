@@ -35,12 +35,31 @@ class TemplateActualiteController extends Controller
 
 
     /**
-     * @Route("/detailactualite", name="detailactualite")
+     * @Route("/detailactualite/{id}", name="detailactualite", requirements={"id"="\d+"})
      */
-    public function detailactualiteAction()
+    public function detailactualiteAction($id)
     {
-        return $this->render('template/detailactualite.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-        ]);
+        $detailactualite = $this->getDoctrine()
+            ->getRepository('AppBundle:Actualite')
+            ->find($id);
+        if(!$detailactualite){
+            throw $this-> createNotFoundException('La page n\'existe pas ');
+        }
+
+
+        $listactualites = $this->getDoctrine()
+            ->getRepository('AppBundle:Actualite')
+            ->findAll();
+
+
+        $listbiens = $this->getDoctrine()
+            ->getRepository('AppBundle:Annonce')
+            ->findAll();
+
+        return $this->render('template/detailactualite.html.twig', array(
+            'detailactualite' => $detailactualite,
+            'listactualites' => $listactualites,
+            'listbiens' => $listbiens
+        ));
     }
 }

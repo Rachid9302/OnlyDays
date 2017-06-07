@@ -176,6 +176,7 @@
                 <button  class="col-xs-12 col-sm-3 col-sm-offset-2" onclick="location.href='listebien'">Voir plus de biens</button>
             </div>
             <div class="row">
+
                 {% for listbienaccueil in listbienaccueils|slice(0, 4)  %}
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                     <img style="height: 260px; width: 260px;" src="{{ asset(listbienaccueil.firstimage) }}">
