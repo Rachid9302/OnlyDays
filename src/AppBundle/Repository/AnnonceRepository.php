@@ -10,4 +10,26 @@ namespace AppBundle\Repository;
  */
 class AnnonceRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function rechercherAnnonces($search) {
+        $qb = $this->createQueryBuilder('a')
+            ->where('a.typepropriete = :type')
+            ->andWhere('a.dateDepot >= :dateDebut')
+            ->andWhere('a.dateDepot <= :dateFin')
+            ->andWhere('a.prixnuit <= :prix')
+            ->setParameter('type', $search['type'])
+            ->setParameter('prix', $search['prix'])
+            ->setParameter('dateDebut', $search['date_debut'])
+            ->setParameter('dateFin', $search['date_fin'])
+        ;
+
+        /*if( isset($search['type']) && in_array((int)$search['type'], [0,1] ) ) {
+            $qb->andWhere('a.dateDepot >= :dateDebut')->setParameter('prix', $search['prix'])
+        }*/
+
+
+        $query = $qb->getQuery();
+        $results = $query->getResult();
+
+        return $results;
+    }
 }

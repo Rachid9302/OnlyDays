@@ -6,21 +6,21 @@
 
 {% block body %}
     <div class="container header">
-        <form action="#page-liste-bien" class="scrollTo">
+        <form action="{{ path('listebien_recherche') }}" class="scrollTo">
             <div class="row text-header">
                 <div class="banniere col-sm-6 col-xs-12 recherche">
                     <h1>Je souhaite </h1>
-                    <select>
-                        <option value="appartement">un appartement</option>
-                        <option value="maison">une maison</option>
+                    <select name="recherche[type]">
+                        <option value="1">un appartement</option>
+                        <option value="0">une maison</option>
                     </select>
                     <br />
                     <h1> à partir du </h1>
-                    <input type="date">
+                    <input type="date"name="recherche[date_debut]">
                 </div>
                 <div class="banniere col-sm-6 col-xs-12 recherche">
                     <h1>pour </h1>
-                    <select>
+                    <select name="recherche[prix]">
                         <option value="25">25 € max par jour</option>
                         <option value="50">50 € max par jour</option>
                         <option value="75">75 € max par jour</option>
@@ -30,7 +30,7 @@
                     </select>
                     <br />
                     <h1>et jusqu'au </h1>
-                    <input type="date" >
+                    <input type="date" name="recherche[date_fin]">
                 </div>
                 <div class="col-xs-12">
                     <input type="submit" value="Trouver mon bien">
