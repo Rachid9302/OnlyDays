@@ -32,4 +32,43 @@ class AnnonceRepository extends \Doctrine\ORM\EntityRepository
 
         return $results;
     }
+
+    public function rechercherAnnoncesAvances($search) {
+        $qb = $this->createQueryBuilder('a')
+            ->where('a.typepropriete = :type')
+            ->andWhere('a.dateDepot >= :dateDebut')
+            ->andWhere('a.dateDepot <= :dateFin')
+            ->andWhere('a.arrondissement = :arrondissements')
+            ->andWhere('a.prixnuit >= :prixMin')
+            ->andWhere('a.prixnuit <= :prixMax')
+            ->andWhere('a.superficie >= :surfaceMin')
+            ->andWhere('a.superficie <= :surfaceMax')
+            ->andWhere('a.piece >= :pieceMin')
+            ->andWhere('a.piece <= :pieceMax')
+            ->andWhere('a.chambre >= :chambreMin')
+            ->andWhere('a.chambre <= :chambreMax')
+            ->setParameter('type', $search['type'])
+            ->setParameter('dateDebut', $search['date_debut'])
+            ->setParameter('dateFin', $search['date_fin'])
+            ->setParameter('arrondissements', $search['arrondissement'])
+            ->setParameter('prixMin', $search['prix_min'])
+            ->setParameter('prixMax', $search['prix_max'])
+            ->setParameter('surfaceMin', $search['surface_min'])
+            ->setParameter('surfaceMax', $search['surface_max'])
+            ->setParameter('pieceMin', $search['piece_min'])
+            ->setParameter('pieceMax', $search['piece_max'])
+            ->setParameter('chambreMin', $search['chambre_min'])
+            ->setParameter('chambreMax', $search['chambre_max'])
+        ;
+
+        /*if( isset($search['type']) && in_array((int)$search['type'], [0,1] ) ) {
+            $qb->andWhere('a.dateDepot >= :dateDebut')->setParameter('prix', $search['prix'])
+        }*/
+
+
+        $query = $qb->getQuery();
+        $results = $query->getResult();
+
+        return $results;
+    }
 }

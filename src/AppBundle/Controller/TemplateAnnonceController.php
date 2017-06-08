@@ -76,13 +76,24 @@ class TemplateAnnonceController extends Controller
     public function listebienRechercheAvanceAction(Request $request)
     {
 
-        $data = $request->get('recherche');
+        $data = $request->get('rechercheavance');
+
 
         $search = array(
             'type' => isset($data['type']) ? $data['type'] : 'error',
             'date_debut' => isset($data['date_debut']) ? $data['date_debut'] : 'error',
             'date_fin' => isset($data['date_fin']) ? $data['date_fin'] : 'error',
-            'prix' => isset($data['prix']) ? $data['prix'] : 'error',
+            'arrondissement' => isset($data['arrondissement']) ? $data['arrondissement'] : 'error',
+            'prix_min' => isset($data['prix_min']) ? $data['prix_min'] : 'error',
+            'prix_max' => isset($data['prix_max']) ? $data['prix_max'] : 'error',
+            'surface_min' => isset($data['surface_min']) ? $data['surface_min'] : 'error',
+            'surface_max' => isset($data['surface_max']) ? $data['surface_max'] : 'error',
+            'piece_min' => isset($data['piece_min']) ? $data['piece_min'] : 'error',
+            'piece_max' => isset($data['piece_max']) ? $data['piece_max'] : 'error',
+            'chambre_min' => isset($data['chambre_min']) ? $data['chambre_min'] : 'error',
+            'chambre_max' => isset($data['chambre_max']) ? $data['chambre_max'] : 'error',
+
+
         );
 
         // test si chaque elements existent
@@ -90,7 +101,7 @@ class TemplateAnnonceController extends Controller
 
         $listbiens = $this->getDoctrine()
             ->getRepository('AppBundle:Annonce')
-            ->rechercherAnnonces($search);
+            ->rechercherAnnoncesAvances($search);
 
 
         /**
