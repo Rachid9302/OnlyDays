@@ -84,7 +84,7 @@
                     <div class="autres-actualites">
                         <img style="height: 260px; width: 350px;" src="{{ asset(listactualite.firstimage) }}">
                         <h3>{{ listactualite.titre }}</h3>
-                        <p>{{ listactualite.predescription }}</p>
+                        <p>{{ listactualite.description|slice(0, 50) }}</p>
                         <a href="{{ path('detailactualite',{'id' : listactualite.id}) }}">En savoir plus</a>
                     </div>
                     {% endfor %}
@@ -107,7 +107,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                     <img style="height: 260px; width: 260px;" src="{{ asset(listbien.firstimage) }}">
                     <h3>{{ listbien.titre }}</h3>
-                    <p>{{ listbien.predescription }}</p>
+                    <p>{{ listbien.description|slice(0, 50) }}</p>
                     <a href="{{ path('detailbien',{'id' : listbien.id}) }}">Découvrir le bien</a>
                 </div>
                 {% endfor %}

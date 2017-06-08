@@ -37,7 +37,7 @@
                 <td><a href="{{ path('moncompte_annonce_show', { 'id': annonce.id }) }}">{{ annonce.id }}</a></td>
                 <td>{{ annonce.reference }}</td>
                 <td>{{ annonce.titre }}</td>
-                <td>{{ annonce.description }}</td>
+                <td>{{ annonce.description|slice(0, 50) }}</td>
                 <td>{{ annonce.superficie }}</td>
                 <td>{{ annonce.piece }}</td>
                 <td>{{ annonce.chambre }}</td>

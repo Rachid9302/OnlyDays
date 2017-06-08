@@ -41,13 +41,6 @@ class Annonce
     /**
      * @var string
      *
-     * @ORM\Column(name="predescription", type="string", length=255)
-     */
-    private $predescription;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="description", type="text")
      */
     private $description;
@@ -490,21 +483,7 @@ class Annonce
         $this->typepropriete = $typepropriete;
     }
 
-    /**
-     * @return string
-     */
-    public function getPredescription()
-    {
-        return $this->predescription;
-    }
 
-    /**
-     * @param string $predescription
-     */
-    public function setPredescription($predescription)
-    {
-        $this->predescription = $predescription;
-    }
 
 
     /**

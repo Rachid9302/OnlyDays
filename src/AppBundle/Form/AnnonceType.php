@@ -15,7 +15,6 @@ class AnnonceType extends AbstractType
     {
         $builder->add('reference')
             ->add('titre')
-            ->add('predescription')
             ->add('description')
             ->add('superficie')
             ->add('piece')

@@ -97,7 +97,7 @@
                         <div class="col-sm-4 col-xs-12 article">
                             <img style="height: 260px; width: 260px;" src="{{ asset(listbien.firstimage) }}">
                             <h3>{{ listbien.titre }}</h3>
-                            <p>{{ listbien.predescription }}</p>
+                            <p>{{ listbien.description|slice(0, 50) }}</p>
                             <a href="{{ path('detailbien',{'id' : listbien.id}) }}">Découvrir le bien</a>
                         </div>
                         {% endfor %}

@@ -42,12 +42,6 @@ class Actualite
      */
     private $titre;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="predescription", type="string", length=255)
-     */
-    private $predescription;
 
     /**
      * @var string
@@ -111,29 +105,7 @@ class Actualite
         return $this->titre;
     }
 
-    /**
-     * Set predescription
-     *
-     * @param string $predescription
-     *
-     * @return Actualite
-     */
-    public function setPredescription($predescription)
-    {
-        $this->predescription = $predescription;
 
-        return $this;
-    }
-
-    /**
-     * Get predescription
-     *
-     * @return string
-     */
-    public function getPredescription()
-    {
-        return $this->predescription;
-    }
 
     /**
      * Set description

@@ -22,7 +22,7 @@ class AnnonceRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('dateFin', $search['date_fin'])
         ;
 
-        /*if( isset($search['type']) && in_array((int)$search['type'], [0,1] ) ) {
+        /*/if( isset($search['type']) && in_array((int)$search['type'], [0,1] ) ) {
             $qb->andWhere('a.dateDepot >= :dateDebut')->setParameter('prix', $search['prix'])
         }*/
 
