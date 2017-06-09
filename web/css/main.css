@@ -1066,3 +1066,13 @@ header>a>svg{
 .padding-left-0{
     padding-left: 0;
 }
+
+#supprimer{
+    background-color: white;
+    color: red;
+    text-align: left;
+}
+
+#supprimer:hover{
+    border:none;
+}
