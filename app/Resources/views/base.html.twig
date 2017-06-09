@@ -58,21 +58,22 @@
                     <li><a href="{{ path('decouvrirlyon') }}" data-content="Découvrez les quartiers de Lyon">Découvrir</a></li>
                     <li><a href="{{ path('listeactualite') }}" data-content="Toute l'actualité de Lyon">S'informer</a></li>
                     <li><a href="{{ path('contact') }}" data-content="Contactez-nous à tout moment">Contacter</a></li>
-                    <li><a href="{{ path('moncompte') }}" onclick="masquer_div('login');" data-content="Retrouvez toutes vos informations">Mon compte</a></li>
-                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
-                    {% else %}
-                        <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
-
-                    {% endif %}
                 </ul>
             </nav>
         </div>
 
-
+        <div style="float: right; margin-top: 50px; margin-right: 150px;">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <p><i class="fa fa-user-circle" aria-hidden="true"></i>
+                     Bienvenue <a href="{{ path('moncompte') }}">Rafael</a> | <a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></p>
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}"><i class="fa fa-user-circle" aria-hidden="true"></i>
+                     Se connecter ou s'inscrire</a>
+            {% endif %}
+        </div>
 
         <section class="home">
-            <div class="open-overlay">
+            <div class="open-overlay" style="margin-right: 50px;">
                 <span class="bar-top"></span>
                 <span class="bar-middle"></span>
                 <span class="bar-bottom"></span>
