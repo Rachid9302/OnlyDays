@@ -1,18 +1,18 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 
-<div class="container bloc-inscription">
+<div class="container bloc-inscription" style="margin-top: -100px;">
     <div class="row">
-        <div class="col-xs-7 image-ambiance">
-        </div>
-        <div class="col-xs-5 form">
-            <h2>S'inscrire OnlyDays</h2>
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
-            <p>Déjà membre ? <a href="{{ path('fos_user_security_login') }}">Connecte toi</a> à ton espace personnel</p>
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
-    </div>
+        <div class="col-xs-12 form" style="border-top: 10px solid #c8192b;" >
+            <div class="col-xs-8 col-xs-offset-2">
+                <h2 style="padding-top:50px;">S'inscrire à OnlyDays</h2>
+                {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                {{ form_widget(form) }}
+                <p>Déjà membre ? <a href="{{ path('fos_user_security_login') }}">Connecte toi</a> à ton espace personnel</p>
+                <div>
+                    <input type="submit" value="{{ 'registration.submit'|trans }}" />
+                </div>
+            </div>
             {{ form_end(form) }}
         </div>
     </div>
