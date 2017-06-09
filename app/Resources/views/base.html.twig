@@ -65,7 +65,7 @@
         <div style="float: right; margin-top: 50px; margin-right: 150px;">
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <p><i class="fa fa-user-circle" aria-hidden="true"></i>
-                     Bienvenue <a href="{{ path('moncompte') }}">Rafael</a> | <a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></p>
+                     Bienvenue <a href="{{ path('moncompte') }}">{{  app.user.username }}</a> | <a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></p>
             {% else %}
                 <a href="{{ path('fos_user_security_login') }}"><i class="fa fa-user-circle" aria-hidden="true"></i>
                      Se connecter ou s'inscrire</a>
