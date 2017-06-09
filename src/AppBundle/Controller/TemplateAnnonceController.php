@@ -91,7 +91,7 @@ class TemplateAnnonceController extends Controller
         $data = $request->get('rechercheavance');
 
 
-        $search = array(
+        $search1 = array(
             'type' => isset($data['type']) ? $data['type'] : null,
             'date_debut' => isset($data['date_debut']) ? $data['date_debut'] : null,
             'date_fin' => isset($data['date_fin']) ? $data['date_fin'] : null,
@@ -113,7 +113,7 @@ class TemplateAnnonceController extends Controller
 
         $listbiens = $this->getDoctrine()
             ->getRepository('AppBundle:Annonce')
-            ->rechercherAnnoncesAvances($search);
+            ->rechercherAnnoncesAvances($search1);
 
 
         /**
@@ -128,7 +128,7 @@ class TemplateAnnonceController extends Controller
 
         return $this->render('template/listebien.html.twig', array(
             'listbiens' => $result,
-            'search' =>  $search
+            'search1' =>  $search1
         ));
     }
 
