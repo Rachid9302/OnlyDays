@@ -70,9 +70,9 @@ nav ul {
 }
 
 nav ul li {
-    -webkit-flex-basis: 20%;
-    -ms-flex-preferred-size: 20%;
-    flex-basis: 20%;
+    -webkit-flex-basis: 25%;
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
@@ -169,15 +169,6 @@ nav li:nth-of-type(3) {
 }
 
 nav li:nth-of-type(4) {
-    background-color: rgba(0,0,0,0.95);
-    border-bottom: 1px solid white;
-}
-
-nav li:nth-of-type(5) {
-    background-color: rgba(0,0,0,0.95);
-    border-bottom: 1px solid white;
-}
-nav li:nth-of-type(6) {
     background-color: rgba(0,0,0,0.95);
 }
 
@@ -342,7 +333,7 @@ nav li:nth-of-type(6) {
         flex-direction: column;
     }
     nav ul li {
-        height: 20%;
+        height: 25%;
     }
 
     nav li a:after {
@@ -362,6 +353,7 @@ nav li:nth-of-type(6) {
 .overlay-navigation a:hover{
     color: white;
 }
+
 
 /* Header */
 
