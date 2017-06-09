@@ -4,16 +4,14 @@
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 
-    <div class="container bloc-inscription">
+    <div class="container bloc-inscription" style="margin-top: -100px; border-top: 10px solid #c8192b;">
         <div class="row">
-            <div class="col-xs-7 image-ambiance">
-            </div>
-            <div class="col-xs-5 form">
-                <form action="{{ path("fos_user_security_check") }}" class="col-xs-12" method="post">
+            <div class="col-xs-12 form">
+                <form class="col-xs-8 col-xs-offset-2" action="{{ path("fos_user_security_check") }}" class="col-xs-12" method="post">
                     {% if csrf_token %}
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                     {% endif %}
-                    <h2>Se connecter à son espace personnel</h2>
+                    <h2 style="padding-top:50px;">Se connecter à OnlyDays</h2>
                     <label>Votre adresse e-mail :</label>
                     <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
 
@@ -22,7 +20,7 @@
 
 
 
-                    <p>Pas encore membre ? Rejoignez-nous en <a href="{{ path('fos_user_registration_register') }}"> >créant votre compte</a></p>
+                    <p>Pas encore membre ? Rejoignez-nous en <a href="{{ path('fos_user_registration_register') }}"> créant votre compte</a></p>
                     <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
                 </form>
             </div>

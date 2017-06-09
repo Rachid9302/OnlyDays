@@ -70,9 +70,9 @@ nav ul {
 }
 
 nav ul li {
-    -webkit-flex-basis: 20%;
-    -ms-flex-preferred-size: 20%;
-    flex-basis: 20%;
+    -webkit-flex-basis: 25%;
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
@@ -127,7 +127,7 @@ nav li a:after {
     opacity: 0;
     position: absolute;
     z-index: 100;
-    color: rgba(256,256,256,0.20);
+    color: rgba(256,256,256,0.50);
     display: block;
     margin-right: auto;
     margin-left: auto;
@@ -169,15 +169,6 @@ nav li:nth-of-type(3) {
 }
 
 nav li:nth-of-type(4) {
-    background-color: rgba(0,0,0,0.95);
-    border-bottom: 1px solid white;
-}
-
-nav li:nth-of-type(5) {
-    background-color: rgba(0,0,0,0.95);
-    border-bottom: 1px solid white;
-}
-nav li:nth-of-type(6) {
     background-color: rgba(0,0,0,0.95);
 }
 
@@ -342,7 +333,7 @@ nav li:nth-of-type(6) {
         flex-direction: column;
     }
     nav ul li {
-        height: 20%;
+        height: 25%;
     }
 
     nav li a:after {
@@ -362,6 +353,7 @@ nav li:nth-of-type(6) {
 .overlay-navigation a:hover{
     color: white;
 }
+
 
 /* Header */
 
@@ -1046,4 +1038,41 @@ header>a>svg{
     .right-part{
         margin-top:0;
     }
+}
+
+/* Mon compte */
+
+.header-moncompte{
+    height: 140px;
+    background-color: #293133;
+    background-image: none;
+}
+
+#moncompte h1{
+    color: #293133;
+    margin-top:50px;
+    margin-bottom: 50px;
+    padding-left:0;
+}
+
+#moncompte img{
+   max-height: 100%;
+}
+
+#moncompte{
+    padding-bottom: 50px;
+}
+
+.padding-left-0{
+    padding-left: 0;
+}
+
+#supprimer{
+    background-color: white;
+    color: red;
+    text-align: left;
+}
+
+#supprimer:hover{
+    border:none;
 }

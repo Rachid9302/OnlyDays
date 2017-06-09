@@ -1,21 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Moncompte{% endblock %}
+{% block title %}Mon compte{% endblock %}
 
-{% block header %}<header class="header-contact">{% endblock %}
+{% block header %}<header class="header-moncompte">{% endblock %}
 
 {% block body %}
 
-    <div class="container header">
-        <div class="row text-header col-sm-8">
-            <h1>Mon compte</h1>
-        </div>
-    </div>
 </header>
 
-<ul>
-    <li><a href="{{ path('moncompte_annonce_index') }}">Annonce</a></li>
-    <li><a href="{{ path('moncompte_utilisateur_index') }}">Utilisateur</a></li>
-</ul>
+<div class="container" id="moncompte">
+    <div class="row">
+        <h1 class="col-xs-12" >Mon compte</h1>
+        <div class="col-xs-4 padding-left-0">
+            <h2>Mon profil</h2>
+            <ul class="list-unstyled">
+                <li id="annonce"><a href="{{ path('moncompte_utilisateur_index') }}">Accéder à mes informations</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-4 padding-left-0">
+            <h2>Mes annonces</h2>
+            <ul class="list-unstyled">
+                <li id="annonce"><a href="{{ path('moncompte_annonce_index') }}">Voir mes annonces</a></li>
+                <li><a href="{{ path('moncompte_annonce_new') }}">Ajouter une annonce</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-4 padding-left-0">
+            <h2>Aide</h2>
+            <ul class="list-unstyled">
+                <li><a href="{{ path('faq') }}">Foire aux questions</a></li>
+                <li><a href="{{ path('contact') }}">Contact</a></li>
+                <li><a href="{{ path('mentions-legales') }}">Mentions légales</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
