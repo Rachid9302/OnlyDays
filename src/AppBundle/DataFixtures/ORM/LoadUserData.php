@@ -25,6 +25,7 @@ class LoadUserData  extends AbstractFixture implements OrderedFixtureInterface
         $userAdmin->setTelephone('0652365484');
         $userAdmin->setEnabled(true);
         $userAdmin->addRole("ROLE_ADMIN");
+        $userAdmin->setDatedenaissance(new \DateTime('2017-01-01'));
 
         $user = new Utilisateur();
         $user->setUsername('rachid');
@@ -40,6 +41,7 @@ class LoadUserData  extends AbstractFixture implements OrderedFixtureInterface
         $user->setTelephone('0652365485');
         $user->setEnabled(true);
         $user->addRole("ROLE_USER");
+        $user->setDatedenaissance(new \DateTime('1993-01-11'));
 
         $user1 = new Utilisateur();
         $user1->setUsername('Erwan');
@@ -55,6 +57,7 @@ class LoadUserData  extends AbstractFixture implements OrderedFixtureInterface
         $user1->setTelephone('0652365486');
         $user1->setEnabled(true);
         $user1->addRole("ROLE_USER");
+        $user1->setDatedenaissance(new \DateTime('1995-01-01'));
 
         $user2 = new Utilisateur();
         $user2->setUsername('Rafael');
@@ -70,6 +73,7 @@ class LoadUserData  extends AbstractFixture implements OrderedFixtureInterface
         $user2->setTelephone('0652365487');
         $user2->setEnabled(true);
         $user2->addRole("ROLE_USER");
+        $user2->setDatedenaissance(new \DateTime('1995-01-01'));
 
         $user3 = new Utilisateur();
         $user3->setUsername('Romain');
@@ -85,6 +89,7 @@ class LoadUserData  extends AbstractFixture implements OrderedFixtureInterface
         $user3->setTelephone('0652365488');
         $user3->setEnabled(true);
         $user3->addRole("ROLE_USER");
+        $user3->setDatedenaissance(new \DateTime('1995-01-01'));
 
         $manager->persist($userAdmin);
         $manager->persist($user);

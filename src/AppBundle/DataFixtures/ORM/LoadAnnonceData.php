@@ -5,8 +5,8 @@ namespace AppBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use AppBundle\Entity\Annonce;
 use AppBundle\Entity\Commentaire;
+use AppBundle\Entity\Annonce;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterface
@@ -436,49 +436,31 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $manager->persist($ann19);
         $manager->persist($ann20);
 
+        $this->addReference('ann', $ann);
+        $this->addReference('ann1', $ann1);
+        $this->addReference('ann2', $ann2);
+        $this->addReference('ann3', $ann3);
+        $this->addReference('ann4', $ann4);
+        $this->addReference('ann5', $ann5);
+        $this->addReference('ann6', $ann6);
+        $this->addReference('ann7', $ann7);
+        $this->addReference('ann8', $ann8);
+        $this->addReference('ann9', $ann9);
+        $this->addReference('ann10', $ann10);
+        $this->addReference('ann11', $ann11);
+        $this->addReference('ann12', $ann12);
+        $this->addReference('ann13', $ann13);
+        $this->addReference('ann14', $ann14);
+        $this->addReference('ann15', $ann15);
+        $this->addReference('ann16', $ann16);
+        $this->addReference('ann17', $ann17);
+        $this->addReference('ann19', $ann18);
+        $this->addReference('ann20', $ann20);
 
-        $com = new Commentaire();
-        $com->setAnnonce($ann);
-        $com->setAuteur($this->getReference("admin-user"));
-        $com->setDatecreation(new \DateTime("2017-05-01"));
-        $com->setNote(5);
-        $com->setTexteCommentaire("Ceci est un commentaire de test1");
 
-        $com0 = new Commentaire();
-        $com0->setAnnonce($ann);
-        $com0->setAuteur($this->getReference("admin-user"));
-        $com0->setDatecreation(new \DateTime("2017-05-10"));
-        $com0->setNote(3);
-        $com0->setTexteCommentaire("Ceci est un 2eme commentaire de test");
 
-        $com1 = new Commentaire();
-        $com1->setAnnonce($ann1);
-        $com1->setAuteur($this->getReference("admin-user"));
-        $com1->setDatecreation(new \DateTime("2017-05-01"));
-        $com1->setNote(5);
-        $com1->setTexteCommentaire("Ceci est un commentaire de test2");
 
-        $com2 = new Commentaire();
-        $com2->setAnnonce($ann2);
-        $com2->setAuteur($this->getReference("admin-user"));
-        $com2->setDatecreation(new \DateTime("2017-05-01"));
-        $com2->setNote(5);
-        $com2->setTexteCommentaire("Ceci est un commentaire de test3");
 
-        $com3 = new Commentaire();
-        $com3->setAnnonce($ann3);
-        $com3->setAuteur($this->getReference("admin-user"));
-        $com3->setDatecreation(new \DateTime("2017-05-01"));
-        $com3->setNote(5);
-        $com3->setTexteCommentaire("Ceci est un commentaire de test4");
-
-        $manager->persist($com);
-        $manager->persist($com0);
-        $manager->persist($com1);
-        $manager->persist($com2);
-        $manager->persist($com3);
-
-        $manager->flush();
 
 
     }
