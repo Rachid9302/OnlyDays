@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new AppBundle\AppBundle(),
+            new Hype\MailchimpBundle\HypeMailchimpBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

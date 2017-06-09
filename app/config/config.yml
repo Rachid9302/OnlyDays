@@ -94,3 +94,10 @@ knp_paginator:
     template:
         pagination: 'KnpPaginatorBundle:Pagination:foundation_v5_pagination.html.twig'     # sliding pagination controls template
         sortable: 'KnpPaginatorBundle:Pagination:sortable_link.html.twig' # sort link template
+
+
+# app/config/config.yml
+hype_mailchimp:
+    api_key: be659c59edd07213f79f68a9ef3973ac-us16
+    default_list: OnlyDays
+    ssl: true #optional configuring curl connection
