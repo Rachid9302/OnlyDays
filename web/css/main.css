@@ -127,7 +127,7 @@ nav li a:after {
     opacity: 0;
     position: absolute;
     z-index: 100;
-    color: rgba(256,256,256,0.20);
+    color: rgba(256,256,256,0.50);
     display: block;
     margin-right: auto;
     margin-left: auto;
