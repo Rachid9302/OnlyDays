@@ -11,7 +11,8 @@
                 <div class="banniere col-sm-6 col-xs-12 recherche">
                     <h1>Je souhaite </h1>
                     <select name="recherche[type]">
-                        <option value="1">un appartement</option>
+                        <option value="" >Tous les biens</option>
+                        <option value="1" >un appartement</option>
                         <option value="0">une maison</option>
                     </select>
                     <br />
@@ -21,6 +22,7 @@
                 <div class="banniere col-sm-6 col-xs-12 recherche">
                     <h1>pour </h1>
                     <select name="recherche[prix]">
+                        <option value="">Tous les prix</option>
                         <option value="25">25 € max par jour</option>
                         <option value="50">50 € max par jour</option>
                         <option value="75">75 € max par jour</option>
@@ -30,7 +32,7 @@
                     </select>
                     <br />
                     <h1>et jusqu'au </h1>
-                    <input type="date" name="recherche[date_fin]"/>
+                    <input type="date" name="recherche[date_fin]">
                 </div>
                 <div class="col-xs-12">
                     <input type="submit" value="Trouver mon bien"/>
@@ -43,7 +45,7 @@
     <section id="page-liste-bien">
         <div class="container">
             <div class="row">
-                <h2 class="col-sm-9 col-xs-12 col-sm-offset-3" id="titre-page-liste-bien">Etiam aliquam faucibus velit, a elementum massa donec.</h2>
+                <h2 class="col-sm-9 col-xs-12 col-sm-offset-3" id="titre-page-liste-bien">Nombre de biens trouvés: {{ listbiens.getTotalItemCount }}</h2>
             </div>
             <div class="row">
                 <div class="col-sm-3 col-xs-12 filter">
@@ -51,7 +53,6 @@
 
                         <h2 class="titre-filtre">Type de logement</h2>
                         <select class="col-xs-12" name="rechercheavance[type]">
-                            <option value="tous">Tous les biens</option>
                             <option value="0">Maison</option>
                             <option value="1">Appartement</option>
                         </select>
@@ -60,7 +61,7 @@
                         <input type="date" name="rechercheavance[date_fin]" placeholder="max" min="0" class="col-xs-6"/>
                         <h2 class="titre-filtre">Lieu</h2>
                         <select class="col-xs-12" name="rechercheavance[arrondissement]">
-                            <option value="tous">Tous les arrondissements</option>
+                            <option value="">Tous les arrondissements</option>
                             <option value="1">1er arrondissement</option>
                             <option value="2">2ème arrondissement</option>
                             <option value="3">3ème arrondissement</option>
@@ -97,6 +98,7 @@
                         <div class="col-sm-4 col-xs-12 article">
                             <img style="height: 260px; width: 260px;" src="{{ asset(listbien.firstimage) }}">
                             <h3>{{ listbien.titre }}</h3>
+                            <h3>{{ listbien.dateDepot  | date("d-m-Y") }}</h3>
                             <p>{{ listbien.description|slice(0, 50) }}</p>
                             <a href="{{ path('detailbien',{'id' : listbien.id}) }}">Découvrir le bien</a>
                         </div>
