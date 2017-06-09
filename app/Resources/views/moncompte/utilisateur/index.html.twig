@@ -1,68 +1,78 @@
 {% extends 'base.html.twig' %}
 
+{% block header %}<header class="header-moncompte">{% endblock %}
+
 {% block body %}
-    <div class="container header">
-        <div class="row text-header col-sm-8">
-            <h1>Mon compte</h1>
-        </div>
-    </div>
-    </header>
-    <div class="container header">
-        <div class="row text-header col-sm-8">
-            <h1>Mon compte</h1>
-        </div>
-    </div>
     </header>
 
-    <h1>Utilisateurs list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Civilite</th>
-                <th>Datedenaissance</th>
-                <th>Adresse</th>
-                <th>Ville</th>
-                <th>Codepostale</th>
-                <th>Pays</th>
-                <th>Telephone</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><a href="{{ path('moncompte_utilisateur_show', { 'id': utilisateur.id }) }}">{{ utilisateur.id }}</a></td>
-                <td>{{ utilisateur.nom }}</td>
-                <td>{{ utilisateur.prenom }}</td>
-                <td>{% if utilisateur.civilite %}Yes{% else %}No{% endif %}</td>
-                <td>{% if utilisateur.datedenaissance %}{{ utilisateur.datedenaissance|date('Y-m-d') }}{% endif %}</td>
-                <td>{{ utilisateur.adresse }}</td>
-                <td>{{ utilisateur.ville }}</td>
-                <td>{{ utilisateur.codepostale }}</td>
-                <td>{{ utilisateur.pays }}</td>
-                <td>{{ utilisateur.telephone }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('moncompte_utilisateur_show', { 'id': utilisateur.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('moncompte_utilisateur_edit', { 'id': utilisateur.id }) }}">edit</a>
+    <div class="container" id="moncompte">
+        <div class="row">
+            <h1 class="col-xs-12" >Mon profil</h1>
+            <div class="col-xs-7 padding-left-0"  style="border-right:1px solid #cccccc;">
+                <div class="col-xs-6 padding-left-0">
+                    <ul class=" list-unstyled">
+                        <li><h2 class="titre-filtre">Nom</h2></li>
+                        <li><p>{{ utilisateur.nom }}</p>
                         </li>
                     </ul>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                </div>
+                <div class="col-xs-6 padding-left-0">
+                    <ul class=" list-unstyled">
+                        <li><h2 class="titre-filtre">Prénom</h2></li>
+                        <li><p>{{ utilisateur.prenom }}</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-6 padding-left-0">
+                    <ul class="list-unstyled">
+                        <li><h2 class="titre-filtre">Date de naissance</h2></li>
+                        <li><p>{% if utilisateur.datedenaissance %}{{ utilisateur.datedenaissance|date('Y-m-d') }}{% endif %}</p></li>
+                    </ul>
+                </div>
+                <div class="col-xs-6 padding-left-0">
+                    <ul class="list-unstyled">
+                        <li><h2 class="titre-filtre">Adresse</h2></li>
+                        <li><p>{{ utilisateur.adresse }}</p></li>
+                    </ul>
+                </div>
+                <div class="col-xs-6 padding-left-0">
+                    <ul class="list-unstyled">
+                        <li><h2 class="titre-filtre">Ville</h2></li>
+                        <li><p>{{ utilisateur.ville }}</p></li>
+                    </ul>
+                </div>
+                <div class="col-xs-6 padding-left-0">
+                    <ul class="list-unstyled">
+                        <li><h2 class="titre-filtre">Code postal</h2></li>
+                        <li><p>{{ utilisateur.codepostale }}</p></li>
+                    </ul>
+                </div>
+                <div class="col-xs-6 padding-left-0">
+                    <ul class="list-unstyled">
+                        <li><h2 class="titre-filtre">Pays</h2></li>
+                        <li><p>{{ utilisateur.pays }}</p></li>
+                    </ul>
+                </div>
+                <div class="col-xs-6 padding-left-0">
+                    <ul class="list-unstyled">
+                        <li><h2 class="titre-filtre">Téléphone</h2></li>
+                        <li><p>{{ utilisateur.telephone }}</p></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-4 col-xs-offset-1">
+                <ul class="list-unstyled">
+                    <li><h2 class="titre-filtre">Actions disponibles :</h2></li>
+                    <li><a href="{{ path('moncompte_utilisateur_edit', { 'id': utilisateur.id }) }}">Modifier mes informations</a></li>
+                    <li><a href="{{ path('moncompte_annonce_index') }}">Voir mes annonces</a></li>
+                    <li><a href="{{ path('moncompte_annonce_new') }}">Ajouter une annonce</a></li>
+                    <li><h2 class="titre-filtre">Accès rapide :</h2></li>
+                    <li><a href="{{ path('faq') }}">Foire aux questions</a></li>
+                    <li><a href="{{ path('contact') }}">Contact</a></li>
+                    <li><a href="{{ path('mentions-legales') }}">Mentions légales</a></li>
+                </ul>
 
-<!--
-    <ul>
-        <li>
-            <a href="{{ path('moncompte_utilisateur_new') }}">Create a new utilisateur</a>
-        </li>
-    </ul>
--->
+            </div>
+        </div>
+    </div>
 {% endblock %}

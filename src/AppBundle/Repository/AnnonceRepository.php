@@ -12,19 +12,31 @@ class AnnonceRepository extends \Doctrine\ORM\EntityRepository
 {
     public function rechercherAnnonces($search) {
         $qb = $this->createQueryBuilder('a')
-            ->where('a.typepropriete = :type')
-            ->andWhere('a.dateDepot >= :dateDebut')
-            ->andWhere('a.dateDepot <= :dateFin')
-            ->andWhere('a.prixnuit <= :prix')
-            ->setParameter('type', $search['type'])
-            ->setParameter('prix', $search['prix'])
-            ->setParameter('dateDebut', $search['date_debut'])
-            ->setParameter('dateFin', $search['date_fin'])
-        ;
+                ->where('1=1');
 
-        /*/if( isset($search['type']) && in_array((int)$search['type'], [0,1] ) ) {
-            $qb->andWhere('a.dateDepot >= :dateDebut')->setParameter('prix', $search['prix'])
-        }*/
+
+
+        if($search['type']!= null ) {
+            $qb ->andWhere('a.typepropriete >= :type')
+                ->setParameter('type', $search['type']);
+        }
+        if($search['prix']!= null ) {
+            $qb ->andWhere('a.prixnuit >= :prix')
+                ->setParameter('prix', $search['prix']);
+        }
+
+        if($search['date_debut']!= null ){
+
+            $qb ->andWhere('a.dateDepot >= :dateDebut')
+                ->setParameter('dateDebut', $search['date_debut']);
+        }
+
+
+        if($search['date_fin']!= null ){
+
+            $qb ->andWhere('a.dateDepot <= :dateFin')
+                ->setParameter('dateFin', $search['date_fin']);
+        }
 
 
         $query = $qb->getQuery();
@@ -36,30 +48,52 @@ class AnnonceRepository extends \Doctrine\ORM\EntityRepository
     public function rechercherAnnoncesAvances($search) {
         $qb = $this->createQueryBuilder('a')
             ->where('a.typepropriete = :type')
-            ->andWhere('a.dateDepot >= :dateDebut')
-            ->andWhere('a.dateDepot <= :dateFin')
-            ->andWhere('a.arrondissement = :arrondissements')
-            ->andWhere('a.prixnuit >= :prixMin')
-            ->andWhere('a.prixnuit <= :prixMax')
-            ->andWhere('a.superficie >= :surfaceMin')
-            ->andWhere('a.superficie <= :surfaceMax')
-            ->andWhere('a.piece >= :pieceMin')
-            ->andWhere('a.piece <= :pieceMax')
-            ->andWhere('a.chambre >= :chambreMin')
-            ->andWhere('a.chambre <= :chambreMax')
-            ->setParameter('type', $search['type'])
-            ->setParameter('dateDebut', $search['date_debut'])
-            ->setParameter('dateFin', $search['date_fin'])
-            ->setParameter('arrondissements', $search['arrondissement'])
-            ->setParameter('prixMin', $search['prix_min'])
-            ->setParameter('prixMax', $search['prix_max'])
-            ->setParameter('surfaceMin', $search['surface_min'])
-            ->setParameter('surfaceMax', $search['surface_max'])
-            ->setParameter('pieceMin', $search['piece_min'])
-            ->setParameter('pieceMax', $search['piece_max'])
-            ->setParameter('chambreMin', $search['chambre_min'])
-            ->setParameter('chambreMax', $search['chambre_max'])
-        ;
+            ->setParameter('type', $search['type']);
+
+            if($search['date_debut']!= null ) {
+                $qb ->andWhere('a.dateDepot >= :dateDebut')
+                    ->setParameter('dateDebut', $search['date_debut']);
+            }
+            if($search['date_fin']!= null ) {
+                $qb ->andWhere('a.dateDepot <= :dateFin')
+                    ->setParameter('dateFin', $search['date_fin']);
+            }
+            if($search['arrondissement']!= null ){
+                $qb ->andWhere('a.arrondissement = :arrondissements')
+                    ->setParameter('arrondissements', $search['arrondissement']);
+            }
+            if($search['prix_min']!= null ){
+                $qb ->andWhere('a.prixnuit >= :prixMin')
+                    ->setParameter('prixMin', $search['prix_min']);
+            }
+            if($search['prix_max']!= null ){
+                $qb ->andWhere('a.prixnuit <= :prixMax')
+                    ->setParameter('prixMax', $search['prix_max']);
+            }
+            if($search['surface_min']!= null ){
+                $qb ->andWhere('a.superficie >= :surfaceMin')
+                    ->setParameter('surfaceMin', $search['surface_min']);
+            }
+            if($search['surface_max']!= null ){
+                $qb ->andWhere('a.superficie <= :surfaceMax')
+                    ->setParameter('surfaceMax', $search['surface_max']);
+            }
+            if($search['piece_min']!= null ){
+                $qb ->andWhere('a.piece >= :pieceMin')
+                    ->setParameter('pieceMin', $search['piece_min']);
+            }
+            if($search['piece_max']!= null ){
+                $qb ->andWhere('a.piece <= :pieceMax')
+                    ->setParameter('pieceMax', $search['piece_max']);
+            }
+            if($search['chambre_min']!= null ){
+                $qb ->andWhere('a.chambre >= :chambreMin')
+                    ->setParameter('chambreMin', $search['chambre_min']);
+            }
+            if($search['chambre_max']!= null ){
+                $qb ->andWhere('a.chambre <= :chambreMax')
+                    ->setParameter('chambreMax', $search['chambre_max']);
+            }
 
         /*if( isset($search['type']) && in_array((int)$search['type'], [0,1] ) ) {
             $qb->andWhere('a.dateDepot >= :dateDebut')->setParameter('prix', $search['prix'])

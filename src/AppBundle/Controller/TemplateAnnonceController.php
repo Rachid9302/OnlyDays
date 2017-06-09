@@ -40,14 +40,25 @@ class TemplateAnnonceController extends Controller
 
         $data = $request->get('recherche');
 
+
+        if($data == null)
+            return $this->redirectToRoute('listebien');
+
         $search = array(
-            'type' => isset($data['type']) ? $data['type'] : 'error',
-            'date_debut' => isset($data['date_debut']) ? $data['date_debut'] : 'error',
-            'date_fin' => isset($data['date_fin']) ? $data['date_fin'] : 'error',
-            'prix' => isset($data['prix']) ? $data['prix'] : 'error',
+            'type' => isset($data['type']) ? $data['type'] : null,
+            'date_debut' => isset($data['date_debut']) ? $data['date_debut'] : null,
+            'date_fin' => isset($data['date_fin']) ? $data['date_fin'] : null,
+            'prix' => isset($data['prix']) ? $data['prix'] : null,
         );
 
-        // test si chaque elements existent
+       /* if($search['date_debut']== 'error' || $search['date_fin']== 'error'){
+
+            $this->addFlash(
+                'notice',
+                'Veuillez renseigner les champs dates'
+            );
+            return;
+        }*/
 
 
         $listbiens = $this->getDoctrine()
@@ -66,7 +77,8 @@ class TemplateAnnonceController extends Controller
         );
 
         return $this->render('template/listebien.html.twig', array(
-            'listbiens' => $result
+            'listbiens' => $result,
+            'search' =>  $search
         ));
     }
 
@@ -80,18 +92,18 @@ class TemplateAnnonceController extends Controller
 
 
         $search = array(
-            'type' => isset($data['type']) ? $data['type'] : 'error',
-            'date_debut' => isset($data['date_debut']) ? $data['date_debut'] : 'error',
-            'date_fin' => isset($data['date_fin']) ? $data['date_fin'] : 'error',
-            'arrondissement' => isset($data['arrondissement']) ? $data['arrondissement'] : 'error',
-            'prix_min' => isset($data['prix_min']) ? $data['prix_min'] : 'error',
-            'prix_max' => isset($data['prix_max']) ? $data['prix_max'] : 'error',
-            'surface_min' => isset($data['surface_min']) ? $data['surface_min'] : 'error',
-            'surface_max' => isset($data['surface_max']) ? $data['surface_max'] : 'error',
-            'piece_min' => isset($data['piece_min']) ? $data['piece_min'] : 'error',
-            'piece_max' => isset($data['piece_max']) ? $data['piece_max'] : 'error',
-            'chambre_min' => isset($data['chambre_min']) ? $data['chambre_min'] : 'error',
-            'chambre_max' => isset($data['chambre_max']) ? $data['chambre_max'] : 'error',
+            'type' => isset($data['type']) ? $data['type'] : null,
+            'date_debut' => isset($data['date_debut']) ? $data['date_debut'] : null,
+            'date_fin' => isset($data['date_fin']) ? $data['date_fin'] : null,
+            'arrondissement' => isset($data['arrondissement']) ? $data['arrondissement'] : null,
+            'prix_min' => isset($data['prix_min']) ? $data['prix_min'] : null,
+            'prix_max' => isset($data['prix_max']) ? $data['prix_max'] : null,
+            'surface_min' => isset($data['surface_min']) ? $data['surface_min'] : null,
+            'surface_max' => isset($data['surface_max']) ? $data['surface_max'] : null,
+            'piece_min' => isset($data['piece_min']) ? $data['piece_min'] : null,
+            'piece_max' => isset($data['piece_max']) ? $data['piece_max'] : null,
+            'chambre_min' => isset($data['chambre_min']) ? $data['chambre_min'] : null,
+            'chambre_max' => isset($data['chambre_max']) ? $data['chambre_max'] : null,
 
 
         );
