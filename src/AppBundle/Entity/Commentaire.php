@@ -21,13 +21,7 @@ class Commentaire
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="pseudo", type="string", length=255)
-     */
-    private $pseudo;
+    
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Utilisateur", inversedBy="commentaires")

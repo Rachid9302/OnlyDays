@@ -441,31 +441,39 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $com->setAnnonce($ann);
         $com->setAuteur($this->getReference("admin-user"));
         $com->setDatecreation(new \DateTime("2017-05-01"));
-        $com->setPseudo("Test");
-        $com->setTexteCommentaire("Ceci est un commentaire de test");
+        $com->setNote(5);
+        $com->setTexteCommentaire("Ceci est un commentaire de test1");
+
+        $com0 = new Commentaire();
+        $com0->setAnnonce($ann);
+        $com0->setAuteur($this->getReference("admin-user"));
+        $com0->setDatecreation(new \DateTime("2017-05-10"));
+        $com0->setNote(3);
+        $com0->setTexteCommentaire("Ceci est un 2eme commentaire de test");
 
         $com1 = new Commentaire();
         $com1->setAnnonce($ann1);
         $com1->setAuteur($this->getReference("admin-user"));
         $com1->setDatecreation(new \DateTime("2017-05-01"));
-        $com1->setPseudo("Test");
-        $com1->setTexteCommentaire("Ceci est un commentaire de test");
+        $com1->setNote(5);
+        $com1->setTexteCommentaire("Ceci est un commentaire de test2");
 
         $com2 = new Commentaire();
         $com2->setAnnonce($ann2);
         $com2->setAuteur($this->getReference("admin-user"));
         $com2->setDatecreation(new \DateTime("2017-05-01"));
-        $com2->setPseudo("Test");
-        $com2->setTexteCommentaire("Ceci est un commentaire de test");
+        $com2->setNote(5);
+        $com2->setTexteCommentaire("Ceci est un commentaire de test3");
 
         $com3 = new Commentaire();
         $com3->setAnnonce($ann3);
         $com3->setAuteur($this->getReference("admin-user"));
         $com3->setDatecreation(new \DateTime("2017-05-01"));
-        $com3->setPseudo("Test");
-        $com3->setTexteCommentaire("Ceci est un commentaire de test");
+        $com3->setNote(5);
+        $com3->setTexteCommentaire("Ceci est un commentaire de test4");
 
         $manager->persist($com);
+        $manager->persist($com0);
         $manager->persist($com1);
         $manager->persist($com2);
         $manager->persist($com3);
