@@ -12,27 +12,27 @@
                     <h1>Je souhaite </h1>
                     <select name="recherche[type]">
                         <option value="" >Tous les biens</option>
-                        <option value="1" >un appartement</option>
-                        <option value="0">une maison</option>
+                        <option value="1" {%  if search.type == 1 %} selected {% endif %} >un appartement</option>
+                        <option value="0" {%  if search.type == 0 %} selected {% endif %}>une maison</option>
                     </select>
                     <br />
                     <h1> à partir du </h1>
-                    <input type="date"name="recherche[date_debut]">
+                    <input type="date"name="recherche[date_debut]" {%  if search.date_debut == search.date_debut %} selected value="{{ search.date_debut }}"{% endif %}>
                 </div>
                 <div class="banniere col-sm-6 col-xs-12 recherche">
                     <h1>pour </h1>
                     <select name="recherche[prix]">
                         <option value="">Tous les prix</option>
-                        <option value="25">25 € max par jour</option>
-                        <option value="50">50 € max par jour</option>
-                        <option value="75">75 € max par jour</option>
-                        <option value="100">100 € max par jour</option>
-                        <option value="150">150 € max par jour</option>
-                        <option value="200">200 € max par jour</option>
+                        <option value="25" {%  if search.prix is defined and search.prix == 25 %} selected {% endif %}>25 € max par jour</option>
+                        <option value="50" {%  if search.prix is defined and search.prix== 50 %} selected {% endif %}>50 € max par jour</option>
+                        <option value="75" {%  if search.prix is defined and search.prix == 75 %} selected {% endif %}>75 € max par jour</option>
+                        <option value="100" {%  if search.prix is defined and search.prix == 100 %} selected {% endif %}>100 € max par jour</option>
+                        <option value="150" {%  if search.prix is defined and search.prix == 150 %} selected {% endif %}>150 € max par jour</option>
+                        <option value="200" {%  if search.prix is defined and search.prix == 200 %} selected {% endif %}>200 € max par jour</option>
                     </select>
                     <br />
                     <h1>et jusqu'au </h1>
-                    <input type="date" name="recherche[date_fin]">
+                    <input type="date" name="recherche[date_fin]" {%  if search.date_fin == search.date_fin %} selected value="{{ search.date_fin }}"{% endif %}>
                 </div>
                 <div class="col-xs-12">
                     <input type="submit" value="Trouver mon bien"/>
@@ -53,37 +53,38 @@
 
                         <h2 class="titre-filtre">Type de logement</h2>
                         <select class="col-xs-12" name="rechercheavance[type]">
-                            <option value="0">Maison</option>
-                            <option value="1">Appartement</option>
+                            <option value="">Tous les biens</option>
+                            <option value="0" {%  if search.type == 0 %} selected value="0"{% endif %}>Maison</option>
+                            <option value="1" {%  if search.type == 1 %} selected value="1"{% endif %}>Appartement</option>
                         </select>
                         <h2 class="titre-filtre" style="margin-top: 30px;">Date du séjour</h2>
-                        <input type="date" name="rechercheavance[date_debut]" placeholder="min" min="0" class="col-xs-6"/>
-                        <input type="date" name="rechercheavance[date_fin]" placeholder="max" min="0" class="col-xs-6"/>
+                        <input type="date" name="rechercheavance[date_debut]" placeholder="min" min="0" class="col-xs-6" {%  if search.date_debut == search.date_debut %} selected value="{{ search.date_debut }}"{% endif %}/>
+                        <input type="date" name="rechercheavance[date_fin]" placeholder="max" min="0" class="col-xs-6" {%  if search.date_fin == search.date_fin %} selected value="{{ search.date_fin }}"{% endif %}/>
                         <h2 class="titre-filtre">Lieu</h2>
                         <select class="col-xs-12" name="rechercheavance[arrondissement]">
                             <option value="">Tous les arrondissements</option>
-                            <option value="1">1er arrondissement</option>
-                            <option value="2">2ème arrondissement</option>
-                            <option value="3">3ème arrondissement</option>
-                            <option value="4">4ème arrondissement</option>
-                            <option value="5">5ème arrondissement</option>
-                            <option value="6">6ème arrondissement</option>
-                            <option value="7">7ème arrondissement</option>
-                            <option value="8">8ème arrondissement</option>
-                            <option value="9">9ème arrondissement</option>
+                            <option value="1" {%  if search.arrondissement == 1 %} selected {% endif %}>1er arrondissement</option>
+                            <option value="2" {%  if search.arrondissement == 2 %} selected {% endif %}>2ème arrondissement</option>
+                            <option value="3" {%  if search.arrondissement == 3 %} selected {% endif %}>3ème arrondissement</option>
+                            <option value="4" {%  if search.arrondissement == 4 %} selected {% endif %}>4ème arrondissement</option>
+                            <option value="5" {%  if search.arrondissement == 5 %} selected {% endif %}>5ème arrondissement</option>
+                            <option value="6" {%  if search.arrondissement == 6 %} selected {% endif %}>6ème arrondissement</option>
+                            <option value="7" {%  if search.arrondissement == 7 %} selected {% endif %}>7ème arrondissement</option>
+                            <option value="8" {%  if search.arrondissement == 8 %} selected {% endif %}>8ème arrondissement</option>
+                            <option value="9" {%  if search.arrondissement == 9 %} selected {% endif %}>9ème arrondissement</option>
                         </select>
                         <h2 class="titre-filtre">Prix</h2>
-                        <input type="number" name="rechercheavance[prix_min]" placeholder="min" min="0" class="col-xs-6"/>
-                        <input type="number" name="rechercheavance[prix_max]" placeholder="max" min="0" class="col-xs-6"/>
+                        <input type="number" name="rechercheavance[prix_min]" placeholder="min" min="0" class="col-xs-6" {%  if search.prix_min == search.prix_min %} selected value="{{ search.chambre_max }}"{% endif %}/>
+                        <input type="number" name="rechercheavance[prix_max]" placeholder="max" min="0" class="col-xs-6" {%  if search.prix_max == search.prix_max %} selected value="{{ search.chambre_max }}"{% endif %}/>
                         <h2 class="titre-filtre">Surface</h2>
-                        <input type="number" name="rechercheavance[surface_min]" placeholder="min" min="0" class="col-xs-6"/>
-                        <input type="number" name="rechercheavance[surface_max]" placeholder="max" min="0" class="col-xs-6"/>
+                        <input type="number" name="rechercheavance[surface_min]" placeholder="min" min="0" class="col-xs-6" {%  if search.surface_min == search.surface_min %} selected value="{{ search.surface_min }}"{% endif %}/>
+                        <input type="number" name="rechercheavance[surface_max]" placeholder="max" min="0" class="col-xs-6" {%  if search.surface_max == search.surface_max %} selected value="{{ search.surface_max }}"{% endif %}/>
                         <h2 class="titre-filtre">Nombre de pièces</h2>
-                        <input type="number" name="rechercheavance[piece_min]" placeholder="min" min="0" class="col-xs-6"/>
-                        <input type="number" name="rechercheavance[piece_max]" placeholder="max" min="0" class="col-xs-6"/>
+                        <input type="number" name="rechercheavance[piece_min]" placeholder="min" min="0" class="col-xs-6" {%  if search.piece_min == search.piece_min %} selected value="{{ search.piece_min }}"{% endif %}/>
+                        <input type="number" name="rechercheavance[piece_max]" placeholder="max" min="0" class="col-xs-6" {%  if search.piece_max == search.piece_max %} selected value="{{ search.piece_max }}"{% endif %}/>
                         <h2 class="titre-filtre">Nombre de chambres</h2>
-                        <input type="number" name="rechercheavance[chambre_min]" style="margin-bottom: 0;" placeholder="min" min="0" class="col-xs-6"/>
-                        <input type="number" name="rechercheavance[chambre_max]" style="margin-bottom: 0;" placeholder="max" min="0" class="col-xs-6"/>
+                        <input type="number" name="rechercheavance[chambre_min]" style="margin-bottom: 0;" placeholder="min" min="0" class="col-xs-6" {%  if search.chambre_min == search.chambre_min %} selected value="{{ search.chambre_min }}"{% endif %}/>
+                        <input type="number" name="rechercheavance[chambre_max]" style="margin-bottom: 0;" placeholder="max" min="0" class="col-xs-6" {%  if search.chambre_max == search.chambre_max %} selected value="{{ search.chambre_max }}"{% endif %}/>
                         <div class="col-xs-12">
                             <input type="submit" value="Affiner ma recherche">
                         </div>

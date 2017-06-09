@@ -127,7 +127,8 @@ class TemplateAnnonceController extends Controller
         );
 
         return $this->render('template/listebien.html.twig', array(
-            'listbiens' => $result
+            'listbiens' => $result,
+            'search' =>  $search
         ));
     }
 

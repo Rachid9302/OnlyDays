@@ -47,9 +47,11 @@ class AnnonceRepository extends \Doctrine\ORM\EntityRepository
 
     public function rechercherAnnoncesAvances($search) {
         $qb = $this->createQueryBuilder('a')
-            ->where('a.typepropriete = :type')
-            ->setParameter('type', $search['type']);
-
+                    ->where('1=1');
+            if($search['type']!= null ) {
+                $qb ->andWhere('a.typepropriete = :type')
+                    ->setParameter('type', $search['type']);
+            }
             if($search['date_debut']!= null ) {
                 $qb ->andWhere('a.dateDepot >= :dateDebut')
                     ->setParameter('dateDebut', $search['date_debut']);
@@ -95,9 +97,6 @@ class AnnonceRepository extends \Doctrine\ORM\EntityRepository
                     ->setParameter('chambreMax', $search['chambre_max']);
             }
 
-        /*if( isset($search['type']) && in_array((int)$search['type'], [0,1] ) ) {
-            $qb->andWhere('a.dateDepot >= :dateDebut')->setParameter('prix', $search['prix'])
-        }*/
 
 
         $query = $qb->getQuery();
