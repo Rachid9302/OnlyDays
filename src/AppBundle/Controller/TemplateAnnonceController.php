@@ -132,8 +132,14 @@ class TemplateAnnonceController extends Controller
             throw $this-> createNotFoundException('La page n\'existe pas ');
         }
 
+        $noteAnnonce = $this->getDoctrine()
+            ->getRepository('AppBundle:Commentaire')
+            ->noteAnnonce($detailbien);
+
         return $this->render('template/detailbien.html.twig', array(
-            'detailbien' => $detailbien
+            'detailbien' => $detailbien,
+            'noteAnnonce' => $noteAnnonce
+
         ));
     }
 }

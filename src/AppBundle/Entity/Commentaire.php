@@ -56,7 +56,12 @@ class Commentaire
      */
     private $texteCommentaire;
 
-
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="note", type="integer")
+     */
+    private $note;
 
     /**
      * Get id
@@ -186,5 +191,29 @@ class Commentaire
     public function getAnnonce()
     {
         return $this->annonce;
+    }
+
+    /**
+     * Set note
+     *
+     * @param integer $note
+     *
+     * @return Commentaire
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+    /**
+     * Get note
+     *
+     * @return integer
+     */
+    public function getNote()
+    {
+        return $this->note;
     }
 }
