@@ -1039,3 +1039,30 @@ header>a>svg{
         margin-top:0;
     }
 }
+
+/* Mon compte */
+
+.header-moncompte{
+    height: 140px;
+    background-color: #293133;
+    background-image: none;
+}
+
+#moncompte h1{
+    color: #293133;
+    margin-top:50px;
+    margin-bottom: 50px;
+    padding-left:0;
+}
+
+#moncompte img{
+   max-height: 100%;
+}
+
+#moncompte{
+    padding-bottom: 50px;
+}
+
+.padding-left-0{
+    padding-left: 0;
+}
