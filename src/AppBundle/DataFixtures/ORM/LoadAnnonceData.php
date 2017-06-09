@@ -66,8 +66,8 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann2->setDateDepot(new \DateTime('2017-07-01'));
         $ann2->setFirstimage("uploads/B34A1022.jpg");
         $ann2->setLocalisation("Rue cuvier, Lyon 6E, France");
-        $ann2->setTypepropriete(0);
-        $ann2->setArrondissement(5);
+        $ann2->setTypepropriete(1);
+        $ann2->setArrondissement(3);
         $ann2->setAuteur($this->getReference("admin-user"));
 
         $ann3 = new Annonce();
@@ -85,8 +85,8 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann3->setDateDepot(new \DateTime('2017-07-01'));
         $ann3->setFirstimage("uploads/B39A0058.jpg");
         $ann3->setLocalisation("Rue cuvier, Lyon 6E, France");
-        $ann3->setTypepropriete(0);
-        $ann3->setArrondissement(8);
+        $ann3->setTypepropriete(1);
+        $ann3->setArrondissement(3);
         $ann3->setAuteur($this->getReference("admin-user"));
 
         $ann4 = new Annonce();
@@ -105,7 +105,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $ann4->setFirstimage("uploads/B20A1207.jpg");
         $ann4->setLocalisation("Rue cuvier, Lyon 6E, France");
         $ann4->setTypepropriete(1);
-        $ann4->setArrondissement(6);
+        $ann4->setArrondissement(3);
         $ann4->setAuteur($this->getReference("admin-user"));
 
         $ann5 = new Annonce();

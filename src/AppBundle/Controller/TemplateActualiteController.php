@@ -11,7 +11,7 @@ class TemplateActualiteController extends Controller
     /**
      * @Route("/listeactualite", name="listeactualite")
      */
-    public function listeactualiteAction(Request $request)
+    public function listeactualiteAction()
     {
         $listactualites = $this->getDoctrine()
             ->getRepository('AppBundle:Actualite')
@@ -24,7 +24,7 @@ class TemplateActualiteController extends Controller
         $result = $paginator->paginate(
             $listactualites,
             $request->query->getInt('page', 1)/*page number*/,
-            8/*limit per page*/
+            9/*limit per page*/
         );
 
         return $this->render('template/listeactualite.html.twig', array(
@@ -34,32 +34,15 @@ class TemplateActualiteController extends Controller
 
 
 
+
+
     /**
-     * @Route("/detailactualite/{id}", name="detailactualite", requirements={"id"="\d+"})
+     * @Route("/detailactualite", name="detailactualite")
      */
-    public function detailactualiteAction($id)
+    public function detailactualiteAction()
     {
-        $detailactualite = $this->getDoctrine()
-            ->getRepository('AppBundle:Actualite')
-            ->find($id);
-        if(!$detailactualite){
-            throw $this-> createNotFoundException('La page n\'existe pas ');
-        }
-
-
-        $listactualites = $this->getDoctrine()
-            ->getRepository('AppBundle:Actualite')
-            ->findAll();
-
-
-        $listbiens = $this->getDoctrine()
-            ->getRepository('AppBundle:Annonce')
-            ->findAll();
-
-        return $this->render('template/detailactualite.html.twig', array(
-            'detailactualite' => $detailactualite,
-            'listactualites' => $listactualites,
-            'listbiens' => $listbiens
-        ));
+        return $this->render('template/detailactualite.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+        ]);
     }
 }
