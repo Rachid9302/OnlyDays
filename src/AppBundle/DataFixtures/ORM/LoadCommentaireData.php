@@ -13,6 +13,7 @@ class LoadCommentaireData extends AbstractFixture implements OrderedFixtureInter
 {
     public function load(ObjectManager $manager)
     {
+
         $com = new Commentaire();
         $com->setAnnonce($this->getReference("ann"));
         $com->setAuteur($this->getReference("admin-user"));

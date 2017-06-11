@@ -5,6 +5,8 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 use AppBundle\Entity\Annonce;
+use AppBundle\Entity\Actualite;
+use AppBundle\Entity\Commentaire;
 
 /**
  * Utilisateur
@@ -94,6 +96,11 @@ class Utilisateur extends BaseUser
      */
     private $actualites;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Commentaire", mappedBy="auteur")
+     */
+    private $commentaires;
+
     public function __construct()
     {
         parent::__construct();
@@ -101,15 +108,6 @@ class Utilisateur extends BaseUser
     }
 
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set nom
@@ -160,6 +158,54 @@ class Utilisateur extends BaseUser
     }
 
     /**
+     * Set civilite
+     *
+     * @param boolean $civilite
+     *
+     * @return Utilisateur
+     */
+    public function setCivilite($civilite)
+    {
+        $this->civilite = $civilite;
+
+        return $this;
+    }
+
+    /**
+     * Get civilite
+     *
+     * @return boolean
+     */
+    public function getCivilite()
+    {
+        return $this->civilite;
+    }
+
+    /**
+     * Set datedenaissance
+     *
+     * @param \DateTime $datedenaissance
+     *
+     * @return Utilisateur
+     */
+    public function setDatedenaissance($datedenaissance)
+    {
+        $this->datedenaissance = $datedenaissance;
+
+        return $this;
+    }
+
+    /**
+     * Get datedenaissance
+     *
+     * @return \DateTime
+     */
+    public function getDatedenaissance()
+    {
+        return $this->datedenaissance;
+    }
+
+    /**
      * Set adresse
      *
      * @param string $adresse
@@ -181,6 +227,102 @@ class Utilisateur extends BaseUser
     public function getAdresse()
     {
         return $this->adresse;
+    }
+
+    /**
+     * Set ville
+     *
+     * @param string $ville
+     *
+     * @return Utilisateur
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return string
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Set codepostale
+     *
+     * @param string $codepostale
+     *
+     * @return Utilisateur
+     */
+    public function setCodepostale($codepostale)
+    {
+        $this->codepostale = $codepostale;
+
+        return $this;
+    }
+
+    /**
+     * Get codepostale
+     *
+     * @return string
+     */
+    public function getCodepostale()
+    {
+        return $this->codepostale;
+    }
+
+    /**
+     * Set pays
+     *
+     * @param string $pays
+     *
+     * @return Utilisateur
+     */
+    public function setPays($pays)
+    {
+        $this->pays = $pays;
+
+        return $this;
+    }
+
+    /**
+     * Get pays
+     *
+     * @return string
+     */
+    public function getPays()
+    {
+        return $this->pays;
+    }
+
+    /**
+     * Set telephone
+     *
+     * @param string $telephone
+     *
+     * @return Utilisateur
+     */
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * Get telephone
+     *
+     * @return string
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
     }
 
     /**
@@ -218,98 +360,70 @@ class Utilisateur extends BaseUser
     }
 
     /**
-     * @return mixed
+     * Add actualite
+     *
+     * @param \AppBundle\Entity\Actualite $actualite
+     *
+     * @return Utilisateur
      */
-    public function getVille()
+    public function addActualite(\AppBundle\Entity\Actualite $actualite)
     {
-        return $this->ville;
+        $this->actualites[] = $actualite;
+
+        return $this;
     }
 
     /**
-     * @param mixed $ville
+     * Remove actualite
+     *
+     * @param \AppBundle\Entity\Actualite $actualite
      */
-    public function setVille($ville)
+    public function removeActualite(\AppBundle\Entity\Actualite $actualite)
     {
-        $this->ville = $ville;
+        $this->actualites->removeElement($actualite);
     }
 
     /**
-     * @return mixed
+     * Get actualites
+     *
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCodepostale()
+    public function getActualites()
     {
-        return $this->codepostale;
+        return $this->actualites;
     }
 
     /**
-     * @param mixed $codepostale
+     * Add commentaire
+     *
+     * @param \AppBundle\Entity\Commentaire $commentaire
+     *
+     * @return Utilisateur
      */
-    public function setCodepostale($codepostale)
+    public function addCommentaire(\AppBundle\Entity\Commentaire $commentaire)
     {
-        $this->codepostale = $codepostale;
+        $this->commentaires[] = $commentaire;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Remove commentaire
+     *
+     * @param \AppBundle\Entity\Commentaire $commentaire
      */
-    public function getTelephone()
+    public function removeCommentaire(\AppBundle\Entity\Commentaire $commentaire)
     {
-        return $this->telephone;
+        $this->commentaires->removeElement($commentaire);
     }
 
     /**
-     * @param mixed $telephone
+     * Get commentaires
+     *
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function setTelephone($telephone)
+    public function getCommentaires()
     {
-        $this->telephone = $telephone;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isCivilite()
-    {
-        return $this->civilite;
-    }
-
-    /**
-     * @param bool $civilite
-     */
-    public function setCivilite($civilite)
-    {
-        $this->civilite = $civilite;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getDatedenaissance()
-    {
-        return $this->datedenaissance;
-    }
-
-    /**
-     * @param \DateTime $datedenaissance
-     */
-    public function setDatedenaissance($datedenaissance)
-    {
-        $this->datedenaissance = $datedenaissance;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPays()
-    {
-        return $this->pays;
-    }
-
-    /**
-     * @param string $pays
-     */
-    public function setPays($pays)
-    {
-        $this->pays = $pays;
+        return $this->commentaires;
     }
 }
