@@ -458,7 +458,7 @@ class LoadAnnonceData  extends AbstractFixture implements OrderedFixtureInterfac
         $this->addReference('ann20', $ann20);
 
 
-
+        $manager->flush();
 
 
 
