@@ -66,7 +66,6 @@ class TemplateActualiteController extends Controller
             'listactualites' => $listactualites,
             'listbiens' => $listbiens,
             'noteActualite' => $noteActualite
-
         ));
     }
 }

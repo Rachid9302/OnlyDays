@@ -75,7 +75,16 @@ class Actualite
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\CommentaireNews", mappedBy="actualite")
      */
-    private $commentaires_news;
+    private $commentairesnews;
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->commentairesnews = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -111,8 +120,6 @@ class Actualite
         return $this->titre;
     }
 
-
-
     /**
      * Set description
      *
@@ -135,55 +142,6 @@ class Actualite
     public function getDescription()
     {
         return $this->description;
-    }
-
-
-    /**
-     * Set auteur
-     *
-     * @param \AppBundle\Entity\Utilisateur $auteur
-     *
-     * @return Actualite
-     */
-    public function setAuteur(\AppBundle\Entity\Utilisateur $auteur = null)
-    {
-        $this->auteur = $auteur;
-
-        return $this;
-    }
-
-    /**
-     * Get auteur
-     *
-     * @return \AppBundle\Entity\Utilisateur
-     */
-    public function getAuteur()
-    {
-        return $this->auteur;
-    }
-
-    /**
-     * Set firstimage
-     *
-     * @param string $firstimage
-     *
-     * @return Actualite
-     */
-    public function setFirstimage($firstimage)
-    {
-        $this->firstimage = $firstimage;
-
-        return $this;
-    }
-
-    /**
-     * Get firstimage
-     *
-     * @return string
-     */
-    public function getFirstimage()
-    {
-        return $this->firstimage;
     }
 
     /**
@@ -233,45 +191,86 @@ class Actualite
     {
         return $this->dateevenement;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->commentaires_news = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
-     * Add commentairesNews
+     * Set firstimage
      *
-     * @param \AppBundle\Entity\CommentaireNews $commentairesNews
+     * @param string $firstimage
      *
      * @return Actualite
      */
-    public function addCommentairesNews(\AppBundle\Entity\CommentaireNews $commentairesNews)
+    public function setFirstimage($firstimage)
     {
-        $this->commentaires_news[] = $commentairesNews;
+        $this->firstimage = $firstimage;
 
         return $this;
     }
 
     /**
-     * Remove commentairesNews
+     * Get firstimage
      *
-     * @param \AppBundle\Entity\CommentaireNews $commentairesNews
+     * @return string
      */
-    public function removeCommentairesNews(\AppBundle\Entity\CommentaireNews $commentairesNews)
+    public function getFirstimage()
     {
-        $this->commentaires_news->removeElement($commentairesNews);
+        return $this->firstimage;
     }
 
     /**
-     * Get commentairesNews
+     * Set auteur
+     *
+     * @param \AppBundle\Entity\Utilisateur $auteur
+     *
+     * @return Actualite
+     */
+    public function setAuteur(\AppBundle\Entity\Utilisateur $auteur = null)
+    {
+        $this->auteur = $auteur;
+
+        return $this;
+    }
+
+    /**
+     * Get auteur
+     *
+     * @return \AppBundle\Entity\Utilisateur
+     */
+    public function getAuteur()
+    {
+        return $this->auteur;
+    }
+
+    /**
+     * Add commentairesnews
+     *
+     * @param \AppBundle\Entity\CommentaireNews $commentairesnews
+     *
+     * @return Actualite
+     */
+    public function addCommentairesnews(\AppBundle\Entity\CommentaireNews $commentairesnews)
+    {
+        $this->commentairesnews[] = $commentairesnews;
+
+        return $this;
+    }
+
+    /**
+     * Remove commentairesnews
+     *
+     * @param \AppBundle\Entity\CommentaireNews $commentairesnews
+     */
+    public function removeCommentairesnews(\AppBundle\Entity\CommentaireNews $commentairesnews)
+    {
+        $this->commentairesnews->removeElement($commentairesnews);
+    }
+
+    /**
+     * Get commentairesnews
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCommentairesNews()
+    public function getCommentairesnews()
     {
-        return $this->commentaires_news;
+        return $this->commentairesnews;
     }
 }
