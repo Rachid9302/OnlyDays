@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\Utilisateur;
 use AppBundle\Entity\Commentaire;
+use AppBundle\Entity\Reservation;
 
 /**
  * Annonce
@@ -152,6 +153,12 @@ class Annonce
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Commentaire", mappedBy="annonce")
      */
     private $commentaires;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reservation", mappedBy="annonce")
+     */
+    private $reservations;
+
 
     /**
      * Get id
@@ -573,5 +580,39 @@ class Annonce
     public function getCommentaires()
     {
         return $this->commentaires;
+    }
+
+    /**
+     * Add reservation
+     *
+     * @param \AppBundle\Entity\Reservation $reservation
+     *
+     * @return Annonce
+     */
+    public function addReservation(\AppBundle\Entity\Reservation $reservation)
+    {
+        $this->reservations[] = $reservation;
+
+        return $this;
+    }
+
+    /**
+     * Remove reservation
+     *
+     * @param \AppBundle\Entity\Reservation $reservation
+     */
+    public function removeReservation(\AppBundle\Entity\Reservation $reservation)
+    {
+        $this->reservations->removeElement($reservation);
+    }
+
+    /**
+     * Get reservations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReservations()
+    {
+        return $this->reservations;
     }
 }

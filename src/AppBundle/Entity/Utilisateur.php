@@ -7,6 +7,7 @@ use FOS\UserBundle\Model\User as BaseUser;
 use AppBundle\Entity\Annonce;
 use AppBundle\Entity\Actualite;
 use AppBundle\Entity\Commentaire;
+use AppBundle\Entity\Reservation;
 
 /**
  * Utilisateur
@@ -100,6 +101,11 @@ class Utilisateur extends BaseUser
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Commentaire", mappedBy="auteur")
      */
     private $commentaires;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reservation", mappedBy="auteur")
+     */
+    private $reservations;
 
     public function __construct()
     {
@@ -425,5 +431,39 @@ class Utilisateur extends BaseUser
     public function getCommentaires()
     {
         return $this->commentaires;
+    }
+
+    /**
+     * Add reservation
+     *
+     * @param \AppBundle\Entity\Reservation $reservation
+     *
+     * @return Utilisateur
+     */
+    public function addReservation(\AppBundle\Entity\Reservation $reservation)
+    {
+        $this->reservations[] = $reservation;
+
+        return $this;
+    }
+
+    /**
+     * Remove reservation
+     *
+     * @param \AppBundle\Entity\Reservation $reservation
+     */
+    public function removeReservation(\AppBundle\Entity\Reservation $reservation)
+    {
+        $this->reservations->removeElement($reservation);
+    }
+
+    /**
+     * Get reservations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReservations()
+    {
+        return $this->reservations;
     }
 }
