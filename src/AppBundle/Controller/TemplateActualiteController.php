@@ -53,6 +53,10 @@ class TemplateActualiteController extends Controller
             ->getRepository('AppBundle:Annonce')
             ->findAll();
 
+        $noteActualite = $this->getDoctrine()
+            ->getRepository('AppBundle:CommentaireNews')
+            ->noteActualite($detailactualite);
+
         if(!$detailactualite){
             throw $this-> createNotFoundException('La page n\'existe pas ');
         }
@@ -60,7 +64,8 @@ class TemplateActualiteController extends Controller
         return $this->render('template/detailactualite.html.twig', array(
             'detailactualite' => $detailactualite,
             'listactualites' => $listactualites,
-            'listbiens' => $listbiens
+            'listbiens' => $listbiens,
+            'noteActualite' => $noteActualite
 
         ));
     }

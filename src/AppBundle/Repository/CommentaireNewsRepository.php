@@ -10,4 +10,21 @@ namespace AppBundle\Repository;
  */
 class CommentaireNewsRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function noteActualite($actualite) {
+        $qb = $this->createQueryBuilder('a')
+            ->select('sum(a.note)')
+            ->where('a.actualite = :actualite')
+            ->setParameter('actualite', $actualite)
+        ;
+
+        /*/if( isset($search['type']) && in_array((int)$search['type'], [0,1] ) ) {
+            $qb->andWhere('a.dateDepot >= :dateDebut')->setParameter('prix', $search['prix'])
+        }*/
+
+
+        $query = $qb->getQuery();
+        $results = $query->getSingleScalarResult();
+
+        return $results;
+    }
 }

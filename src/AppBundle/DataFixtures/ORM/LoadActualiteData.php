@@ -115,7 +115,18 @@ class LoadActualiteData  extends AbstractFixture implements OrderedFixtureInterf
         $manager->persist($actualite11);
 
 
-
+        $this->addReference('actualite', $actualite);
+        $this->addReference('actualite1', $actualite1);
+        $this->addReference('actualite2', $actualite2);
+        $this->addReference('actualite3', $actualite3);
+        $this->addReference('actualite4', $actualite4);
+        $this->addReference('actualite5', $actualite5);
+        $this->addReference('actualite6', $actualite6);
+        $this->addReference('actualite7', $actualite7);
+        $this->addReference('actualite8', $actualite8);
+        $this->addReference('actualite9', $actualite9);
+        $this->addReference('actualite10', $actualite10);
+        $this->addReference('actualite11', $actualite11);
 
 
         $manager->flush();
