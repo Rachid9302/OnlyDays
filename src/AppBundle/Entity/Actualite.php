@@ -10,6 +10,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\Utilisateur;
+use AppBundle\Entity\CommentaireNews;
 
 /**
  * Actualite
@@ -70,6 +71,11 @@ class Actualite
      * @ORM\Column(name="firstimage", type="string", length=255)
      */
     private $firstimage;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CommentaireNews", mappedBy="actualite")
+     */
+    private $commentaires_news;
 
     /**
      * Get id
@@ -226,5 +232,46 @@ class Actualite
     public function getDateevenement()
     {
         return $this->dateevenement;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->commentaires_news = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add commentairesNews
+     *
+     * @param \AppBundle\Entity\CommentaireNews $commentairesNews
+     *
+     * @return Actualite
+     */
+    public function addCommentairesNews(\AppBundle\Entity\CommentaireNews $commentairesNews)
+    {
+        $this->commentaires_news[] = $commentairesNews;
+
+        return $this;
+    }
+
+    /**
+     * Remove commentairesNews
+     *
+     * @param \AppBundle\Entity\CommentaireNews $commentairesNews
+     */
+    public function removeCommentairesNews(\AppBundle\Entity\CommentaireNews $commentairesNews)
+    {
+        $this->commentaires_news->removeElement($commentairesNews);
+    }
+
+    /**
+     * Get commentairesNews
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommentairesNews()
+    {
+        return $this->commentaires_news;
     }
 }

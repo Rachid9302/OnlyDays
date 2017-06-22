@@ -8,6 +8,7 @@ use AppBundle\Entity\Annonce;
 use AppBundle\Entity\Actualite;
 use AppBundle\Entity\Commentaire;
 use AppBundle\Entity\Reservation;
+use AppBundle\Entity\CommentaireNews;
 
 /**
  * Utilisateur
@@ -106,6 +107,11 @@ class Utilisateur extends BaseUser
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reservation", mappedBy="auteur")
      */
     private $reservations;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CommentaireNews", mappedBy="auteur")
+     */
+    private $commentaires_news;
 
     public function __construct()
     {
@@ -465,5 +471,39 @@ class Utilisateur extends BaseUser
     public function getReservations()
     {
         return $this->reservations;
+    }
+
+    /**
+     * Add commentairesNews
+     *
+     * @param \AppBundle\Entity\CommentaireNews $commentairesNews
+     *
+     * @return Utilisateur
+     */
+    public function addCommentairesNews(\AppBundle\Entity\CommentaireNews $commentairesNews)
+    {
+        $this->commentaires_news[] = $commentairesNews;
+
+        return $this;
+    }
+
+    /**
+     * Remove commentairesNews
+     *
+     * @param \AppBundle\Entity\CommentaireNews $commentairesNews
+     */
+    public function removeCommentairesNews(\AppBundle\Entity\CommentaireNews $commentairesNews)
+    {
+        $this->commentaires_news->removeElement($commentairesNews);
+    }
+
+    /**
+     * Get commentairesNews
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommentairesNews()
+    {
+        return $this->commentaires_news;
     }
 }
