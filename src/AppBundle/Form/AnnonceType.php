@@ -26,7 +26,6 @@ class AnnonceType extends AbstractType
             ->add('prixnuit')
             ->add('dateDepot')
             ->add('firstimage')
-            ->add('localisation')
             ->add('typepropriete')
             ->add('auteur')
             ->add('last_auteur')

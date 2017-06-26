@@ -27,7 +27,6 @@
                 <th>Prixnuit</th>
                 <th>Datedepot</th>
                 <th>Firstimage</th>
-                <th>Localisation</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -48,7 +47,7 @@
                 <td>{{ annonce.prixnuit }}</td>
                 <td>{% if annonce.dateDepot %}{{ annonce.dateDepot|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ annonce.firstimage }}</td>
-                <td>{{ annonce.localisation }}</td>
+
                 <td>
                     <ul>
                         <li>

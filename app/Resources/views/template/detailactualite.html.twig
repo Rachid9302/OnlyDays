@@ -21,9 +21,9 @@
                     <p>{{ detailactualite.description }}</p>
                 </div>
                 <div id="commentaire">
-                    <h2>{{ detailactualite.commentairenews | length }} commentaires
-                        {% if noteAnnonce > 0 %}
-                            {% set moyenneNote = noteActualite / detailactualite.commentairenews | length  %}
+                    <h2>{{ detailactualite.commentairesnews | length }} commentaires
+                        {% if noteActualite > 0 %}
+                            {% set moyenneNote = noteActualite / detailactualite.commentairesnews | length  %}
                         {% else %}
                             {% set moyenneNote = 0  %}
                         {% endif %}
@@ -44,15 +44,15 @@
                         {% endfor %}
                         {{ moyenneNote }}/5</h2>
                     <div class="container col-xs-12">
-                        {% for commentaire in detailactualite.commentairenews %}
+                        {% for commentaire in detailactualite.commentairesnews %}
 
 
                             <div class="commentaire-detail row">
                                 <img class="col-xs-3" src="{{ asset('css/img/produit/commentaire/lacazette.jpg') }}">
                                 <div class="col-xs-9">
-                                    <h3>{{ commentairenews.auteur }}, {{ commentairenews.datecreation | date('Y-m-d') }}</h3>
+                                    <h3>{{ commentaire.auteur }}, {{ commentaire.datecreation | date('Y-m-d') }}</h3>
                                     <p>
-                                        {{ commentairenews.textecommentaire }}
+                                        {{ commentaire.textecommentaire }}
                                     </p>
                                 </div>
                             </div>

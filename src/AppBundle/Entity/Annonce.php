@@ -117,12 +117,7 @@ class Annonce
      */
     private $firstimage;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="localisation", type="string", length=255)
-     */
-    private $localisation;
+
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Utilisateur", inversedBy="annonces")
@@ -158,6 +153,11 @@ class Annonce
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reservation", mappedBy="annonce")
      */
     private $reservations;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Annonceadresse", mappedBy="annonce")
+     */
+    private $annonceadresse;
 
 
     /**
@@ -312,22 +312,6 @@ class Annonce
     public function setFirstimage($firstimage)
     {
         $this->firstimage = $firstimage;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLocalisation()
-    {
-        return $this->localisation;
-    }
-
-    /**
-     * @param string $localisation
-     */
-    public function setLocalisation($localisation)
-    {
-        $this->localisation = $localisation;
     }
 
 
@@ -614,5 +598,39 @@ class Annonce
     public function getReservations()
     {
         return $this->reservations;
+    }
+
+    /**
+     * Add annonceadresse
+     *
+     * @param \AppBundle\Entity\Annonceadresse $annonceadresse
+     *
+     * @return Annonce
+     */
+    public function addAnnonceadresse(\AppBundle\Entity\Annonceadresse $annonceadresse)
+    {
+        $this->annonceadresse[] = $annonceadresse;
+
+        return $this;
+    }
+
+    /**
+     * Remove annonceadresse
+     *
+     * @param \AppBundle\Entity\Annonceadresse $annonceadresse
+     */
+    public function removeAnnonceadresse(\AppBundle\Entity\Annonceadresse $annonceadresse)
+    {
+        $this->annonceadresse->removeElement($annonceadresse);
+    }
+
+    /**
+     * Get annonceadresse
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAnnonceadresse()
+    {
+        return $this->annonceadresse;
     }
 }

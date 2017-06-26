@@ -10,55 +10,30 @@
 
     <h1>Annonces list</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
+                <th>Image</th>
                 <th>Id</th>
                 <th>Reference</th>
                 <th>Titre</th>
                 <th>Description</th>
-                <th>Superficie</th>
-                <th>Piece</th>
-                <th>Chambre</th>
-                <th>Lit</th>
-                <th>Cuisine</th>
-                <th>Voyageurmax</th>
-                <th>Wifi</th>
-                <th>Prixnuit</th>
-                <th>Datedepot</th>
-                <th>Firstimage</th>
-                <th>Localisation</th>
-                <th>Actions</th>
+                <th>Afficher</th>
+                <th>Modifier</th>
             </tr>
         </thead>
         <tbody>
         {% for annonce in annonces %}
             <tr>
+                <td><img style="width: 100px; height: 100px;" src="{{ asset(annonce.firstimage) }}"></td>
                 <td><a href="{{ path('moncompte_annonce_show', { 'id': annonce.id }) }}">{{ annonce.id }}</a></td>
                 <td>{{ annonce.reference }}</td>
                 <td>{{ annonce.titre }}</td>
                 <td>{{ annonce.description|slice(0, 50) }}</td>
-                <td>{{ annonce.superficie }}</td>
-                <td>{{ annonce.piece }}</td>
-                <td>{{ annonce.chambre }}</td>
-                <td>{{ annonce.lit }}</td>
-                <td>{{ annonce.cuisine }}</td>
-                <td>{{ annonce.voyageurmax }}</td>
-                <td>{% if annonce.wifi %}Yes{% else %}No{% endif %}</td>
-                <td>{{ annonce.prixnuit }}</td>
-                <td>{% if annonce.dateDepot %}{{ annonce.dateDepot|date('Y-m-d') }}{% endif %}</td>
-                <td>{{ annonce.firstimage }}</td>
-                <td>{{ annonce.localisation }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('moncompte_annonce_show', { 'id': annonce.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('moncompte_annonce_edit', { 'id': annonce.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
+
+
+                <td><a class="btn btn-info" href="{{ path('moncompte_annonce_show', { 'id': annonce.id }) }}">Afficher</a></td>
+                <td><a class="btn btn-warning" href="{{ path('moncompte_annonce_edit', { 'id': annonce.id }) }}">Modifier</a></td>
             </tr>
         {% endfor %}
         </tbody>

@@ -182,8 +182,8 @@
                 {% for listbienaccueil in listbienaccueils|slice(0, 4)  %}
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                     <img style="height: 260px; width: 260px;" src="{{ asset(listbienaccueil.firstimage) }}">
-                    <h3>Donec ultricies euismod nibh quis posuere ligula</h3>
-                    <p>Aliquam consectetur ligula sit amet rhoncus consequat. Vivamus tincidunt erat ac efficitur faucibus.</p>
+                    <h3>{{ listbienaccueil.titre }}</h3>
+                    <p>{{ listbienaccueil.description|slice(0, 50) }}</p>
                     <a href="{{ path('detailbien',{'id' : listbienaccueil.id}) }}">Découvrir le bien</a>
                 </div>
                 {% endfor %}

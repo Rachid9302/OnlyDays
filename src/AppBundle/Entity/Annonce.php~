@@ -4,6 +4,8 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\Utilisateur;
+use AppBundle\Entity\Commentaire;
+use AppBundle\Entity\Reservation;
 
 /**
  * Annonce
@@ -115,12 +117,7 @@ class Annonce
      */
     private $firstimage;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="localisation", type="string", length=255)
-     */
-    private $localisation;
+
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Utilisateur", inversedBy="annonces")
@@ -151,6 +148,17 @@ class Annonce
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Commentaire", mappedBy="annonce")
      */
     private $commentaires;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reservation", mappedBy="annonce")
+     */
+    private $reservations;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Annonceadresse", mappedBy="annonce")
+     */
+    private $annonceadresse;
+
 
     /**
      * Get id
@@ -304,22 +312,6 @@ class Annonce
     public function setFirstimage($firstimage)
     {
         $this->firstimage = $firstimage;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLocalisation()
-    {
-        return $this->localisation;
-    }
-
-    /**
-     * @param string $localisation
-     */
-    public function setLocalisation($localisation)
-    {
-        $this->localisation = $localisation;
     }
 
 
@@ -572,5 +564,39 @@ class Annonce
     public function getCommentaires()
     {
         return $this->commentaires;
+    }
+
+    /**
+     * Add reservation
+     *
+     * @param \AppBundle\Entity\Reservation $reservation
+     *
+     * @return Annonce
+     */
+    public function addReservation(\AppBundle\Entity\Reservation $reservation)
+    {
+        $this->reservations[] = $reservation;
+
+        return $this;
+    }
+
+    /**
+     * Remove reservation
+     *
+     * @param \AppBundle\Entity\Reservation $reservation
+     */
+    public function removeReservation(\AppBundle\Entity\Reservation $reservation)
+    {
+        $this->reservations->removeElement($reservation);
+    }
+
+    /**
+     * Get reservations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReservations()
+    {
+        return $this->reservations;
     }
 }

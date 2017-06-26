@@ -62,9 +62,13 @@ class TemplateController extends Controller
      */
     public function decouvrirlyonAction()
     {
-        return $this->render('template/decouvrirlyon.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-        ]);
+        $annonces = $this->getDoctrine()
+            ->getRepository('AppBundle:Annonce')
+            ->findAll();
+
+        return $this->render('template/decouvrirlyon.html.twig', array(
+            'annonces' => $annonces
+        ));
     }
 
 
