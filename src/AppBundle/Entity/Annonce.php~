@@ -155,9 +155,32 @@ class Annonce
     private $reservations;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Annonceadresse", mappedBy="annonce")
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="string", length=255)
      */
-    private $annonceadresse;
+    private $adresse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codepostal", type="string", length=5)
+     */
+    private $codepostal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ville", type="string", length=255)
+     */
+    private $ville;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pays", type="string", length=255)
+     */
+    private $pays;
 
 
     /**
@@ -598,5 +621,39 @@ class Annonce
     public function getReservations()
     {
         return $this->reservations;
+    }
+
+    /**
+     * Add annonceadresse
+     *
+     * @param \AppBundle\Entity\Annonceadresse $annonceadresse
+     *
+     * @return Annonce
+     */
+    public function addAnnonceadresse(\AppBundle\Entity\Annonceadresse $annonceadresse)
+    {
+        $this->annonceadresse[] = $annonceadresse;
+
+        return $this;
+    }
+
+    /**
+     * Remove annonceadresse
+     *
+     * @param \AppBundle\Entity\Annonceadresse $annonceadresse
+     */
+    public function removeAnnonceadresse(\AppBundle\Entity\Annonceadresse $annonceadresse)
+    {
+        $this->annonceadresse->removeElement($annonceadresse);
+    }
+
+    /**
+     * Get annonceadresse
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAnnonceadresse()
+    {
+        return $this->annonceadresse;
     }
 }
