@@ -4,7 +4,7 @@
 
 {% block header %}<header class="header-bien">{% endblock %}
 
-{% block body %}
+    {% block body %}
     <div class="container header">
         <form action="{{ path('listebien_recherche') }}" class="scrollTo">
             <div class="row text-header">
@@ -34,9 +34,9 @@
                     <h1>et jusqu'au </h1>
                     <input type="date" name="recherche[date_fin]" {%  if search.date_fin is defined and search.date_fin == search.date_fin %} value="{{ search.date_fin }}"{% endif %}>
                 </div>
-                    <div class="col-xs-12">
+                <div class="col-xs-12">
                     <input type="submit" value="Trouver mon bien"/>
-                    </div>
+                </div>
 
             </div>
         </form>
@@ -95,21 +95,19 @@
                 <div class="container col-sm-9">
                     <div class="row">
 
-
                         {% for listbien in listbiens %}
-                        <div class="col-sm-4 col-xs-12 article">
-                            <img style="height: 260px; width: 260px;" src="{{ asset(listbien.firstimage) }}">
-                            <h3>{{ listbien.titre }}</h3>
-                            <h3>{{ listbien.dateDepot  | date("d-m-Y") }}</h3>
-                            <p>{{ listbien.description|slice(0, 50) }}</p>
-                            <a href="{{ path('detailbien',{'id' : listbien.id}) }}">Découvrir le bien</a>
-                        </div>
+                            <div class="col-sm-4 col-xs-12 article">
+                                <img style="height: 260px; width: 260px;" src="{{ asset(listbien.firstimage) }}">
+                                <h3>{{ listbien.titre }}</h3>
+                                <h3>{{ listbien.dateDepot  | date("d-m-Y") }}</h3>
+                                <p>{{ listbien.description|slice(0, 50) }}</p>
+                                <a href="{{ path('detailbien',{'id' : listbien.id}) }}">Découvrir le bien</a>
+                            </div>
                         {% endfor %}
 
                         <div class="navigation col-xs-12 text-center">
                             {{ knp_pagination_render(listbiens) }}
                         </div>
-
 
                     </div>
                 </div>

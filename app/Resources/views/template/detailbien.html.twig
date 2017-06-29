@@ -100,7 +100,9 @@
                             </div>
                             #}
                         {% endfor %}
+
                     </div>
+
                 </div>
             </div>
             <div class="right-part col-sm-5 col-sm-offset-1">
@@ -137,33 +139,17 @@
         <div class="container">
             <div class="row">
                 <h2 class="col-sm-7 col-xs-12">Etiam aliquam faucibus velit, a elementum massa donec.</h2>
-                <button class="col-xs-12 col-sm-3 col-sm-offset-2 ">Voir plus de biens</button>
+                <button  class="col-xs-12 col-sm-3 col-sm-offset-2" onclick="location.href='listebien'">Voir plus de biens</button>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <img src="{{ asset('css/img/produit/01-min.jpg') }}">
-                    <h3>Donec ultricies euismod nibh quis posuere ligula</h3>
-                    <p>Aliquam consectetur ligula sit amet rhoncus consequat. Vivamus tincidunt erat ac efficitur faucibus.</p>
-                    <a href="#">Découvrir le bien</a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <img src="{{ asset('css/img/produit/02-min.jpg') }}">
-                    <h3>Donec ultricies euismod nibh quis posuere ligula</h3>
-                    <p>Aliquam consectetur ligula sit amet rhoncus consequat. Vivamus tincidunt erat ac efficitur faucibus.</p>
-                    <a href="#">Découvrir le bien</a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <img src="{{ asset('css/img/produit/03-min.jpg') }}">
-                    <h3>Donec ultricies euismod nibh quis posuere ligula</h3>
-                    <p>Aliquam consectetur ligula sit amet rhoncus consequat. Vivamus tincidunt erat ac efficitur faucibus.</p>
-                    <a href="#">Découvrir le bien</a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <img src="{{ asset('css/img/produit/04-min.jpg') }}">
-                    <h3>Donec ultricies euismod nibh quis posuere ligula</h3>
-                    <p>Aliquam consectetur ligula sit amet rhoncus consequat. Vivamus tincidunt erat ac efficitur faucibus.</p>
-                    <a href="#">Découvrir le bien</a>
-                </div>
+                {% for listbien in listbiens|slice(0, 4)  %}
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <img style="height: 260px; width: 260px;" src="{{ asset(listbien.firstimage) }}">
+                        <h3>{{ listbien.titre }}</h3>
+                        <p>{{ listbien.description|slice(0, 50) }}</p>
+                        <a href="{{ path('detailbien',{'id' : listbien.id}) }}">Découvrir le bien</a>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </section>

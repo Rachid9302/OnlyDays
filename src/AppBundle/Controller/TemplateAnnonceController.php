@@ -2,8 +2,11 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Commentaire;
+use AppBundle\Form\CommentType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class TemplateAnnonceController extends Controller
@@ -133,10 +136,11 @@ class TemplateAnnonceController extends Controller
     }
 
 
+
     /**
      * @Route("/detailbien/{id}", name="detailbien", requirements={"id"="\d+"})
      */
-    public function detailbienAction($id)
+    public function detailbienAction(Request $request, $id)
     {
         $detailbien = $this->getDoctrine()
             ->getRepository('AppBundle:Annonce')
@@ -145,13 +149,21 @@ class TemplateAnnonceController extends Controller
             throw $this-> createNotFoundException('La page n\'existe pas ');
         }
 
+        $listbiens = $this->getDoctrine()
+            ->getRepository('AppBundle:Annonce')
+            ->findAll();
+
         $noteAnnonce = $this->getDoctrine()
             ->getRepository('AppBundle:Commentaire')
             ->noteAnnonce($detailbien);
 
+
+
+
         return $this->render('template/detailbien.html.twig', array(
             'detailbien' => $detailbien,
-            'noteAnnonce' => $noteAnnonce
+            'noteAnnonce' => $noteAnnonce,
+            'listbiens' => $listbiens,
 
         ));
     }
