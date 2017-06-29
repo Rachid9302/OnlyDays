@@ -103,6 +103,13 @@
 
                     </div>
 
+                    <form action="{{ path('detailbien',{'id' : detailbien.id}) }}" method="POST">
+                        <div class="form-group">
+                            {{ form_widget(form) }}
+                        </div>
+                        <input type="submit" value="Ajouter mon commentaire">
+                    </form>
+
                 </div>
             </div>
             <div class="right-part col-sm-5 col-sm-offset-1">

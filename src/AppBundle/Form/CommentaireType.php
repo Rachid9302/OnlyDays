@@ -13,16 +13,17 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
-class CommentType extends AbstractType
+class CommentaireType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('content', TextareaType::class);
-           // ->add('dateDepot', DateType::class);
+        $builder->add('texteCommentaire', TextareaType::class)
+           ->add('datecreation', DateType::class)
+           ->add('note');
     }
 
     public function getName()
     {
-        return 'comment';
+        return 'appbundle_commentaire';
     }
 }

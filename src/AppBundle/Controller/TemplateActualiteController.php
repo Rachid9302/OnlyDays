@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\CommentaireNews;
+use AppBundle\Form\CommentaireNewsType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,7 +41,7 @@ class TemplateActualiteController extends Controller
     /**
      * @Route("/detailactualite/{id}", name="detailactualite", requirements={"id"="\d+"})
      */
-    public function detailactualiteAction($id)
+    public function detailactualiteAction(Request $request, $id)
     {
         $detailactualite = $this->getDoctrine()
             ->getRepository('AppBundle:Actualite')
@@ -61,11 +63,31 @@ class TemplateActualiteController extends Controller
             throw $this-> createNotFoundException('La page n\'existe pas ');
         }
 
+        $utilisateur = $this->getUser();
+        $entity = new CommentaireNews();
+
+        $form = $this->createForm(CommentaireNewsType::class ,$entity);
+
+        if($request->isMethod('POST'))
+        {
+            $form->HandleRequest($request);
+            if($form->isValid()){
+                $em = $this->getDoctrine()->getManager();
+                $entity->setAuteur($utilisateur);
+                $entity->setActualite($detailactualite);
+                $em->persist($entity);
+                $em->flush();
+
+                return $this->redirect($this->generateUrl('listeactualite'));
+            }
+        }
+
         return $this->render('template/detailactualite.html.twig', array(
             'detailactualite' => $detailactualite,
             'listactualites' => $listactualites,
             'listbiens' => $listbiens,
-            'noteActualite' => $noteActualite
+            'noteActualite' => $noteActualite,
+            'form' => $form->createView()
         ));
     }
 }

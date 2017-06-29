@@ -3,7 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Commentaire;
-use AppBundle\Form\CommentType;
+use AppBundle\Form\CommentaireType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -142,6 +142,9 @@ class TemplateAnnonceController extends Controller
      */
     public function detailbienAction(Request $request, $id)
     {
+
+
+
         $detailbien = $this->getDoctrine()
             ->getRepository('AppBundle:Annonce')
             ->find($id);
@@ -157,6 +160,24 @@ class TemplateAnnonceController extends Controller
             ->getRepository('AppBundle:Commentaire')
             ->noteAnnonce($detailbien);
 
+        $utilisateur = $this->getUser();
+        $entity = new Commentaire();
+
+        $form = $this->createForm(CommentaireType::class,$entity);
+
+        if($request->isMethod('POST'))
+        {
+            $form->HandleRequest($request);
+            if($form->isValid()){
+                $em = $this->getDoctrine()->getManager();
+                $entity->setAuteur($utilisateur);
+                $entity->setAnnonce($detailbien);
+                $em->persist($entity);
+                $em->flush();
+
+                return $this->redirect($this->generateUrl('listebien'));
+            }
+        }
 
 
 
@@ -164,6 +185,7 @@ class TemplateAnnonceController extends Controller
             'detailbien' => $detailbien,
             'noteAnnonce' => $noteAnnonce,
             'listbiens' => $listbiens,
+            'form' => $form->createView()
 
         ));
     }

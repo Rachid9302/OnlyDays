@@ -47,7 +47,7 @@ class AnnonceType extends AbstractType
                     '6 arrondissement' => '6',
                     '7 arrondissement' => '7',
                     '8 arrondissement' => '8',
-                    '9 arrondissement' => '9',
+                    '9 arrondissement' => '1',
                 )
             ));
     }
