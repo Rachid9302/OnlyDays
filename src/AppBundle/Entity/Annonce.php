@@ -155,9 +155,32 @@ class Annonce
     private $reservations;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Annonceadresse", mappedBy="annonce")
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="string", length=255)
      */
-    private $annonceadresse;
+    private $adresse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codepostal", type="string", length=5)
+     */
+    private $codepostal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ville", type="string", length=255)
+     */
+    private $ville;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pays", type="string", length=255)
+     */
+    private $pays;
 
 
     /**
@@ -632,5 +655,101 @@ class Annonce
     public function getAnnonceadresse()
     {
         return $this->annonceadresse;
+    }
+
+    /**
+     * Set adresse
+     *
+     * @param string $adresse
+     *
+     * @return Annonce
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * Set codepostal
+     *
+     * @param string $codepostal
+     *
+     * @return Annonce
+     */
+    public function setCodepostal($codepostal)
+    {
+        $this->codepostal = $codepostal;
+
+        return $this;
+    }
+
+    /**
+     * Get codepostal
+     *
+     * @return string
+     */
+    public function getCodepostal()
+    {
+        return $this->codepostal;
+    }
+
+    /**
+     * Set ville
+     *
+     * @param string $ville
+     *
+     * @return Annonce
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return string
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Set pays
+     *
+     * @param string $pays
+     *
+     * @return Annonce
+     */
+    public function setPays($pays)
+    {
+        $this->pays = $pays;
+
+        return $this;
+    }
+
+    /**
+     * Get pays
+     *
+     * @return string
+     */
+    public function getPays()
+    {
+        return $this->pays;
     }
 }
