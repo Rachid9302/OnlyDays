@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Newsletter;
+use AppBundle\Form\NewsletterType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -68,6 +70,35 @@ class TemplateController extends Controller
 
         return $this->render('template/decouvrirlyon.html.twig', array(
             'annonces' => $annonces
+        ));
+    }
+
+    /**
+     * @Route("/newsletter", name="newsletter")
+     */
+    public function newsLetterAction(Request $request)
+    {
+
+
+        $entity = new Newsletter();
+        $form = $this->createForm(NewsletterType::class);
+
+        if($request->isMethod('POST'))
+        {
+            $form->HandleRequest($request);
+            if($form->isValid()){
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($entity);
+                $em->flush();
+
+                return $this->redirect($this->generateUrl('accueil'));
+            }
+        }
+
+
+        return $this->render('template/newsletter.html.twig', array(
+            'form' => $form->createView()
+
         ));
     }
 
