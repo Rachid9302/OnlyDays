@@ -193,6 +193,40 @@ class Annonce
         return $this->id;
     }
 
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->commentaires = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->reservations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set reference
+     *
+     * @param integer $reference
+     *
+     * @return Annonce
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    /**
+     * Get reference
+     *
+     * @return integer
+     */
+    public function getReference()
+    {
+        return $this->reference;
+    }
+
     /**
      * Set titre
      *
@@ -242,6 +276,198 @@ class Annonce
     }
 
     /**
+     * Set superficie
+     *
+     * @param integer $superficie
+     *
+     * @return Annonce
+     */
+    public function setSuperficie($superficie)
+    {
+        $this->superficie = $superficie;
+
+        return $this;
+    }
+
+    /**
+     * Get superficie
+     *
+     * @return integer
+     */
+    public function getSuperficie()
+    {
+        return $this->superficie;
+    }
+
+    /**
+     * Set piece
+     *
+     * @param integer $piece
+     *
+     * @return Annonce
+     */
+    public function setPiece($piece)
+    {
+        $this->piece = $piece;
+
+        return $this;
+    }
+
+    /**
+     * Get piece
+     *
+     * @return integer
+     */
+    public function getPiece()
+    {
+        return $this->piece;
+    }
+
+    /**
+     * Set chambre
+     *
+     * @param integer $chambre
+     *
+     * @return Annonce
+     */
+    public function setChambre($chambre)
+    {
+        $this->chambre = $chambre;
+
+        return $this;
+    }
+
+    /**
+     * Get chambre
+     *
+     * @return integer
+     */
+    public function getChambre()
+    {
+        return $this->chambre;
+    }
+
+    /**
+     * Set lit
+     *
+     * @param integer $lit
+     *
+     * @return Annonce
+     */
+    public function setLit($lit)
+    {
+        $this->lit = $lit;
+
+        return $this;
+    }
+
+    /**
+     * Get lit
+     *
+     * @return integer
+     */
+    public function getLit()
+    {
+        return $this->lit;
+    }
+
+    /**
+     * Set cuisine
+     *
+     * @param integer $cuisine
+     *
+     * @return Annonce
+     */
+    public function setCuisine($cuisine)
+    {
+        $this->cuisine = $cuisine;
+
+        return $this;
+    }
+
+    /**
+     * Get cuisine
+     *
+     * @return integer
+     */
+    public function getCuisine()
+    {
+        return $this->cuisine;
+    }
+
+    /**
+     * Set voyageurmax
+     *
+     * @param integer $voyageurmax
+     *
+     * @return Annonce
+     */
+    public function setVoyageurmax($voyageurmax)
+    {
+        $this->voyageurmax = $voyageurmax;
+
+        return $this;
+    }
+
+    /**
+     * Get voyageurmax
+     *
+     * @return integer
+     */
+    public function getVoyageurmax()
+    {
+        return $this->voyageurmax;
+    }
+
+    /**
+     * Set wifi
+     *
+     * @param boolean $wifi
+     *
+     * @return Annonce
+     */
+    public function setWifi($wifi)
+    {
+        $this->wifi = $wifi;
+
+        return $this;
+    }
+
+    /**
+     * Get wifi
+     *
+     * @return boolean
+     */
+    public function getWifi()
+    {
+        return $this->wifi;
+    }
+
+    /**
+     * Set prixnuit
+     *
+     * @param integer $prixnuit
+     *
+     * @return Annonce
+     */
+    public function setPrixnuit($prixnuit)
+    {
+        $this->prixnuit = $prixnuit;
+
+        return $this;
+    }
+
+    /**
+     * Get prixnuit
+     *
+     * @return integer
+     */
+    public function getPrixnuit()
+    {
+        return $this->prixnuit;
+    }
+
+    /**
      * Set dateDepot
      *
      * @param \DateTime $dateDepot
@@ -266,62 +492,22 @@ class Annonce
     }
 
     /**
-     * Set auteur
+     * Set firstimage
      *
-     * @param \AppBundle\Entity\Utilisateur $auteur
+     * @param string $firstimage
      *
      * @return Annonce
      */
-    public function setAuteur(\AppBundle\Entity\Utilisateur $auteur = null)
+    public function setFirstimage($firstimage)
     {
-        $this->auteur = $auteur;
+        $this->firstimage = $firstimage;
 
         return $this;
     }
 
     /**
-     * Get auteur
+     * Get firstimage
      *
-     * @return \AppBundle\Entity\Utilisateur
-     */
-    public function getAuteur()
-    {
-        return $this->auteur;
-    }
-
-    /**
-     * @ORM\PrePersist()
-     */
-    public function updateDateDepot()
-    {
-        $this->dateDepot = new \DateTime();
-    }
-
-    /**
-     * Set lastAuteur
-     *
-     * @param \AppBundle\Entity\Utilisateur $lastAuteur
-     *
-     * @return Annonce
-     */
-    public function setLastAuteur(\AppBundle\Entity\Utilisateur $lastAuteur = null)
-    {
-        $this->last_auteur = $lastAuteur;
-
-        return $this;
-    }
-
-    /**
-     * Get lastAuteur
-     *
-     * @return \AppBundle\Entity\Utilisateur
-     */
-    public function getLastAuteur()
-    {
-        return $this->last_auteur;
-    }
-
-    /**
      * @return string
      */
     public function getFirstimage()
@@ -330,188 +516,17 @@ class Annonce
     }
 
     /**
-     * @param string $firstimage
-     */
-    public function setFirstimage($firstimage)
-    {
-        $this->firstimage = $firstimage;
-    }
-
-
-
-    /**
-     * @return int
-     */
-    public function getReference()
-    {
-        return $this->reference;
-    }
-
-    /**
-     * @param int $reference
-     */
-    public function setReference($reference)
-    {
-        $this->reference = $reference;
-    }
-
-    /**
-     * @return int
-     */
-    public function getSuperficie()
-    {
-        return $this->superficie;
-    }
-
-    /**
-     * @param int $superficie
-     */
-    public function setSuperficie($superficie)
-    {
-        $this->superficie = $superficie;
-    }
-
-    /**
-     * @return int
-     */
-    public function getCuisine()
-    {
-        return $this->cuisine;
-    }
-
-    /**
-     * @param int $cuisine
-     */
-    public function setCuisine($cuisine)
-    {
-        $this->cuisine = $cuisine;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getVoyageurmax()
-    {
-        return $this->voyageurmax;
-    }
-
-    /**
-     * @param mixed $voyageurmax
-     */
-    public function setVoyageurmax($voyageurmax)
-    {
-        $this->voyageurmax = $voyageurmax;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isWifi()
-    {
-        return $this->wifi;
-    }
-
-    /**
-     * @param bool $wifi
-     */
-    public function setWifi($wifi)
-    {
-        $this->wifi = $wifi;
-    }
-
-
-
-    /**
-     * @return mixed
-     */
-    public function getChambre()
-    {
-        return $this->chambre;
-    }
-
-    /**
-     * @param mixed $chambre
-     */
-    public function setChambre($chambre)
-    {
-        $this->chambre = $chambre;
-    }
-
-    /**
-     * @return int
-     */
-    public function getLit()
-    {
-        return $this->lit;
-    }
-
-    /**
-     * @param int $lit
-     */
-    public function setLit($lit)
-    {
-        $this->lit = $lit;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPiece()
-    {
-        return $this->piece;
-    }
-
-    /**
-     * @param mixed $piece
-     */
-    public function setPiece($piece)
-    {
-        $this->piece = $piece;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPrixnuit()
-    {
-        return $this->prixnuit;
-    }
-
-    /**
-     * @param int $prixnuit
-     */
-    public function setPrixnuit($prixnuit)
-    {
-        $this->prixnuit = $prixnuit;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isTypepropriete()
-    {
-        return $this->typepropriete;
-    }
-
-    /**
-     * @param bool $typepropriete
+     * Set typepropriete
+     *
+     * @param boolean $typepropriete
+     *
+     * @return Annonce
      */
     public function setTypepropriete($typepropriete)
     {
         $this->typepropriete = $typepropriete;
-    }
 
-
-
-
-    /**
-     * Get wifi
-     *
-     * @return boolean
-     */
-    public function getWifi()
-    {
-        return $this->wifi;
+        return $this;
     }
 
     /**
@@ -546,115 +561,6 @@ class Annonce
     public function getArrondissement()
     {
         return $this->arrondissement;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->commentaires = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add commentaire
-     *
-     * @param \AppBundle\Entity\Commentaire $commentaire
-     *
-     * @return Annonce
-     */
-    public function addCommentaire(\AppBundle\Entity\Commentaire $commentaire)
-    {
-        $this->commentaires[] = $commentaire;
-
-        return $this;
-    }
-
-    /**
-     * Remove commentaire
-     *
-     * @param \AppBundle\Entity\Commentaire $commentaire
-     */
-    public function removeCommentaire(\AppBundle\Entity\Commentaire $commentaire)
-    {
-        $this->commentaires->removeElement($commentaire);
-    }
-
-    /**
-     * Get commentaires
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCommentaires()
-    {
-        return $this->commentaires;
-    }
-
-    /**
-     * Add reservation
-     *
-     * @param \AppBundle\Entity\Reservation $reservation
-     *
-     * @return Annonce
-     */
-    public function addReservation(\AppBundle\Entity\Reservation $reservation)
-    {
-        $this->reservations[] = $reservation;
-
-        return $this;
-    }
-
-    /**
-     * Remove reservation
-     *
-     * @param \AppBundle\Entity\Reservation $reservation
-     */
-    public function removeReservation(\AppBundle\Entity\Reservation $reservation)
-    {
-        $this->reservations->removeElement($reservation);
-    }
-
-    /**
-     * Get reservations
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getReservations()
-    {
-        return $this->reservations;
-    }
-
-    /**
-     * Add annonceadresse
-     *
-     * @param \AppBundle\Entity\Annonceadresse $annonceadresse
-     *
-     * @return Annonce
-     */
-    public function addAnnonceadresse(\AppBundle\Entity\Annonceadresse $annonceadresse)
-    {
-        $this->annonceadresse[] = $annonceadresse;
-
-        return $this;
-    }
-
-    /**
-     * Remove annonceadresse
-     *
-     * @param \AppBundle\Entity\Annonceadresse $annonceadresse
-     */
-    public function removeAnnonceadresse(\AppBundle\Entity\Annonceadresse $annonceadresse)
-    {
-        $this->annonceadresse->removeElement($annonceadresse);
-    }
-
-    /**
-     * Get annonceadresse
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getAnnonceadresse()
-    {
-        return $this->annonceadresse;
     }
 
     /**
@@ -751,5 +657,121 @@ class Annonce
     public function getPays()
     {
         return $this->pays;
+    }
+
+    /**
+     * Set auteur
+     *
+     * @param \AppBundle\Entity\Utilisateur $auteur
+     *
+     * @return Annonce
+     */
+    public function setAuteur(\AppBundle\Entity\Utilisateur $auteur = null)
+    {
+        $this->auteur = $auteur;
+
+        return $this;
+    }
+
+    /**
+     * Get auteur
+     *
+     * @return \AppBundle\Entity\Utilisateur
+     */
+    public function getAuteur()
+    {
+        return $this->auteur;
+    }
+
+    /**
+     * Set lastAuteur
+     *
+     * @param \AppBundle\Entity\Utilisateur $lastAuteur
+     *
+     * @return Annonce
+     */
+    public function setLastAuteur(\AppBundle\Entity\Utilisateur $lastAuteur = null)
+    {
+        $this->last_auteur = $lastAuteur;
+
+        return $this;
+    }
+
+    /**
+     * Get lastAuteur
+     *
+     * @return \AppBundle\Entity\Utilisateur
+     */
+    public function getLastAuteur()
+    {
+        return $this->last_auteur;
+    }
+
+    /**
+     * Add commentaire
+     *
+     * @param \AppBundle\Entity\Commentaire $commentaire
+     *
+     * @return Annonce
+     */
+    public function addCommentaire(\AppBundle\Entity\Commentaire $commentaire)
+    {
+        $this->commentaires[] = $commentaire;
+
+        return $this;
+    }
+
+    /**
+     * Remove commentaire
+     *
+     * @param \AppBundle\Entity\Commentaire $commentaire
+     */
+    public function removeCommentaire(\AppBundle\Entity\Commentaire $commentaire)
+    {
+        $this->commentaires->removeElement($commentaire);
+    }
+
+    /**
+     * Get commentaires
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommentaires()
+    {
+        return $this->commentaires;
+    }
+
+    /**
+     * Add reservation
+     *
+     * @param \AppBundle\Entity\Reservation $reservation
+     *
+     * @return Annonce
+     */
+    public function addReservation(\AppBundle\Entity\Reservation $reservation)
+    {
+        $this->reservations[] = $reservation;
+
+        return $this;
+    }
+
+    /**
+     * Remove reservation
+     *
+     * @param \AppBundle\Entity\Reservation $reservation
+     */
+    public function removeReservation(\AppBundle\Entity\Reservation $reservation)
+    {
+        $this->reservations->removeElement($reservation);
+    }
+
+    /**
+     * Get reservations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReservations()
+    {
+        return $this->reservations;
     }
 }
