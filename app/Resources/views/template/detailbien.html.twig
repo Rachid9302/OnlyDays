@@ -2,42 +2,20 @@
 
 {% block title %}Détail Annonce{% endblock %}
 
-{% block header %}<header class="header-description">{% endblock %}
+{% block header %}
+    {% for listbien in listbiens %}
 
-{% block body %}
+<header class="header-description" style="background-image: url({{ asset(detailbien.firstimage) }}); ">
+
+    {% endfor %}
+    {% endblock %}
+
+    {% block body %}
 
     <div class="container header">
         <div class="row text-header col-sm-8">
-            <div class="note">
-                <?xml version="1.0" encoding="iso-8859-1"?>
-                <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                <svg class="star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 49.94 49.94" style="enable-background:new 0 0 49.94 49.94;" xml:space="preserve" width="512px" height="512px">
-                        <path d="M48.856,22.73c0.983-0.958,1.33-2.364,0.906-3.671c-0.425-1.307-1.532-2.24-2.892-2.438l-12.092-1.757  c-0.515-0.075-0.96-0.398-1.19-0.865L28.182,3.043c-0.607-1.231-1.839-1.996-3.212-1.996c-1.372,0-2.604,0.765-3.211,1.996  L16.352,14c-0.23,0.467-0.676,0.79-1.191,0.865L3.069,16.622c-1.359,0.197-2.467,1.131-2.892,2.438  c-0.424,1.307-0.077,2.713,0.906,3.671l8.749,8.528c0.373,0.364,0.544,0.888,0.456,1.4L8.224,44.701  c-0.183,1.06,0.095,2.091,0.781,2.904c1.066,1.267,2.927,1.653,4.415,0.871l10.814-5.686c0.452-0.237,1.021-0.235,1.472,0  l10.815,5.686c0.526,0.277,1.087,0.417,1.666,0.417c1.057,0,2.059-0.47,2.748-1.288c0.687-0.813,0.964-1.846,0.781-2.904  l-2.065-12.042c-0.088-0.513,0.083-1.036,0.456-1.4L48.856,22.73z" fill="#c8192b"/>
-                    </svg>
-                <?xml version="1.0" encoding="iso-8859-1"?>
-                <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                <svg class="star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 49.94 49.94" style="enable-background:new 0 0 49.94 49.94;" xml:space="preserve" width="512px" height="512px">
-                        <path d="M48.856,22.73c0.983-0.958,1.33-2.364,0.906-3.671c-0.425-1.307-1.532-2.24-2.892-2.438l-12.092-1.757  c-0.515-0.075-0.96-0.398-1.19-0.865L28.182,3.043c-0.607-1.231-1.839-1.996-3.212-1.996c-1.372,0-2.604,0.765-3.211,1.996  L16.352,14c-0.23,0.467-0.676,0.79-1.191,0.865L3.069,16.622c-1.359,0.197-2.467,1.131-2.892,2.438  c-0.424,1.307-0.077,2.713,0.906,3.671l8.749,8.528c0.373,0.364,0.544,0.888,0.456,1.4L8.224,44.701  c-0.183,1.06,0.095,2.091,0.781,2.904c1.066,1.267,2.927,1.653,4.415,0.871l10.814-5.686c0.452-0.237,1.021-0.235,1.472,0  l10.815,5.686c0.526,0.277,1.087,0.417,1.666,0.417c1.057,0,2.059-0.47,2.748-1.288c0.687-0.813,0.964-1.846,0.781-2.904  l-2.065-12.042c-0.088-0.513,0.083-1.036,0.456-1.4L48.856,22.73z" fill="#c8192b"/>
-                    </svg>
-                <?xml version="1.0" encoding="iso-8859-1"?>
-                <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                <svg class="star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 49.94 49.94" style="enable-background:new 0 0 49.94 49.94;" xml:space="preserve" width="512px" height="512px">
-                        <path d="M48.856,22.73c0.983-0.958,1.33-2.364,0.906-3.671c-0.425-1.307-1.532-2.24-2.892-2.438l-12.092-1.757  c-0.515-0.075-0.96-0.398-1.19-0.865L28.182,3.043c-0.607-1.231-1.839-1.996-3.212-1.996c-1.372,0-2.604,0.765-3.211,1.996  L16.352,14c-0.23,0.467-0.676,0.79-1.191,0.865L3.069,16.622c-1.359,0.197-2.467,1.131-2.892,2.438  c-0.424,1.307-0.077,2.713,0.906,3.671l8.749,8.528c0.373,0.364,0.544,0.888,0.456,1.4L8.224,44.701  c-0.183,1.06,0.095,2.091,0.781,2.904c1.066,1.267,2.927,1.653,4.415,0.871l10.814-5.686c0.452-0.237,1.021-0.235,1.472,0  l10.815,5.686c0.526,0.277,1.087,0.417,1.666,0.417c1.057,0,2.059-0.47,2.748-1.288c0.687-0.813,0.964-1.846,0.781-2.904  l-2.065-12.042c-0.088-0.513,0.083-1.036,0.456-1.4L48.856,22.73z" fill="#c8192b"/>
-                    </svg>
-                <?xml version="1.0" encoding="iso-8859-1"?>
-                <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                <svg class="star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 49.94 49.94" style="enable-background:new 0 0 49.94 49.94;" xml:space="preserve" width="512px" height="512px">
-                        <path d="M48.856,22.73c0.983-0.958,1.33-2.364,0.906-3.671c-0.425-1.307-1.532-2.24-2.892-2.438l-12.092-1.757  c-0.515-0.075-0.96-0.398-1.19-0.865L28.182,3.043c-0.607-1.231-1.839-1.996-3.212-1.996c-1.372,0-2.604,0.765-3.211,1.996  L16.352,14c-0.23,0.467-0.676,0.79-1.191,0.865L3.069,16.622c-1.359,0.197-2.467,1.131-2.892,2.438  c-0.424,1.307-0.077,2.713,0.906,3.671l8.749,8.528c0.373,0.364,0.544,0.888,0.456,1.4L8.224,44.701  c-0.183,1.06,0.095,2.091,0.781,2.904c1.066,1.267,2.927,1.653,4.415,0.871l10.814-5.686c0.452-0.237,1.021-0.235,1.472,0  l10.815,5.686c0.526,0.277,1.087,0.417,1.666,0.417c1.057,0,2.059-0.47,2.748-1.288c0.687-0.813,0.964-1.846,0.781-2.904  l-2.065-12.042c-0.088-0.513,0.083-1.036,0.456-1.4L48.856,22.73z" fill="#293133"/>
-                    </svg>
-                <?xml version="1.0" encoding="iso-8859-1"?>
-                <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                <svg class="star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 49.94 49.94" style="enable-background:new 0 0 49.94 49.94;" xml:space="preserve" width="512px" height="512px">
-                        <path d="M48.856,22.73c0.983-0.958,1.33-2.364,0.906-3.671c-0.425-1.307-1.532-2.24-2.892-2.438l-12.092-1.757  c-0.515-0.075-0.96-0.398-1.19-0.865L28.182,3.043c-0.607-1.231-1.839-1.996-3.212-1.996c-1.372,0-2.604,0.765-3.211,1.996  L16.352,14c-0.23,0.467-0.676,0.79-1.191,0.865L3.069,16.622c-1.359,0.197-2.467,1.131-2.892,2.438  c-0.424,1.307-0.077,2.713,0.906,3.671l8.749,8.528c0.373,0.364,0.544,0.888,0.456,1.4L8.224,44.701  c-0.183,1.06,0.095,2.091,0.781,2.904c1.066,1.267,2.927,1.653,4.415,0.871l10.814-5.686c0.452-0.237,1.021-0.235,1.472,0  l10.815,5.686c0.526,0.277,1.087,0.417,1.666,0.417c1.057,0,2.059-0.47,2.748-1.288c0.687-0.813,0.964-1.846,0.781-2.904  l-2.065-12.042c-0.088-0.513,0.083-1.036,0.456-1.4L48.856,22.73z" fill="#293133"/>
-                    </svg>
 
-            </div>
             <h1>{{ detailbien.titre }}</h1>
-            <span id="date">{{ detailbien.dateDepot | date('Y-m-d') }}</span><br/>
             <span id="prix">{{ detailbien.prixnuit }}€ / nuit</span>
         </div>
     </div>
@@ -49,6 +27,7 @@
                 <div id="description">
                     <h3>{{ detailbien.titre }}</h3>
                     <p>{{ detailbien.description }}</p>
+                    <img class="col-xs-12" style="padding : 50px 0 100px 0" src="{{ asset(detailbien.firstimage) }}">
                 </div>
                 <div id="commentaire">
 
@@ -80,8 +59,7 @@
 
 
                             <div class="commentaire-detail row">
-                                <img class="col-xs-3" src="{{ asset('css/img/produit/commentaire/lacazette.jpg') }}">
-                                <div class="col-xs-9">
+                                <div class="col-xs-12">
                                     <h3>{{ commentaire.auteur }}, {{ commentaire.datecreation | date('Y-m-d') }}</h3>
                                     <p>
                                         {{ commentaire.textecommentaire }}
@@ -90,8 +68,7 @@
                             </div>
 
                             {#<div class="commentaire-detail last row">
-                                <img class="col-xs-3" src="{{ asset('css/img/produit/commentaire/mathy.jpg') }}">
-                                <div class="col-xs-9">
+                                <div class="col-xs-12">
                                     <h3>Mimie Mathy, janvier 2017</h3>
                                     <p>
                                         Quam quidem partem accusationis admiratus sum et moleste tuli potissimum esse Atratino datam. Neque enim decebat neque aetas illa postulabat neque, id quod animadvertere poteratis, pudor patiebatur optimi adulescentis in tali illum oratione versari.
@@ -103,16 +80,18 @@
 
                     </div>
 
-                    <form action="{{ path('detailbien',{'id' : detailbien.id}) }}" method="POST">
-                        <div class="form-group">
-                            {{ form_widget(form) }}
-                        </div>
-                        <input type="submit" value="Ajouter mon commentaire">
-                    </form>
+                    {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+                        <form action="{{ path('detailbien',{'id' : detailbien.id}) }}" method="POST">
+                            <div class="form-group">
+                                {{ form_widget(form) }}
+                            </div>
+                            <input type="submit" value="Ajouter mon commentaire">
+                        </form>
+                    {%endif%}
 
                 </div>
             </div>
-            <div class="right-part col-sm-5 col-sm-offset-1">
+            <div class="right-part col-sm-5 col-sm-offset-1" >
                 <div class="a-propos">
                     <h2>À propos de ce logement</h2>
                     <p><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Une surface de {{ detailbien.superficie }}m² loi Carrez</p>
@@ -130,9 +109,8 @@
                     <input type="date" placeholder="min" min="0"/>
                     <input type="date" placeholder="max" min="0"/>
 
-                    <p id="nuit">68 x 2 nuits = 136 €</p>
+                    <p id="nuit">{{ detailbien.prixnuit }} € / nuit</p>
                     <p>Frais de service = 10 €</p>
-                    <p id="total">Total = 146 €</p>
 
                     <button type="submit">Réserver</button>
 
@@ -142,7 +120,7 @@
         </div>
     </div>
 
-    <section id="liste-bien">
+    <section id="liste-bien" style="margin-top: 50px;">
         <div class="container">
             <div class="row">
                 <h2 class="col-sm-7 col-xs-12">Etiam aliquam faucibus velit, a elementum massa donec.</h2>

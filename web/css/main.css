@@ -383,6 +383,10 @@ button, input[type=button], input[type=submit]{
     margin-left: 210px;
 }
 
+#description img{
+    padding-left: 15px;
+}
+
 button:hover, input[type=submit]:hover{
     color: white;
     transition: background-color 300ms ease;
@@ -741,10 +745,6 @@ footer button:hover{
     margin-bottom: 30px;
 }
 
-#description{
-    margin-bottom: 100px;
-}
-
 #commentaire h2{
     font-size: 1.8em;
     color: #c8192b;
@@ -788,6 +788,7 @@ footer button:hover{
     background-image: url(img/produit/05.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    bottom:0;
 }
 
 i{
@@ -1076,3 +1077,4 @@ header>a>svg{
 #supprimer:hover{
     border:none;
 }
+

@@ -154,7 +154,16 @@
         </section>
         <section id="mentions">
             <p>© Tous droits réservés Only Days.</p>
-            <a href="{{ path('mentions-legales') }}">Mentions légales</a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <a href="{{ path('mentions-legales') }}">Mentions légales</a>
+                        <a class="lien-secondaire" style="padding-left: 50px;" href="{{ path('contact') }}">Nous contacter</a>
+                        <a class="lien-secondaire" style="padding-left: 50px;" href="{{ path('faq') }}">FAQ</a>
+                    </div>
+                </div>
+            </div>
+
         </section>
     </footer>
 

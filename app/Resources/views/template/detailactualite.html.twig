@@ -2,7 +2,7 @@
 
 {% block title %}Détail Actualité{% endblock %}
 
-{% block header %}<header class="header-actualites">{% endblock %}
+{% block header %}<header class="header-actualites" style="background-image: url({{ asset(detailactualite.firstimage) }}); ">{% endblock %}
 
 {% block body %}
     <div class="container header">
@@ -70,12 +70,15 @@
                         {% endfor %}
                     </div>
 
-                    <form action="{{ path('detailactualite',{'id' : detailactualite.id}) }}" method="POST">
+    {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+
+    <form action="{{ path('detailactualite',{'id' : detailactualite.id}) }}" method="POST">
                         <div class="form-group">
                             {{ form_widget(form) }}
                         </div>
                         <input type="submit" value="Ajouter mon commentaire">
                     </form>
+{% endif %}
 
                 </div>
             </div>
