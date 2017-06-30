@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Annonce;
+use AppBundle\Entity\Utilisateur;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -41,12 +42,14 @@ class AnnonceController extends Controller
      */
     public function newAction(Request $request)
     {
+        $utilisateur = $this->getUser();
         $annonce = new Annonce();
         $form = $this->createForm('AppBundle\Form\AnnonceType', $annonce);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $annonce->setAuteur($utilisateur);
             $em->persist($annonce);
             $em->flush();
 

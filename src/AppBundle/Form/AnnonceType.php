@@ -32,8 +32,12 @@ class AnnonceType extends AbstractType
             ))
             ->add('dateDepot', HiddenType::class )
             ->add('firstimage')
-            ->add('typepropriete', TextType::class, array(
-                'label' => "Type de propriété"
+            ->add('typepropriete', ChoiceType::class, array(
+                'choices' => array(
+                    'Maison' => '0',
+                    'Appartement' => '1',
+
+                )
             ))
             ->add('auteur', HiddenType::class )
             ->add('last_auteur', HiddenType::class)
@@ -49,7 +53,11 @@ class AnnonceType extends AbstractType
                     '8 arrondissement' => '8',
                     '9 arrondissement' => '1',
                 )
-            ));
+            ))
+            ->add('adresse')
+            ->add('codepostal')
+            ->add('ville')
+            ->add('pays');
     }
     
     /**

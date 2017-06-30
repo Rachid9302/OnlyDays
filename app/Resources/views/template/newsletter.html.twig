@@ -1,6 +1,7 @@
 <form action="{{ path('newsletter') }}" method="POST">
     {{ form_widget(form.email, {'attr': {'placeholder': 'S\'inscrire'} }) }}
-    <input type="submit" value="S'inscrire" />
+
     {{ form_widget(form) }}
+    <input type="submit" value="S'inscrire" />
 
 </form>

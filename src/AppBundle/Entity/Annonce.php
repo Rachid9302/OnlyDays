@@ -28,7 +28,7 @@ class Annonce
     /**
      * @var int
      *
-     * @ORM\Column(name="reference", type="integer")
+     * @ORM\Column(name="reference", type="integer", nullable=true)
      *
      */
     private $reference;

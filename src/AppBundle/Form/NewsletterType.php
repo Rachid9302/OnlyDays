@@ -34,7 +34,7 @@ class NewsletterType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'c';
+        return 'appbundle_newsletter';
     }
 
 
